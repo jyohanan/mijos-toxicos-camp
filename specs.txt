@@ -1,0 +1,115 @@
+We want a landing page + registration/payment site for our Mijos Tóxicos Dual Sports Camp.
+
+Main goal:
+A clean website where parents can learn about the camp, register their kid(s), sign waivers, and pay online.
+
+Branding / style:
+- Co-branded feel between Mijo and Chicos Tóxicos
+- Youth sports, high-energy, culture-driven
+- Clean, modern, premium, but still fun and athletic
+- Mobile-first since most people will probably sign up from their phones
+
+Basic site structure:
+1. Hero section
+   - Camp name
+   - Date
+   - Location
+   - Strong image/video banner
+   - Main CTA button: “Register Now”
+
+2. About section
+   - What the camp is
+   - Half football / half soccer
+   - One-day dual sport camp
+   - Built around competition, athletic development, culture, and community
+
+3. Camp details section
+   - Ages: 13–18
+   - Expected attendance: around 1,000 kids total
+   - Roughly 500 football / 500 soccer
+   - Schedule / check-in time / event duration
+   - What each kid should bring
+   - What is included with registration
+
+4. Scholarship section
+   - We will be giving out 2 scholarships per sport
+   - Brief explanation of what the scholarships are for
+   - Optional checkbox or application question during registration if they want to be considered
+
+5. Registration form
+   We need to collect:
+   - Athlete first name
+   - Athlete last name
+   - Athlete age
+   - Athlete date of birth
+   - Gender
+   - Sport selection: football or soccer
+   - Position (optional depending on sport)
+   - School name
+   - Grade
+   - Jersey/Shirt size
+   - Parent/guardian full name
+   - Parent/guardian email
+   - Parent/guardian phone number
+   - Emergency contact name
+   - Emergency contact phone number
+   - Medical conditions / allergies / injuries
+   - Insurance provider (optional if needed)
+   - Social media handle (optional)
+   - How did you hear about us?
+
+6. Waiver / consent section
+   - Parent/guardian liability waiver
+   - Medical treatment consent
+   - Photo/video release
+   - Terms and refund policy acknowledgment
+   - Digital signature / checkbox confirmation required before payment
+
+7. Payment
+   - Online payment required to complete registration
+   - Need ability to set registration price
+   - Need promo/discount code option if possible
+   - Need confirmation page after payment
+   - Automatic confirmation email + receipt sent to family
+   - Ideally admin gets notification for every completed registration
+
+8. Admin side / backend needs
+   - Export all registrations into a spreadsheet/CSV
+   - See paid vs unpaid registrations
+   - Ability to cap registration by total spots and by sport if needed
+   - Ability to turn registration on/off
+   - Ability to manually add scholarship/free entries
+   - Ability to edit text/date/price later without rebuilding page
+
+Important functionality:
+- Mobile-friendly
+- Fast load speed
+- Easy registration flow
+- Parents should be able to register more than one child if possible
+- Clear error handling if something is missing on form
+- Spam protection on forms
+
+Domain / hosting:
+I’m open to your recommendation, but my first thought is either:
+- a page under mijoculture.com
+or
+- a separate dedicated URL for the camp if you think that’s cleaner for marketing/conversions
+
+Let me know what you think is best there.
+
+Nice-to-have features if easy:
+- Countdown timer to camp date
+- FAQ section
+- Sponsor section
+- Embedded video
+- SMS or email reminder integration
+- Waitlist if spots fill up
+
+What I need from you next:
+Can you send me back:
+1. your recommended tech stack / easiest build path
+2. what payment processor you think we should use
+3. whether you think this should live under mijoculture.com or on its own domain
+4. what you need from me next (copy, logos, waiver language, photos, etc.)
+
+I want to keep V1 simple, clean, and conversion-focused, then improve from there.

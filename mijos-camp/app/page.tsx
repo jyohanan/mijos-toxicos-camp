@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const campDetails = [
@@ -7,111 +8,202 @@ const campDetails = [
   { label: "Sports", value: "Football + Soccer" },
 ];
 
-const features = [
-  {
-    title: "Elite dual-sport experience",
-    description:
-      "A one-day camp built around competition, athletic development, culture, and community.",
-  },
-  {
-    title: "Football & Soccer",
-    description:
-      "~500 football athletes and ~500 soccer athletes. Two sports, one unforgettable day.",
-  },
-  {
-    title: "Scholarships available",
-    description:
-      "2 scholarships per sport will be awarded. Indicate your interest during registration.",
-  },
-];
-
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#details", label: "Details" },
-  { href: "#highlights", label: "Highlights" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#register", label: "Register" },
+];
+
+const galleryImages = [
+  { src: "/group_picture_2025.jpeg", alt: "Group photo 2025" },
+  { src: "/kids_huddle_2025.jpeg", alt: "Kids huddle 2025" },
+  { src: "/kids_lined_up_2025.jpeg", alt: "Kids lined up 2025" },
+  { src: "/hands_in_2025.jpeg", alt: "Hands in 2025" },
+  { src: "/will_speaking_2025.jpeg", alt: "Will speaking 2025" },
 ];
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#050505] text-white">
+    <main className="min-h-screen overflow-x-hidden bg-[#080808] text-white">
+
+      {/* Top nav bar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#080808]/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
+          <div className="flex items-center gap-3">
+            <Image src="/mijo_logo.png" alt="Mijo Logo" width={32} height={32} className="rounded-lg object-contain" />
+            <span className="text-sm font-bold tracking-tight text-white">Mijos Tóxicos Camp</span>
+          </div>
+          <div className="hidden items-center gap-6 sm:flex">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="text-sm text-white/60 transition hover:text-white">
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <Link
+            href="/register"
+            className="rounded-xl bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-white/90"
+          >
+            Register Now
+          </Link>
+        </div>
+      </nav>
+
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.12),transparent_28%),linear-gradient(135deg,#090909_0%,#111111_45%,#050505_100%)]">
-        <div className="absolute inset-0 opacity-100">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-          <div className="absolute left-[-8%] top-[-5%] h-72 w-72 rounded-full bg-white/10 blur-3xl sm:h-96 sm:w-96" />
-          <div className="absolute right-[-12%] top-[18%] h-72 w-72 rounded-full bg-white/5 blur-3xl sm:h-[28rem] sm:w-[28rem]" />
-          <div className="absolute bottom-[-10%] left-[18%] h-48 w-48 rounded-full bg-white/10 blur-3xl sm:h-72 sm:w-72" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(circle_at_center,black,transparent_78%)]" />
+      <section className="relative flex min-h-screen items-end overflow-hidden pt-16">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/kid_stance_2025.jpeg"
+            alt="Camp hero"
+            fill
+            className="object-cover object-[center_20%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-[#080808]/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-transparent to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:px-10 md:py-24 lg:py-28">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div>
-              <p className="mb-5 inline-flex w-fit rounded-full border border-white/15 bg-white/[0.06] px-3 py-2 text-[11px] font-medium uppercase tracking-[0.24em] text-white/80 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] sm:px-4 sm:text-xs">
-                Mijo x Chicos Tóxicos
-              </p>
+        <div className="relative mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 md:px-10 md:pb-28">
+          {/* Co-brand logos */}
+          <div className="mb-6 flex items-center gap-3">
+            <Image src="/mijo_logo.png" alt="Mijo" width={44} height={44} className="rounded-xl object-contain" />
+            <span className="text-white/40">×</span>
+            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={44} height={44} className="rounded-xl object-contain" />
+          </div>
 
-              <h1 className="max-w-4xl text-4xl font-black leading-[0.95] tracking-[-0.04em] sm:text-5xl md:text-6xl lg:text-7xl">
-                Mijos Tóxicos
-                <span className="mt-2 block bg-gradient-to-r from-white to-white/65 bg-clip-text text-transparent">
-                  Dual Sports Camp
-                </span>
-              </h1>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">
+            June 13, 2026 · Ages 13–18
+          </p>
 
-              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/70 sm:text-base md:text-lg">
-                A premium, culture-driven youth sports experience built around
-                football, soccer, competition, and community.
-              </p>
+          <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
+            Mijos
+            <br />
+            Tóxicos
+            <br />
+            <span className="text-white/40">Dual Sports</span>
+            <br />
+            Camp
+          </h1>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/register"
-                  className="rounded-2xl bg-white px-6 py-3.5 text-center text-sm font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]"
-                >
-                  Register Now
-                </Link>
-                <a
-                  href="#about"
-                  className="rounded-2xl border border-white/15 bg-white/[0.03] px-6 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-white/[0.06]"
-                >
-                  Learn More
-                </a>
+          <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
+            Football. Soccer. Culture. Community. One day. 1,000 athletes.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/register"
+              className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(255,255,255,0.15)] transition hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]"
+            >
+              Register Now — $100
+            </Link>
+            <a
+              href="#about"
+              className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/[0.08]"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <section className="border-y border-white/[0.06] bg-[#0d0d0d]" id="details">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10">
+          <div className="grid grid-cols-2 divide-x divide-white/[0.06] lg:grid-cols-4">
+            {campDetails.map((item) => (
+              <div key={item.label} className="px-6 py-8 sm:px-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">{item.label}</p>
+                <p className="mt-2 text-lg font-bold tracking-tight text-white sm:text-xl">{item.value}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-28" id="about">
+        <div className="max-w-2xl">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Built for the
+              <br />
+              next generation
+            </h2>
+            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+              The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
+              and soccer together in a high-energy environment. Built around competition, athletic
+              development, culture, and community.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                "~500 football athletes + ~500 soccer athletes",
+                "Ages 13–18, all skill levels welcome",
+                "2 scholarships awarded per sport",
+                "Online registration, waiver & payment",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-white/70">
+                  <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20" id="gallery">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">From the field</p>
+          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">2025 Highlights</h2>
+        </div>
+        <div className="mx-auto mt-8 max-w-7xl">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+            {galleryImages.map((img, i) => (
+              <div
+                key={img.src}
+                className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-[16/9] md:col-span-1 md:aspect-[4/5]" : "aspect-square"}`}
+              >
+                <Image src={img.src} alt={img.alt} fill className="object-cover transition duration-500 hover:scale-105" />
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Register CTA */}
+      <section className="px-4 py-16 sm:px-6 md:px-10 md:py-24" id="register">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[#111]">
+            {/* Background image */}
+            <div className="absolute inset-0">
+              <Image src="/kids_lined_up_2025.jpeg" alt="Athletes" fill className="object-cover object-center opacity-20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#111] via-[#111]/90 to-[#111]/70" />
             </div>
 
-            <div className="mx-auto w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.06] p-3 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur-xl sm:p-4 lg:max-w-none">
-              <div className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))] p-4 sm:p-5">
-                <div className="aspect-[4/5] min-h-[320px] rounded-[1.4rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.14),transparent_30%),linear-gradient(180deg,rgba(17,17,17,0.92),rgba(7,7,7,0.98))] p-4 sm:p-6">
-                  <div className="flex h-full flex-col justify-between rounded-[1.15rem] border border-white/10 bg-black/20 p-5 sm:p-6">
-                    <div>
-                      <div className="mb-5 flex items-center justify-between">
-                        <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-white/60 sm:text-[11px]">
-                          Featured Event
-                        </span>
-                        <span className="text-[10px] uppercase tracking-[0.25em] text-white/40 sm:text-[11px]">
-                          June 13, 2026
-                        </span>
-                      </div>
-                      <h2 className="max-w-xs text-2xl font-bold leading-tight text-white sm:text-3xl">
-                        Athletes. Culture. Community.
-                      </h2>
-                      <p className="mt-4 max-w-sm text-sm leading-6 text-white/60">
-                        One day. Two sports. 1,000 athletes. This is the Mijos
-                        Tóxicos Dual Sports Camp.
-                      </p>
-                    </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3.5">
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">Format</p>
-                        <p className="mt-2 text-sm font-semibold text-white/90">Dual Sport</p>
-                      </div>
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-3.5">
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-white/45">Athletes</p>
-                        <p className="mt-2 text-sm font-semibold text-white/90">~1,000 Total</p>
-                      </div>
-                    </div>
-                  </div>
+            <div className="relative px-8 py-16 sm:px-12 md:py-20 lg:px-16">
+              <div className="max-w-xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Ready to compete?</p>
+                <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+                  Secure your
+                  <br />
+                  spot today
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-white/60 sm:text-base">
+                  Registration is $100. Complete the form, sign the waiver, and pay online in minutes. Spots are limited.
+                </p>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <Link
+                    href="/register"
+                    className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]"
+                  >
+                    Register Now
+                  </Link>
+                  <p className="text-xs text-white/40">~1,000 spots available · Football & Soccer</p>
                 </div>
               </div>
             </div>
@@ -119,94 +211,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Camp Details */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:px-10 md:py-16" id="details">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {campDetails.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.28)] backdrop-blur sm:p-6"
-            >
-              <p className="text-[11px] uppercase tracking-[0.22em] text-white/45">{item.label}</p>
-              <p className="mt-3 text-xl font-semibold tracking-tight text-white/95">{item.value}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* About */}
-      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:px-10 md:py-10" id="about">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-white/45">About the camp</p>
-            <h2 className="mt-3 text-2xl font-bold sm:text-3xl md:text-4xl">
-              Built for the next generation
-            </h2>
-            <p className="mt-5 max-w-3xl text-sm leading-7 text-white/75 sm:text-base">
-              The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
-              and soccer together in a high-energy environment. The goal is to create a memorable
-              event that develops athletes while celebrating culture, discipline, and community.
-            </p>
-          </div>
-
-          <div className="rounded-[1.9rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur sm:p-8">
-            <h3 className="text-xl font-semibold">What families can expect</h3>
-            <ul className="mt-5 space-y-4 text-white/75">
-              <li>✦ Ages 13–18, football and soccer</li>
-              <li>✦ Clear event details and mobile-friendly registration</li>
-              <li>✦ Waiver and parent information collection</li>
-              <li>✦ Online payment and instant confirmation</li>
-              <li>✦ Scholarship opportunities available</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Highlights */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:px-10 md:py-16" id="highlights">
-        <div className="mb-8">
-          <p className="text-sm uppercase tracking-[0.2em] text-white/45">Highlights</p>
-          <h2 className="mt-3 text-2xl font-bold sm:text-3xl md:text-4xl">What makes this different</h2>
-        </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-[0_18px_70px_rgba(0,0,0,0.28)] backdrop-blur sm:p-8"
-            >
-              <div className="mb-5 h-10 w-10 rounded-2xl border border-white/10 bg-white/[0.05]" />
-              <h3 className="text-xl font-semibold tracking-tight">{feature.title}</h3>
-              <p className="mt-4 text-sm leading-6 text-white/70">{feature.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Register CTA */}
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:px-10 md:py-16" id="register">
-        <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-8 text-center shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur sm:p-12">
-          <p className="text-sm uppercase tracking-[0.2em] text-white/45">Ready to join?</p>
-          <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Secure your spot today</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/70 sm:text-base">
-            Registration is open. Complete the form, sign the waiver, and pay online in minutes.
-          </p>
-          <Link
-            href="/register"
-            className="mt-8 inline-block rounded-2xl bg-white px-8 py-4 text-sm font-semibold text-black shadow-[0_20px_60px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]"
-          >
-            Register Now
-          </Link>
-        </div>
-      </section>
-
-      {/* Mobile nav */}
-      <div className="sticky bottom-0 z-20 border-t border-white/10 bg-[#050505]/95 px-4 py-3 backdrop-blur sm:hidden">
-        <div className="flex items-center justify-between gap-3">
+      {/* Mobile bottom nav */}
+      <div className="sticky bottom-0 z-20 border-t border-white/[0.06] bg-[#080808]/95 px-4 py-3 backdrop-blur-xl sm:hidden">
+        <div className="flex items-center justify-between gap-2">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 text-center text-xs font-medium text-white/80 transition hover:bg-white/[0.06]"
+              className="flex-1 rounded-xl border border-white/[0.08] bg-white/[0.03] px-2 py-2 text-center text-[11px] font-medium text-white/70 transition hover:bg-white/[0.06]"
             >
               {link.label}
             </a>
@@ -215,17 +227,19 @@ export default function HomePage() {
       </div>
 
       {/* Footer */}
-      <section className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-white/50 md:flex-row md:items-center md:justify-between md:px-10">
-          <p className="text-center md:text-left">© 2026 Mijos Tóxicos Dual Sports Camp</p>
+      <footer className="border-t border-white/[0.06]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-white/35 md:flex-row md:items-center md:justify-between md:px-10">
+          <div className="flex items-center gap-3">
+            <Image src="/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain opacity-60" />
+            <p>© 2026 Mijos Tóxicos Dual Sports Camp</p>
+          </div>
           <div className="hidden gap-6 sm:flex">
-            <a href="#about" className="transition hover:text-white">About</a>
-            <a href="#details" className="transition hover:text-white">Camp Details</a>
-            <a href="#highlights" className="transition hover:text-white">Highlights</a>
-            <a href="#register" className="transition hover:text-white">Register</a>
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="transition hover:text-white">{link.label}</a>
+            ))}
           </div>
         </div>
-      </section>
+      </footer>
     </main>
   );
 }

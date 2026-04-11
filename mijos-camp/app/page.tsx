@@ -109,30 +109,48 @@ export default async function HomePage() {
       </section>
 
       {/* About */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-28" id="about">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
-          <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
-            Built for the<br />next generation
-          </h2>
-          <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
-            The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
-            and soccer together in a high-energy environment. Built around competition, athletic
-            development, culture, and community.
-          </p>
-          <ul className="mt-8 space-y-3">
-            {[
-              "~500 football athletes + ~500 soccer athletes",
-              "Ages 13–18, all skill levels welcome",
-              "1 scholarship per sport (2 total)",
-              "Online registration, waiver & payment",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm text-white/70">
-                <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/50" />
-                {item}
-              </li>
-            ))}
-          </ul>
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-24" id="about">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Built for the<br />next generation
+            </h2>
+            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+              The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
+              and soccer together in a high-energy environment. Built around competition, athletic
+              development, culture, and community.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+              Founded by NFL offensive lineman Will Hernandez of the Arizona Cardinals through the
+              Mijo Things Foundation, and co-hosted with Chicos Tóxicos — this camp gives young
+              athletes something most camps can&apos;t: direct access to professional athletes and
+              influencers who&apos;ve been where they want to go.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+              From fundamentals to advanced skills, every session is designed to help athletes
+              develop the tools they need to compete at the next level — whether that&apos;s high school
+              varsity, college, or beyond.
+            </p>
+          </div>
+          <div className="space-y-6">
+            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+              <p className="text-sm font-semibold text-white">🏈 Pro-led training</p>
+              <p className="mt-2 text-sm leading-7 text-white/50">Learn directly from NFL athletes and experienced coaches — not just volunteers. This is real instruction from people who play at the highest level.</p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+              <p className="text-sm font-semibold text-white">⚽ Dual sport format</p>
+              <p className="mt-2 text-sm leading-7 text-white/50">Football and soccer under one roof. ~500 athletes per sport, all competing, training, and building together in a single day.</p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+              <p className="text-sm font-semibold text-white">🎓 Scholarships available</p>
+              <p className="mt-2 text-sm leading-7 text-white/50">1 full scholarship per sport. We believe every athlete deserves a shot regardless of financial situation.</p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+              <p className="text-sm font-semibold text-white">🤝 Culture & community</p>
+              <p className="mt-2 text-sm leading-7 text-white/50">More than just drills. This camp is about building confidence, discipline, and connection — on the field and beyond.</p>
+            </div>
+          </div>
         </div>
       </section>
 

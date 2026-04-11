@@ -404,6 +404,62 @@ export default function AdminPage() {
             </div>
           </div>
         </div>
+
+        {/* Site Content */}
+        <div className="mt-6 rounded-xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+          <h2 className="text-lg font-bold">Site Content</h2>
+          <p className="mt-1 text-sm text-white/40">Edit text that appears on the public site. Changes are live immediately.</p>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Camp Date</label>
+              <input
+                type="text"
+                value={settings.camp_date || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, camp_date: e.target.value }))}
+                onBlur={(e) => updateSetting("camp_date", e.target.value)}
+                placeholder="June 13, 2026"
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Camp Location</label>
+              <input
+                type="text"
+                value={settings.camp_location || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, camp_location: e.target.value }))}
+                onBlur={(e) => updateSetting("camp_location", e.target.value)}
+                placeholder="TBD"
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Registration Price ($)</label>
+              <input
+                type="text"
+                value={settings.registration_price || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, registration_price: e.target.value }))}
+                onBlur={(e) => updateSetting("registration_price", e.target.value)}
+                placeholder="100"
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Camp Time</label>
+              <input
+                type="text"
+                value={settings.camp_time || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, camp_time: e.target.value }))}
+                onBlur={(e) => updateSetting("camp_time", e.target.value)}
+                placeholder="7:30 AM – 5:00 PM"
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

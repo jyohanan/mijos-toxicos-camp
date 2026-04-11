@@ -69,3 +69,11 @@ insert into settings (key, value) values
   ('max_football', '500'),
   ('max_soccer', '500'),
   ('registration_open', 'true');
+
+-- Additional content settings (run this if settings table already exists)
+insert into settings (key, value) values
+  ('camp_date', 'June 13, 2026'),
+  ('camp_location', 'TBD'),
+  ('camp_time', '7:30 AM – 5:00 PM'),
+  ('registration_price', '100')
+on conflict (key) do nothing;

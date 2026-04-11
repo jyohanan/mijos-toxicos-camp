@@ -3,13 +3,7 @@ import Link from "next/link";
 
 import CountdownTimer from "./components/CountdownTimer";
 import SponsorMarquee from "./components/SponsorMarquee";
-
-const campDetails = [
-  { label: "Date", value: "June 13, 2026" },
-  { label: "Location", value: "TBD" },
-  { label: "Ages", value: "13–18" },
-  { label: "Sports", value: "Football + Soccer" },
-];
+import { getSettings } from "@/lib/settings";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -27,7 +21,22 @@ const galleryImages = [
   { src: "/will_speaking_2025.jpeg", alt: "Will speaking 2025" },
 ];
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const settings = await getSettings();
+
+  const campDate = settings.camp_date || "June 13, 2026";
+  const campLocation = settings.camp_location || "TBD";
+  const campPrice = settings.registration_price || "100";
+
+  const campDetails = [
+    { label: "Date", value: campDate },
+    { label: "Location", value: campLocation },
+    { label: "Ages", value: "13–18" },
+    { label: "Sports", value: "Football + Soccer" },
+  ];
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#080808] text-white">
 
@@ -64,7 +73,7 @@ export default function HomePage() {
             <span className="text-white/40">×</span>
             <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={44} height={44} className="rounded-xl object-contain" />
           </div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">June 13, 2026 · Ages 13–18</p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
           <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
             Mijos<br />Tóxicos<br /><span className="text-white/40">Dual Sports</span><br />Camp
           </h1>
@@ -263,7 +272,7 @@ export default function HomePage() {
                   Secure your<br />spot today
                 </h2>
                 <p className="mt-5 text-sm leading-7 text-white/60 sm:text-base">
-                  Registration is $100. Complete the form, sign the waiver, and pay online in minutes. Spots are limited.
+                  Registration is ${campPrice}. Complete the form, sign the waiver, and pay online in minutes. Spots are limited.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]">

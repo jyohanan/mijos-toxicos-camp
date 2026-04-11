@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import CountdownTimer from "./components/CountdownTimer";
+
 const campDetails = [
   { label: "Date", value: "June 13, 2026" },
   { label: "Location", value: "TBD" },
@@ -51,8 +53,8 @@ export default function HomePage() {
       <section className="relative flex min-h-screen items-end overflow-hidden pt-16">
         <div className="absolute inset-0">
           <Image src="/kid_stance_2025.jpeg" alt="Camp hero" fill className="object-cover object-[center_20%]" priority />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-[#080808]/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/70 to-[#080808]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/30 to-transparent" />
         </div>
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 md:px-10 md:pb-28">
           <div className="mb-6 flex items-center gap-3">
@@ -67,11 +69,14 @@ export default function HomePage() {
           <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
             Football. Soccer. Culture. Community. One day. 1,000 athletes.
           </p>
+          <div className="mt-8">
+            <CountdownTimer />
+          </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(255,255,255,0.15)] transition hover:scale-[1.02] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
+            <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(0,0,0,0.3)] transition hover:scale-[1.02] hover:bg-black/90">
               Register Now — $100
             </Link>
-            <a href="#about" className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/[0.04] px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/[0.08]">
+            <a href="#about" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90">
               Learn More
             </a>
           </div>

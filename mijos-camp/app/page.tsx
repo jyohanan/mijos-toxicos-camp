@@ -68,10 +68,10 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/30 to-transparent" />
         </div>
         <div className="relative mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 md:px-10 md:pb-28">
-          <div className="mb-6 flex items-center gap-3">
-            <Image src="/mijo_logo.png" alt="Mijo" width={44} height={44} className="rounded-xl object-contain" />
-            <span className="text-white/40">×</span>
-            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={44} height={44} className="rounded-xl object-contain" />
+          <div className="mb-8 flex items-center gap-6">
+            <Image src="/mijo_logo.png" alt="Mijo" width={100} height={100} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
+            <span className="text-3xl text-white/30">×</span>
+            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={100} height={100} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
           </div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
           <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">

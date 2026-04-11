@@ -276,8 +276,8 @@ export default async function HomePage() {
           </div>
           <div className="space-y-0">
             {[
-              { num: "01", title: "Football Scholarship", desc: "1 spot available. Full registration fee covered for one football athlete." },
-              { num: "02", title: "Soccer Scholarship", desc: "1 spot available. Full registration fee covered for one soccer athlete." },
+              { num: "01", title: "Football Scholarship", desc: "1 spot available for one football athlete." },
+              { num: "02", title: "Soccer Scholarship", desc: "1 spot available for one soccer athlete." },
               { num: "03", title: "How to apply", desc: "Check the scholarship box on the registration form. No separate application needed. Recipients notified before the event." },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">

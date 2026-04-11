@@ -14,6 +14,7 @@ const navLinks = [
   { href: "#about", label: "About" },
   { href: "#details", label: "Details" },
   { href: "#gallery", label: "Gallery" },
+  { href: "/faq", label: "FAQ" },
   { href: "#register", label: "Register" },
 ];
 
@@ -74,7 +75,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(0,0,0,0.3)] transition hover:scale-[1.02] hover:bg-black/90">
-              Register Now — $100
+              Register Now
             </Link>
             <a href="#about" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90">
               Learn More

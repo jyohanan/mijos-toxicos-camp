@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import CountdownTimer from "./components/CountdownTimer";
+import SponsorMarquee from "./components/SponsorMarquee";
 
 const campDetails = [
   { label: "Date", value: "June 13, 2026" },
@@ -226,6 +227,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Sponsors */}
+      <SponsorMarquee />
 
       {/* Register CTA */}
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-24" id="register">

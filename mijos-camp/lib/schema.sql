@@ -77,3 +77,19 @@ insert into settings (key, value) values
   ('camp_time', '7:30 AM – 5:00 PM'),
   ('registration_price', '100')
 on conflict (key) do nothing;
+
+-- Enable Row Level Security
+alter table registrations enable row level security;
+alter table settings enable row level security;
+
+-- Block all public (anon) access to registrations
+-- Only the service_role key (used in API routes) can read/write
+create policy "No public access to registrations"
+  on registrations for all
+  using (false);
+
+-- Block all public (anon) access to settings
+-- Only the service_role key can read/write
+create policy "No public access to settings"
+  on settings for all
+  using (false);

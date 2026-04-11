@@ -133,23 +133,21 @@ export default async function HomePage() {
               varsity, college, or beyond.
             </p>
           </div>
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-              <p className="text-sm font-semibold text-white">🏈 Pro-led training</p>
-              <p className="mt-2 text-sm leading-7 text-white/50">Learn directly from NFL athletes and experienced coaches — not just volunteers. This is real instruction from people who play at the highest level.</p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-              <p className="text-sm font-semibold text-white">⚽ Dual sport format</p>
-              <p className="mt-2 text-sm leading-7 text-white/50">Football and soccer under one roof. ~500 athletes per sport, all competing, training, and building together in a single day.</p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-              <p className="text-sm font-semibold text-white">🎓 Scholarships available</p>
-              <p className="mt-2 text-sm leading-7 text-white/50">1 full scholarship per sport. We believe every athlete deserves a shot regardless of financial situation.</p>
-            </div>
-            <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-              <p className="text-sm font-semibold text-white">🤝 Culture & community</p>
-              <p className="mt-2 text-sm leading-7 text-white/50">More than just drills. This camp is about building confidence, discipline, and connection — on the field and beyond.</p>
-            </div>
+          <div className="space-y-0">
+            {[
+              { num: "01", title: "Pro-led training", desc: "Learn directly from NFL athletes and experienced coaches — not just volunteers. This is real instruction from people who play at the highest level." },
+              { num: "02", title: "Dual sport format", desc: "Football and soccer under one roof. ~500 athletes per sport, all competing, training, and building together in a single day." },
+              { num: "03", title: "Scholarships available", desc: "1 full scholarship per sport. We believe every athlete deserves a shot regardless of financial situation." },
+              { num: "04", title: "Culture & community", desc: "More than just drills. This camp is about building confidence, discipline, and connection — on the field and beyond." },
+            ].map((item) => (
+              <div key={item.num} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
+                <span className="mt-0.5 text-sm font-bold tabular-nums text-white/20">{item.num}</span>
+                <div>
+                  <p className="text-sm font-semibold text-white sm:text-base">{item.title}</p>
+                  <p className="mt-1.5 text-sm leading-7 text-white/45">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -172,84 +170,124 @@ export default async function HomePage() {
       </section>
 
       {/* Camp Details */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-20" id="details">
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-24" id="details">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>
         <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">What to expect</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">Schedule</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/70">
-              <li className="flex justify-between"><span>Check-in</span><span className="text-white/40">7:30 AM</span></li>
-              <li className="flex justify-between"><span>Opening ceremony</span><span className="text-white/40">8:30 AM</span></li>
-              <li className="flex justify-between"><span>Football sessions</span><span className="text-white/40">9:00 AM</span></li>
-              <li className="flex justify-between"><span>Soccer sessions</span><span className="text-white/40">9:00 AM</span></li>
-              <li className="flex justify-between"><span>Lunch break</span><span className="text-white/40">12:00 PM</span></li>
-              <li className="flex justify-between"><span>Competitions</span><span className="text-white/40">1:00 PM</span></li>
-              <li className="flex justify-between"><span>Awards & closing</span><span className="text-white/40">4:00 PM</span></li>
-              <li className="flex justify-between"><span>Event ends</span><span className="text-white/40">5:00 PM</span></li>
-            </ul>
+
+        {/* Schedule — Timeline */}
+        <div className="relative mt-14">
+          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent sm:left-[11px]" />
+
+          <div className="mb-6 flex items-center gap-4">
+            <div className="relative z-10 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-white/30 bg-[#080808] sm:h-[23px] sm:w-[23px]">
+              <div className="h-[5px] w-[5px] rounded-full bg-white sm:h-[7px] sm:w-[7px]" />
+            </div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">Schedule</p>
           </div>
-          <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">What to bring</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/70">
-              {["Athletic cleats (football or soccer)", "Gym shoes / sneakers", "Water bottle", "Sunscreen", "Snacks", "Positive attitude 🔥"].map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-white/30" />{item}
-                </li>
-              ))}
-            </ul>
+
+          <div className="ml-[30px] sm:ml-[46px]">
+            {[
+              { event: "Check-in", time: "7:30 AM", desc: "Arrive, get your camp t-shirt, and meet your group" },
+              { event: "Opening ceremony", time: "8:30 AM", desc: "Welcome address and camp overview" },
+              { event: "Football sessions", time: "9:00 AM", desc: "Position drills, technique work, and competitive reps" },
+              { event: "Soccer sessions", time: "9:00 AM", desc: "Skills training, small-sided games, and tactical sessions" },
+              { event: "Lunch break", time: "12:00 PM", desc: "Lunch provided for all registered athletes" },
+              { event: "Competitions", time: "1:00 PM", desc: "Head-to-head matchups and showcase games" },
+              { event: "Awards & closing", time: "4:00 PM", desc: "MVP awards, scholarship announcements, and group photo" },
+              { event: "Event ends", time: "5:00 PM", desc: "Pickup and departure" },
+            ].map((item, i) => (
+              <div key={item.event + i} className="flex items-start gap-5 border-b border-white/[0.04] py-5 last:border-0">
+                <p className="w-[72px] shrink-0 text-sm font-semibold tabular-nums text-white/80 sm:w-[88px] sm:text-base">{item.time}</p>
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold text-white sm:text-base">{item.event}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/40 sm:text-sm">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">Included with registration</p>
-            <ul className="mt-4 space-y-2 text-sm text-white/70">
-              {["Camp t-shirt", "Lunch", "Coaching & instruction", "Competition participation", "Scholarship consideration", "Event access all day"].map((item) => (
-                <li key={item} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-white/30" />{item}
-                </li>
-              ))}
-            </ul>
+        </div>
+
+        {/* What to Bring — Stacked rows */}
+        <div className="mt-16 border-t border-white/[0.06] pt-12">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">What to bring</p>
+          <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2">
+            {[
+              { item: "Athletic cleats", note: "Football or soccer specific" },
+              { item: "Gym shoes / sneakers", note: "For off-field activities" },
+              { item: "Water bottle", note: "Stay hydrated all day" },
+              { item: "Sunscreen", note: "Outdoor event — protect your skin" },
+              { item: "Snacks", note: "Lunch is provided, but bring extras" },
+              { item: "Positive attitude", note: "The most important thing you can bring 🔥" },
+            ].map((entry) => (
+              <div key={entry.item} className="flex items-start gap-4 border-b border-white/[0.04] py-4">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
+                <div>
+                  <p className="text-sm font-medium text-white/80">{entry.item}</p>
+                  <p className="text-xs text-white/35">{entry.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Included — Stacked rows */}
+        <div className="mt-12 border-t border-white/[0.06] pt-12">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">Included with registration</p>
+          <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { item: "Camp t-shirt", note: "Custom event tee in your size" },
+              { item: "Lunch", note: "Full meal provided on-site" },
+              { item: "Coaching & instruction", note: "From experienced coaches and athletes" },
+              { item: "Competition participation", note: "Showcase games and head-to-head matchups" },
+              { item: "Scholarship consideration", note: "Opt in during registration" },
+              { item: "All-day event access", note: "Full camp experience from check-in to close" },
+            ].map((entry) => (
+              <div key={entry.item} className="flex items-start gap-4 border-b border-white/[0.04] py-4">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
+                <div>
+                  <p className="text-sm font-medium text-white/80">{entry.item}</p>
+                  <p className="text-xs text-white/35">{entry.note}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Scholarship */}
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-20">
-        <div className="overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
-          <div className="grid lg:grid-cols-2">
-            <div className="p-8 sm:p-10 lg:p-12">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">Scholarships</p>
-              <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl">
-                1 scholarship<br />per sport
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-white/60">
-                We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding 1 full scholarship per sport — 2 total — covering the registration fee completely.
-              </p>
-              <p className="mt-4 text-sm leading-7 text-white/60">
-                To be considered, simply check the scholarship box during registration. Recipients will be selected and notified before the event.
-              </p>
-              <div className="mt-8">
-                <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-bold text-black transition hover:scale-[1.02]">
-                  Apply During Registration
-                </Link>
-              </div>
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">Scholarships</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              1 scholarship<br />per sport
+            </h2>
+            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+              We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding 1 full scholarship per sport — 2 total — covering the registration fee completely.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+              To be considered, simply check the scholarship box during registration. Recipients will be selected and notified before the event.
+            </p>
+            <div className="mt-8">
+              <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-bold text-black transition hover:scale-[1.02]">
+                Apply During Registration
+              </Link>
             </div>
-            <div className="border-t border-white/[0.06] p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-12">
-              <div className="space-y-6">
-                {[
-                  { icon: "🏈", title: "Football Scholarship", desc: "1 spot available · Full registration covered" },
-                  { icon: "⚽", title: "Soccer Scholarship", desc: "1 spot available · Full registration covered" },
-                  { icon: "✓", title: "How to apply", desc: "Check the scholarship box on the registration form. No separate application needed." },
-                ].map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-lg">{item.icon}</div>
-                    <div>
-                      <p className="font-semibold text-white">{item.title}</p>
-                      <p className="mt-1 text-sm text-white/50">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          </div>
+          <div className="space-y-0">
+            {[
+              { num: "01", title: "Football Scholarship", desc: "1 spot available. Full registration fee covered for one football athlete." },
+              { num: "02", title: "Soccer Scholarship", desc: "1 spot available. Full registration fee covered for one soccer athlete." },
+              { num: "03", title: "How to apply", desc: "Check the scholarship box on the registration form. No separate application needed. Recipients notified before the event." },
+            ].map((item) => (
+              <div key={item.title} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
+                <span className="mt-0.5 text-sm font-bold tabular-nums text-white/20">{item.num}</span>
+                <div>
+                  <p className="text-sm font-semibold text-white sm:text-base">{item.title}</p>
+                  <p className="mt-1.5 text-sm leading-7 text-white/45">{item.desc}</p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

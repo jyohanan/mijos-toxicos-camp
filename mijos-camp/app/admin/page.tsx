@@ -36,6 +36,8 @@ export default function AdminPage() {
   const [sending, setSending] = useState(false);
   const [sportFilter, setSportFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
+  const [settings, setSettings] = useState<Record<string, string>>({});
+  const [savingKey, setSavingKey] = useState("");
 
   const fetchRegistrations = useCallback(async () => {
     setLoading(true);
@@ -59,8 +61,34 @@ export default function AdminPage() {
   }, [email, sportFilter, statusFilter]);
 
   useEffect(() => {
-    if (step === "dashboard") fetchRegistrations();
+    if (step === "dashboard") {
+      fetchRegistrations();
+      fetchSettings();
+    }
   }, [step, sportFilter, statusFilter, fetchRegistrations]);
+
+  async function fetchSettings() {
+    try {
+      const res = await fetch("/api/admin/settings", {
+        headers: { "x-admin-email": email },
+      });
+      const data = await res.json();
+      if (res.ok) setSettings(data.settings || {});
+    } catch { /* ignore */ }
+  }
+
+  async function updateSetting(key: string, value: string) {
+    setSavingKey(key);
+    try {
+      await fetch("/api/admin/settings", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json", "x-admin-email": email },
+        body: JSON.stringify({ key, value }),
+      });
+      setSettings((prev) => ({ ...prev, [key]: value }));
+    } catch { /* ignore */ }
+    setSavingKey("");
+  }
 
   async function handleSendCode(e: React.FormEvent) {
     e.preventDefault();
@@ -316,6 +344,65 @@ export default function AdminPage() {
               )}
             </tbody>
           </table>
+        </div>
+
+        {/* Settings */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#0d0d0d] p-6">
+          <h2 className="text-lg font-bold">Settings</h2>
+          <p className="mt-1 text-sm text-white/40">Manage registration caps and availability.</p>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {/* Registration toggle */}
+            <div className="col-span-full flex items-center justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <div>
+                <p className="text-sm font-semibold text-white">Registration Open</p>
+                <p className="text-xs text-white/40">Toggle registration on or off for the public site.</p>
+              </div>
+              <button
+                onClick={() => updateSetting("registration_open", settings.registration_open === "true" ? "false" : "true")}
+                disabled={savingKey === "registration_open"}
+                className={`relative h-7 w-12 rounded-full transition ${settings.registration_open === "true" ? "bg-green-500" : "bg-white/20"}`}
+              >
+                <span className={`absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-all ${settings.registration_open === "true" ? "left-[22px]" : "left-0.5"}`} />
+              </button>
+            </div>
+
+            {/* Max total */}
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Max Total Registrations</label>
+              <input
+                type="number"
+                value={settings.max_registrations || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, max_registrations: e.target.value }))}
+                onBlur={(e) => updateSetting("max_registrations", e.target.value)}
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+
+            {/* Max football */}
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Max Football Registrations</label>
+              <input
+                type="number"
+                value={settings.max_football || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, max_football: e.target.value }))}
+                onBlur={(e) => updateSetting("max_football", e.target.value)}
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+
+            {/* Max soccer */}
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+              <label className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Max Soccer Registrations</label>
+              <input
+                type="number"
+                value={settings.max_soccer || ""}
+                onChange={(e) => setSettings((prev) => ({ ...prev, max_soccer: e.target.value }))}
+                onBlur={(e) => updateSetting("max_soccer", e.target.value)}
+                className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </main>

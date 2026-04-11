@@ -12,6 +12,41 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
     }
 
+    // Check if registration is open
+    const { data: settings } = await supabaseAdmin
+      .from("settings")
+      .select("key, value")
+      .in("key", ["registration_open", "max_registrations", "max_football", "max_soccer"]);
+
+    const settingsMap = Object.fromEntries((settings || []).map((s) => [s.key, s.value]));
+
+    if (settingsMap.registration_open === "false") {
+      return NextResponse.json({ error: "Registration is currently closed." }, { status: 400 });
+    }
+
+    // Check capacity caps
+    const { count: totalCount } = await supabaseAdmin
+      .from("registrations")
+      .select("*", { count: "exact", head: true })
+      .in("payment_status", ["paid", "pending"]);
+
+    const { count: sportCount } = await supabaseAdmin
+      .from("registrations")
+      .select("*", { count: "exact", head: true })
+      .eq("sport", body.sport)
+      .in("payment_status", ["paid", "pending"]);
+
+    const maxTotal = parseInt(settingsMap.max_registrations || "1000");
+    const maxSport = parseInt(settingsMap[`max_${body.sport}`] || "500");
+
+    if (totalCount !== null && totalCount >= maxTotal) {
+      return NextResponse.json({ error: "Registration is full. All spots have been taken." }, { status: 400 });
+    }
+
+    if (sportCount !== null && sportCount >= maxSport) {
+      return NextResponse.json({ error: `${body.sport === "football" ? "Football" : "Soccer"} registration is full.` }, { status: 400 });
+    }
+
     const price = parseInt(process.env.REGISTRATION_PRICE || "5000");
     const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { RegistrationFormData } from "@/lib/types";
 
 const STEPS = ["Athlete", "Parent & Emergency", "Medical & Other", "Waiver"];
@@ -35,9 +36,48 @@ export default function RegisterPage() {
   const [form, setForm] = useState<RegistrationFormData>(defaultForm);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [closed, setClosed] = useState(false);
+  const [closedReason, setClosedReason] = useState("");
+  const [checking, setChecking] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/registration-status")
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data.open) {
+          setClosed(true);
+          setClosedReason(data.reason);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setChecking(false));
+  }, []);
 
   function set(field: keyof RegistrationFormData, value: string | boolean) {
     setForm((prev) => ({ ...prev, [field]: value }));
+  }
+
+  if (checking) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
+        <p className="text-sm text-white/40">Loading...</p>
+      </main>
+    );
+  }
+
+  if (closed) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
+        <div className="max-w-md px-4 text-center">
+          <Image src="/mijo_logo.png" alt="Mijo" width={48} height={48} className="mx-auto rounded-xl" />
+          <h1 className="mt-6 text-2xl font-black tracking-tight">Registration Closed</h1>
+          <p className="mt-3 text-sm leading-7 text-white/50">{closedReason}</p>
+          <Link href="/" className="mt-8 inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90">
+            Back to Home
+          </Link>
+        </div>
+      </main>
+    );
   }
 
   function next() {

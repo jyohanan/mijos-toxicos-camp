@@ -55,3 +55,17 @@ create table registrations (
 create index on registrations (payment_status);
 create index on registrations (sport);
 create index on registrations (created_at desc);
+
+-- Settings (key-value store for admin-configurable options)
+create table settings (
+  key text primary key,
+  value text not null,
+  updated_at timestamp with time zone default now()
+);
+
+-- Default settings
+insert into settings (key, value) values
+  ('max_registrations', '1000'),
+  ('max_football', '500'),
+  ('max_soccer', '500'),
+  ('registration_open', 'true');

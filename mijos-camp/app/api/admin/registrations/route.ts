@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
+import { isAdminEmail } from "@/lib/admin";
 
 export async function GET(req: NextRequest) {
   const email = req.headers.get("x-admin-email");
-  const adminEmail = process.env.ADMIN_EMAIL;
 
-  if (!email || email !== adminEmail) {
+  if (!isAdminEmail(email)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

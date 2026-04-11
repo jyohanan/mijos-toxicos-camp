@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { resend } from "@/lib/resend";
+import { isAdminEmail } from "@/lib/admin";
 
 // Simple in-memory store for OTP codes (resets on server restart)
 // For production, consider storing in Supabase or Redis
@@ -9,9 +10,8 @@ export { otpStore };
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
-  const adminEmail = process.env.ADMIN_EMAIL;
 
-  if (!email || email !== adminEmail) {
+  if (!email || !isAdminEmail(email)) {
     // Don't reveal whether the email is valid
     return NextResponse.json({ success: true });
   }

@@ -127,6 +127,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Promo Video */}
+      <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/35">See it in action</p>
+          <h2 className="mt-4 text-center text-3xl font-black tracking-tight sm:text-4xl">The Mijo Experience</h2>
+          <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
+            <iframe
+              src="https://www.youtube.com/embed/9pb8xMMZAWw"
+              title="Mijos Tóxicos Camp 2025 Highlights"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="aspect-video w-full"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Camp Details */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-20" id="details">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>

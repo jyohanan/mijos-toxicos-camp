@@ -85,7 +85,7 @@ export default async function HomePage() {
             <h1 className="mt-4 text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
               Mijos<br />Tóxicos<br /><span className="text-white/40">Football × Soccer</span><br />Camp
             </h1>
-            <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
+            <p className="mt-6 max-w-lg text-lg leading-8 text-white/65 sm:text-xl md:text-2xl">
               Football. Soccer. Culture. Community. One day. 1,000 athletes.
             </p>
             <div className="mt-8">
@@ -142,19 +142,19 @@ export default async function HomePage() {
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
               Mijo Foundation<br />× Chicos Tóxicos
             </h2>
-            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
               The Mijo Foundation was built to open doors for the next generation — investing
               in character, opportunity, and growth. Founded by NFL offensive lineman Will Hernandez
               (Arizona Cardinals) alongside Joshua Ortega and Derek Elmendorff, the foundation
               reflects the values that shaped them on and off the field: discipline, resilience,
               and community.
             </p>
-            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
               Through youth camps, educational support, and confidence-building programs, the
               foundation creates real impact — giving young people the tools to grow strong in
               every sense of the word.
             </p>
-            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
               Chicos Tóxicos is a brotherhood built on the grind — a crew of athletes and creators
               who push each other through training, travel, and life. They bring that same energy
               to this camp, showing young athletes what it looks like to compete hard, stay tight,
@@ -172,12 +172,12 @@ export default async function HomePage() {
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               Built for the<br />next generation
             </h2>
-            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
               The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
               and soccer together in a high-energy environment. Built around competition, athletic
               development, culture, and community.
             </p>
-            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
               From fundamentals to advanced skills, every session is designed to help athletes
               develop the tools they need to compete at the next level — whether that&apos;s high school
               varsity, college, or beyond.
@@ -193,8 +193,8 @@ export default async function HomePage() {
               <div key={item.num} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
                 <span className="mt-0.5 text-sm font-bold tabular-nums text-white/20">{item.num}</span>
                 <div>
-                  <p className="text-sm font-semibold text-white sm:text-base">{item.title}</p>
-                  <p className="mt-1.5 text-sm leading-7 text-white/45">{item.desc}</p>
+                  <p className="text-base font-semibold text-white sm:text-lg">{item.title}</p>
+                  <p className="mt-1.5 text-base leading-8 text-white/45">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -249,7 +249,7 @@ export default async function HomePage() {
               <div key={item.event + i} className="flex items-start gap-5 border-b border-white/[0.04] py-5 last:border-0">
                 <p className="w-[72px] shrink-0 text-sm font-semibold tabular-nums text-white/80 sm:w-[88px] sm:text-base">{item.time}</p>
                 <div className="min-w-0">
-                  <p className="text-sm font-semibold text-white sm:text-base">{item.event}</p>
+                  <p className="text-base font-semibold text-white sm:text-lg">{item.event}</p>
                   <p className="mt-1 text-xs leading-relaxed text-white/40 sm:text-sm">{item.desc}</p>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default async function HomePage() {
               <div key={entry.item} className="flex items-start gap-4 border-b border-white/[0.04] py-4">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
                 <div>
-                  <p className="text-sm font-medium text-white/80">{entry.item}</p>
+                  <p className="text-base font-medium text-white/80">{entry.item}</p>
                   <p className="text-xs text-white/35">{entry.note}</p>
                 </div>
               </div>
@@ -295,7 +295,7 @@ export default async function HomePage() {
               <div key={entry.item} className="flex items-start gap-4 border-b border-white/[0.04] py-4">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
                 <div>
-                  <p className="text-sm font-medium text-white/80">{entry.item}</p>
+                  <p className="text-base font-medium text-white/80">{entry.item}</p>
                   <p className="text-xs text-white/35">{entry.note}</p>
                 </div>
               </div>
@@ -312,10 +312,10 @@ export default async function HomePage() {
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               1 scholarship<br />per sport
             </h2>
-            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
               We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding 1 full scholarship per sport — 2 total — covering the registration fee completely.
             </p>
-            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
               To be considered, simply check the scholarship box during registration. Recipients will be selected and notified before the event.
             </p>
             <div className="mt-8">
@@ -333,8 +333,8 @@ export default async function HomePage() {
               <div key={item.title} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
                 <span className="mt-0.5 text-sm font-bold tabular-nums text-white/20">{item.num}</span>
                 <div>
-                  <p className="text-sm font-semibold text-white sm:text-base">{item.title}</p>
-                  <p className="mt-1.5 text-sm leading-7 text-white/45">{item.desc}</p>
+                  <p className="text-base font-semibold text-white sm:text-lg">{item.title}</p>
+                  <p className="mt-1.5 text-base leading-8 text-white/45">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -380,7 +380,7 @@ export default async function HomePage() {
                 <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
                   Secure your<br />spot today
                 </h2>
-                <p className="mt-5 text-sm leading-7 text-white/60 sm:text-base">
+                <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">
                   Registration is ${campPrice}. Complete the form, sign the waiver, and pay online in minutes. Spots are limited.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">

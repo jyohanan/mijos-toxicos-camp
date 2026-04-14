@@ -82,7 +82,7 @@ export default async function HomePage() {
               <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={80} height={80} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
             </div>
             <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
-            <h1 className="mt-4 font-[var(--font-playfair)] text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="mt-4 text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
               Mijos<br />Tóxicos<br /><span className="text-white/40">Football × Soccer</span><br />Camp
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-8 text-white/65 sm:text-xl md:text-2xl">
@@ -123,6 +123,8 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Who's Behind the Camp */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
@@ -139,7 +141,7 @@ export default async function HomePage() {
           />
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Who&apos;s behind the camp</p>
-            <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
               Mijo Foundation<br />× Chicos Tóxicos
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -164,12 +166,14 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* About */}
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 md:px-10 md:py-32" id="about">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
-            <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               Built for the<br />next generation
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -202,11 +206,13 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Promo Video */}
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/35">See it in action</p>
-          <h2 className="mt-4 text-center text-3xl font-[var(--font-playfair)] font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">The Mijo Experience</h2>
+          <h2 className="mt-4 text-center text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">The Mijo Experience</h2>
           <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
             <iframe
               src="https://www.youtube.com/embed/9pb8xMMZAWw"
@@ -219,10 +225,12 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Camp Details */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32" id="details">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>
-        <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">What to expect</h2>
+        <h2 className="mt-4 text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">What to expect</h2>
 
         {/* Schedule — Timeline */}
         <div className="relative mt-14">
@@ -304,12 +312,14 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Scholarship */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">Scholarships</p>
-            <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               1 scholarship<br />per sport
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -342,11 +352,13 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Gallery */}
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20" id="gallery">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">From the field</p>
-          <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">2025 Highlights</h2>
+          <h2 className="mt-4 text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">2025 Highlights</h2>
         </div>
         <div className="mx-auto mt-8 max-w-7xl">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
@@ -366,6 +378,8 @@ export default async function HomePage() {
       {/* Sponsors */}
       <SponsorMarquee />
 
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
       {/* Register CTA */}
       <section className="px-4 py-20 sm:px-6 md:px-10 md:py-32" id="register">
         <div className="mx-auto max-w-7xl">
@@ -377,7 +391,7 @@ export default async function HomePage() {
             <div className="relative px-8 py-16 sm:px-12 md:py-20 lg:px-16">
               <div className="max-w-xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Ready to compete?</p>
-                <h2 className="mt-4 text-3xl font-[var(--font-playfair)] font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+                <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
                   Secure your<br />spot today
                 </h2>
                 <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">

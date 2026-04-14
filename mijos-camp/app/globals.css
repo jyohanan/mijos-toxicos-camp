@@ -60,3 +60,11 @@ select option {
   background: #1a1a1a;
   color: #ffffff;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

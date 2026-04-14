@@ -43,7 +43,7 @@ export default async function HomePage() {
     <main className="min-h-screen overflow-x-hidden bg-[#080808] text-white">
 
       {/* Top nav bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#080808]/90 backdrop-blur-xl">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] backdrop-blur-xl" style={{ background: "linear-gradient(to right, rgba(0,104,71,0.15), rgba(8,8,8,0.92), rgba(206,17,38,0.15))" }}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
           <div className="flex items-center gap-3">
             <Image src="/images/mijo_logo.png" alt="Mijo Logo" width={32} height={32} className="rounded-lg object-contain" />
@@ -58,7 +58,7 @@ export default async function HomePage() {
               </a>
             ))}
           </div>
-          <Link href="/register" className="rounded-xl bg-white px-4 py-2 text-xs font-semibold text-black transition hover:bg-white/90">
+          <Link href="/register" className="rounded-xl bg-[#D4AF37] px-4 py-2 text-xs font-semibold text-black transition hover:bg-[#C5A028]">
             Register Now
           </Link>
         </div>
@@ -92,7 +92,7 @@ export default async function HomePage() {
               <CountdownTimer />
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(0,0,0,0.3)] transition hover:scale-[1.02] hover:bg-black/90">
+              <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-[#D4AF37] px-7 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] transition hover:scale-[1.02] hover:bg-[#C5A028]">
                 Register Now
               </Link>
               <a href="#about" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90">
@@ -419,7 +419,7 @@ export default async function HomePage() {
                   Registration is ${campPrice}. Complete the form, sign the waiver, and pay online in minutes. Spots are limited.
                 </p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(255,255,255,0.12)] transition hover:scale-[1.02]">
+                  <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-[#D4AF37] px-8 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] transition hover:scale-[1.02] hover:bg-[#C5A028]">
                     Register Now
                   </Link>
                   <p className="text-xs text-white/40">~1,000 spots available · Football & Soccer</p>
@@ -440,6 +440,54 @@ export default async function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* Shop & Support */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-28">
+        <p className="text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Shop & support</p>
+        <h2 className="mt-4 text-center text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">Rep the Culture</h2>
+        <div className="mt-10 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-10 md:px-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {[
+              { name: "Mijo Foundation", desc: "Empowering youth through sports, education, and opportunity.", href: "https://www.mijothingsfoundation.com", tag: "Foundation", img: "/images/shops/mijo_foundation_logo.png", ig: "https://www.instagram.com/mijosfoundation/", yt: "" },
+              { name: "Mijo Culture", desc: "Premium streetwear rooted in heritage and hustle.", href: "https://mijoculture.com", tag: "Merch", img: "/images/shops/con_todo_sleveless_tee.png", ig: "https://www.instagram.com/mijoculture/", yt: "https://www.youtube.com/@mijoculture" },
+              { name: "Chicos Tóxicos", desc: "Official merch from the crew. Wear the brotherhood.", href: "https://chicostoxico.com", tag: "Merch", img: "/images/shops/ct_tshirt.png", ig: "https://www.instagram.com/chicostoxico/", yt: "https://www.youtube.com/@Chicostoxicos" },
+              { name: "Mijo Tacos", desc: "Authentic flavors. Real food. Community first.", href: "https://mijostacos.com", tag: "Food", img: "/images/shops/mijos_tacos_truck.png", ig: "https://www.instagram.com/mijos.tacos/", yt: "" },
+            ].map((brand) => (
+              <div
+                key={brand.name}
+                className="w-[280px] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] sm:w-[320px]"
+              >
+                <a href={brand.href} target="_blank" rel="noopener noreferrer" className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image src={brand.img} alt={brand.name} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent" />
+                  </div>
+                  <div className="p-5 pb-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">{brand.tag}</p>
+                    <p className="mt-2 text-base font-semibold text-white group-hover:text-white/90">{brand.name}</p>
+                    <p className="mt-1.5 text-sm leading-relaxed text-white/45">{brand.desc}</p>
+                  </div>
+                </a>
+                <div className="px-5 pb-5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-white/40">Visit</span>
+                    <a href={brand.ig} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
+                      <Image src="/images/shops/insta-logo.jpg" alt="Instagram" width={20} height={20} className="rounded-sm" />
+                    </a>
+                    {brand.yt && (
+                      <a href={brand.yt} target="_blank" rel="noopener noreferrer" className="transition hover:opacity-80">
+                        <Image src="/images/shops/youtube_logo.png" alt="YouTube" width={20} height={20} className="rounded-sm" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
 
       {/* Connect / Learn More */}
       <section className="border-y border-white/[0.06] bg-[#0a0a0a]">

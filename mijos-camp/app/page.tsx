@@ -28,7 +28,7 @@ export default async function HomePage() {
   const settings = await getSettings();
 
   const campDate = settings.camp_date || "June 13, 2026";
-  const campLocation = settings.camp_location || "TBD";
+  const campLocation = settings.camp_location || "LA";
   const campPrice = settings.registration_price || "100";
 
   const campDetails = [
@@ -98,13 +98,19 @@ export default async function HomePage() {
       </section>
 
       {/* Stats bar */}
-      <section className="border-y border-white/[0.06] bg-[#0d0d0d]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10">
-          <div className="grid grid-cols-2 divide-x divide-white/[0.06] lg:grid-cols-4">
-            {campDetails.map((item) => (
-              <div key={item.label} className="px-6 py-8 sm:px-8">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/35">{item.label}</p>
-                <p className="mt-2 text-lg font-bold tracking-tight text-white sm:text-xl">{item.value}</p>
+      <section className="relative py-10 sm:py-14 overflow-hidden">
+        {/* Subtle Mexican flag gradient */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.07]" style={{ background: "linear-gradient(to right, #006847, #006847 30%, #ffffff 45%, #ffffff 55%, #CE1126 70%, #CE1126)" }} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-10">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+            {campDetails.map((item, i) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-white/[0.1] bg-white/[0.04] px-6 py-6 backdrop-blur-xl transition hover:border-white/[0.18] hover:bg-white/[0.07] sm:px-8 sm:py-8"
+                style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/40">{item.label}</p>
+                <p className={`mt-3 text-xl font-black tracking-tight sm:text-2xl ${i % 2 === 0 ? "text-green-500" : "text-red-500"}`}>{item.value}</p>
               </div>
             ))}
           </div>
@@ -126,7 +132,7 @@ export default async function HomePage() {
           />
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Who&apos;s behind the camp</p>
-            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
               Mijo Foundation<br />× Chicos Tóxicos
             </h2>
             <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
@@ -156,7 +162,7 @@ export default async function HomePage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
-            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               Built for the<br />next generation
             </h2>
             <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
@@ -193,7 +199,7 @@ export default async function HomePage() {
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/35">See it in action</p>
-          <h2 className="mt-4 text-center text-3xl font-black tracking-tight sm:text-4xl">The Mijo Experience</h2>
+          <h2 className="mt-4 text-center text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">The Mijo Experience</h2>
           <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
             <iframe
               src="https://www.youtube.com/embed/9pb8xMMZAWw"
@@ -209,7 +215,7 @@ export default async function HomePage() {
       {/* Camp Details */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-24" id="details">
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>
-        <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">What to expect</h2>
+        <h2 className="mt-4 text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">What to expect</h2>
 
         {/* Schedule — Timeline */}
         <div className="relative mt-14">
@@ -296,7 +302,7 @@ export default async function HomePage() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">Scholarships</p>
-            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
               1 scholarship<br />per sport
             </h2>
             <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
@@ -333,14 +339,17 @@ export default async function HomePage() {
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20" id="gallery">
         <div className="mx-auto max-w-7xl">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">From the field</p>
-          <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">2025 Highlights</h2>
+          <h2 className="mt-4 text-3xl font-black tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">2025 Highlights</h2>
         </div>
         <div className="mx-auto mt-8 max-w-7xl">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {galleryImages.map((img, i) => (
-              <div key={img.src} className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-[16/9] md:col-span-1 md:aspect-[4/5]" : "aspect-square"}`}>
-                <Image src={img.src} alt={img.alt} fill className="object-cover transition duration-500 hover:scale-105" />
-                <div className="absolute inset-0 bg-black/20" />
+              <div key={img.src} className={`group relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-[16/9] md:col-span-1 md:aspect-[4/5]" : "aspect-square"}`}>
+                <Image src={img.src} alt={img.alt} fill className="object-cover transition duration-500 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent sm:from-black/20 sm:via-transparent sm:to-transparent sm:transition sm:duration-500 sm:group-hover:from-black/60 sm:group-hover:via-black/20" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:translate-y-full sm:transition sm:duration-500 sm:group-hover:translate-y-0">
+                  <p className="text-sm font-medium text-white">{img.alt}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -361,7 +370,7 @@ export default async function HomePage() {
             <div className="relative px-8 py-16 sm:px-12 md:py-20 lg:px-16">
               <div className="max-w-xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Ready to compete?</p>
-                <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:text-5xl">
+                <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
                   Secure your<br />spot today
                 </h2>
                 <p className="mt-5 text-sm leading-7 text-white/60 sm:text-base">
@@ -428,15 +437,40 @@ export default async function HomePage() {
 
       {/* Footer */}
       <footer className="border-t border-white/[0.06]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-white/35 md:flex-row md:items-center md:justify-between md:px-10">
-          <div className="flex items-center gap-3">
-            <Image src="/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain opacity-60" />
-            <p>© 2026 Mijos Tóxicos Dual Sports Camp</p>
-          </div>
-          <div className="hidden gap-6 sm:flex">
-            {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="transition hover:text-white">{link.label}</a>
-            ))}
+        <div className="mx-auto max-w-7xl px-6 py-12 md:px-10">
+          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+            <div>
+              <div className="flex items-center gap-3">
+                <Image src="/mijo_logo.png" alt="Mijo" width={32} height={32} className="rounded-lg object-contain" />
+                <span className="text-white/30">×</span>
+                <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
+              </div>
+              <p className="mt-3 text-sm text-white/35">© 2026 Mijos Tóxicos Dual Sports Camp</p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">Navigate</p>
+                <div className="mt-3 flex flex-col gap-2">
+                  {navLinks.map((link) => (
+                    <a key={link.href} href={link.href} className="text-sm text-white/45 transition hover:text-white">{link.label}</a>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">Follow</p>
+                <div className="mt-3 flex gap-3">
+                  <a href="https://www.instagram.com/mijosfoundation/" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </a>
+                  <a href="https://www.instagram.com/chicostoxico/" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </a>
+                  <a href="https://www.youtube.com/@Chicostoxicos" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -65,7 +65,7 @@ export default async function HomePage() {
       </nav>
 
       {/* Hero — Image */}
-      <section className="relative h-[60vh] overflow-hidden pt-16 sm:h-[70vh]">
+      <section className="relative h-[75vh] overflow-hidden pt-16 sm:h-[70vh]">
         <div className="absolute inset-0">
           <HeroCarousel />
           <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
@@ -181,7 +181,7 @@ export default async function HomePage() {
                 { src: "/images/headshots/Felipito.png", alt: "Felipito" },
                 { src: "/images/headshots/Diego.png", alt: "Diego" },
                 { src: "/images/headshots/Brandom.png", alt: "Brandom" },
-                { src: "/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
+                { src: "/images/cover_photo/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
                 { src: "/ct_boys_football_field.png", alt: "Chicos Tóxicos on the football field" },
                 { src: "/ct_plane.jpg", alt: "Chicos Tóxicos traveling" },
               ]}

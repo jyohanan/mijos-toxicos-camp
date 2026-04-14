@@ -4,16 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 type Slide =
-  | { type: "image"; src: string; alt: string; duration?: number }
-  | { type: "video"; src: string; alt: string; duration?: number };
+  | { type: "image"; src: string; alt: string; duration?: number; kenBurns?: boolean }
+  | { type: "video"; src: string; alt: string; duration?: number; kenBurns?: boolean };
 
 const heroSlides: Slide[] = [
   { type: "video", src: "/images/cover_photo/will_blocking_video.mp4", alt: "Will Hernandez blocking", duration: 4000 },
   { type: "video", src: "/images/cover_photo/ct_boys_kicking_video.mp4", alt: "Chicos Tóxicos kicking", duration: 7000 },
-  { type: "image", src: "/images/cover_photo/will_stance.webp", alt: "Will Hernandez stance" },
-  { type: "image", src: "/images/cover_photo/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
+  { type: "image", src: "/images/cover_photo/will_stance.webp", alt: "Will Hernandez stance", kenBurns: true },
   { type: "image", src: "/images/cover_photo/ct_boys_zumiez_backdrop.png", alt: "Chicos Tóxicos" },
-  { type: "image", src: "/images/cover_photo/will_nameplate.png", alt: "Will Hernandez nameplate" },
+  { type: "image", src: "/images/cover_photo/will_nameplate.png", alt: "Will Hernandez nameplate", kenBurns: true },
 ];
 
 export default function HeroCarousel() {
@@ -22,8 +21,6 @@ export default function HeroCarousel() {
 
   useEffect(() => {
     const slide = heroSlides[current];
-    // Video slides: wait for video to play 4 seconds then advance
-    // Image slides: wait 6 seconds then advance
     const duration = slide.duration || (slide.type === "video" ? 5000 : 6000);
 
     if (slide.type === "video" && videoRef.current) {
@@ -51,7 +48,7 @@ export default function HeroCarousel() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className={`object-cover object-top ${i === current ? "animate-kenburns" : ""}`}
+              className={`object-cover object-top ${i === current && slide.kenBurns ? "animate-kenburns" : ""}`}
             />
           ) : (
             <video

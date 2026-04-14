@@ -69,7 +69,7 @@ export default function RegisterPage() {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
         <div className="max-w-md px-4 text-center">
-          <Image src="/mijo_logo.png" alt="Mijo" width={48} height={48} className="mx-auto rounded-xl" />
+          <Image src="/images/mijo_logo.png" alt="Mijo" width={48} height={48} className="mx-auto rounded-xl" />
           <h1 className="mt-6 text-2xl font-black tracking-tight">Registration Closed</h1>
           <p className="mt-3 text-sm leading-7 text-white/50">{closedReason}</p>
           <Link href="/" className="mt-8 inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3.5 text-sm font-bold text-black transition hover:bg-white/90">
@@ -150,36 +150,38 @@ export default function RegisterPage() {
       <nav className="border-b border-white/[0.06] bg-[#080808]/90 backdrop-blur-xl px-4 py-3 sm:px-6">
         <div className="mx-auto flex max-w-2xl items-center justify-between">
           <a href="/" className="flex items-center gap-2 text-sm text-white/50 transition hover:text-white">
-            <Image src="/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain" />
+            <Image src="/images/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain" />
             <span>← Back to home</span>
           </a>
           <span className="text-xs text-white/30">Mijos Tóxicos Camp</span>
         </div>
       </nav>
 
-      <div className="mx-auto max-w-2xl px-4 py-10 sm:px-6">
+      <div className="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-16">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-black tracking-tight">Register Your Athlete</h1>
-          <p className="mt-2 text-sm text-white/50">Mijos Tóxicos Dual Sports Camp · June 13, 2026 · $100</p>
+        <div className="mb-10 text-center">
+          <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Register Your Athlete</h1>
+          <p className="mt-3 text-base text-white/50">Mijos Tóxicos Football × Soccer Camp · June 13, 2026</p>
         </div>
 
         {/* Step indicator */}
-        <div className="mb-8 flex gap-2">
+        <div className="mb-10 flex gap-3">
           {STEPS.map((label, i) => (
             <div key={label} className="flex-1">
-              <div className={`h-1 rounded-full transition-all duration-300 ${i < step ? "bg-white" : i === step ? "bg-white" : "bg-white/10"}`} />
-              <p className={`mt-2 text-[10px] uppercase tracking-widest transition-colors ${i === step ? "text-white" : "text-white/25"}`}>{label}</p>
+              <div className={`h-1.5 rounded-full transition-all duration-500 ${i < step ? "bg-gradient-to-r from-green-500 to-red-500" : i === step ? "bg-white" : "bg-white/10"}`} />
+              <p className={`mt-2.5 text-[10px] uppercase tracking-widest transition-colors ${i === step ? "text-white" : i < step ? "text-white/50" : "text-white/20"}`}>{label}</p>
             </div>
           ))}
         </div>
 
         {/* Form card */}
-        <div className="rounded-[1.75rem] border border-white/[0.08] bg-[#0d0d0d] p-6 sm:p-8">
-          {step === 0 && <StepAthlete form={form} set={set} />}
-          {step === 1 && <StepParent form={form} set={set} />}
-          {step === 2 && <StepMedical form={form} set={set} />}
-          {step === 3 && <StepWaiver form={form} set={set} />}
+        <div className="rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d] p-7 sm:p-10">
+          <div className="transition-opacity duration-300">
+            {step === 0 && <StepAthlete form={form} set={set} />}
+            {step === 1 && <StepParent form={form} set={set} />}
+            {step === 2 && <StepMedical form={form} set={set} />}
+            {step === 3 && <StepWaiver form={form} set={set} />}
+          </div>
 
           {error && (
             <p className="mt-5 rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400">
@@ -187,19 +189,19 @@ export default function RegisterPage() {
             </p>
           )}
 
-          <div className="mt-6 flex gap-3">
+          <div className="mt-8 flex gap-3">
             {step > 0 && (
-              <button onClick={back} className="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3.5 text-sm font-semibold text-white transition hover:bg-white/[0.06]">
+              <button onClick={back} className="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-sm font-semibold text-white transition hover:bg-white/[0.06]">
                 Back
               </button>
             )}
             {step < STEPS.length - 1 ? (
-              <button onClick={next} className="flex-1 rounded-2xl bg-white px-5 py-3.5 text-sm font-bold text-black transition hover:scale-[1.01]">
+              <button onClick={next} className="flex-1 rounded-2xl bg-white px-5 py-4 text-sm font-bold text-black transition hover:scale-[1.01]">
                 Continue
               </button>
             ) : (
-              <button onClick={handleSubmit} disabled={loading} className="flex-1 rounded-2xl bg-white px-5 py-3.5 text-sm font-bold text-black transition hover:scale-[1.01] disabled:opacity-50">
-                {loading ? "Processing..." : "Proceed to Payment — $100"}
+              <button onClick={handleSubmit} disabled={loading} className="flex-1 rounded-2xl bg-white px-5 py-4 text-sm font-bold text-black transition hover:scale-[1.01] disabled:opacity-50">
+                {loading ? "Processing..." : "Proceed to Payment"}
               </button>
             )}
           </div>
@@ -218,17 +220,17 @@ export default function RegisterPage() {
 function Field({ label, required, hint, children }: { label: string; required?: boolean; hint?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-white/40">
+      <label className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-white/45">
         {label}
         {required ? <span className="text-red-400">*</span> : <span className="normal-case tracking-normal text-white/20">(optional)</span>}
       </label>
-      {hint && <p className="mb-2 text-xs text-white/30">{hint}</p>}
+      {hint && <p className="mb-2.5 text-sm text-white/30">{hint}</p>}
       {children}
     </div>
   );
 }
 
-const inputClass = "w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-sm text-white placeholder-white/20 outline-none focus:border-white/25 focus:bg-white/[0.06] transition";
+const inputClass = "w-full rounded-xl border border-white/[0.08] bg-white/[0.04] px-5 py-3.5 text-base text-white placeholder-white/20 outline-none focus:border-white/20 focus:bg-white/[0.06] focus:shadow-[0_0_20px_rgba(255,255,255,0.04)] transition";
 
 // ── Step 1: Athlete ───────────────────────────────────────────────
 

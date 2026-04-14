@@ -55,3 +55,8 @@ body {
   background: linear-gradient(to right, transparent, #006847, #ffffff, #CE1126, transparent);
   opacity: 0.5;
 }
+
+select option {
+  background: #1a1a1a;
+  color: #ffffff;
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import HeroCarousel from "./components/HeroCarousel";
 import CountdownTimer from "./components/CountdownTimer";
 import SponsorMarquee from "./components/SponsorMarquee";
 import ImageCarousel from "./components/ImageCarousel";
@@ -15,11 +16,11 @@ const navLinks = [
 ];
 
 const galleryImages = [
-  { src: "/group_picture_2025.jpeg", alt: "Group photo 2025" },
-  { src: "/kids_huddle_2025.jpeg", alt: "Kids huddle 2025" },
-  { src: "/kids_lined_up_2025.jpeg", alt: "Kids lined up 2025" },
-  { src: "/hands_in_2025.jpeg", alt: "Hands in 2025" },
-  { src: "/will_speaking_2025.jpeg", alt: "Will speaking 2025" },
+  { src: "/images/group_picture_2025.jpeg", alt: "Group photo 2025" },
+  { src: "/images/kids_huddle_2025.jpeg", alt: "Kids huddle 2025" },
+  { src: "/images/kids_lined_up_2025.jpeg", alt: "Kids lined up 2025" },
+  { src: "/images/hands_in_2025.jpeg", alt: "Hands in 2025" },
+  { src: "/images/will_speaking_2025.jpeg", alt: "Will speaking 2025" },
 ];
 
 export const dynamic = "force-dynamic";
@@ -45,9 +46,9 @@ export default async function HomePage() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-[#080808]/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
           <div className="flex items-center gap-3">
-            <Image src="/mijo_logo.png" alt="Mijo Logo" width={32} height={32} className="rounded-lg object-contain" />
+            <Image src="/images/mijo_logo.png" alt="Mijo Logo" width={32} height={32} className="rounded-lg object-contain" />
             <span className="text-white/30">×</span>
-            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
+            <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
             <span className="text-sm font-bold tracking-tight text-white">Mijos Tóxicos Camp</span>
           </div>
           <div className="hidden items-center gap-6 sm:flex">
@@ -63,36 +64,41 @@ export default async function HomePage() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="relative flex min-h-screen items-end overflow-hidden pt-16">
+      {/* Hero — Image */}
+      <section className="relative h-[60vh] overflow-hidden pt-16 sm:h-[70vh]">
         <div className="absolute inset-0">
-          <Image src="/kid_stance_2025.jpeg" alt="Camp hero" fill className="object-cover object-[center_20%]" priority />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/70 to-[#080808]/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#080808]/80 via-[#080808]/30 to-transparent" />
+          <HeroCarousel />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-transparent" />
         </div>
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-20 sm:px-6 md:px-10 md:pb-28">
-          <div className="mb-8 flex items-center gap-6">
-            <Image src="/mijo_logo.png" alt="Mijo" width={100} height={100} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
-            <span className="text-3xl text-white/30">×</span>
-            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={100} height={100} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
-          </div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
-          <h1 className="max-w-3xl text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
-            Mijos<br />Tóxicos<br /><span className="text-white/40">Dual Sports</span><br />Camp
-          </h1>
-          <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
-            Football. Soccer. Culture. Community. One day. 1,000 athletes.
-          </p>
-          <div className="mt-8">
-            <CountdownTimer />
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(0,0,0,0.3)] transition hover:scale-[1.02] hover:bg-black/90">
-              Register Now
-            </Link>
-            <a href="#about" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90">
-              Learn More
-            </a>
+      </section>
+
+      {/* Hero — Content */}
+      <section className="relative bg-[#080808]">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:px-10 md:py-16">
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-center gap-5">
+              <Image src="/images/mijo_logo.png" alt="Mijo" width={80} height={80} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
+              <span className="text-2xl text-white/30">×</span>
+              <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={80} height={80} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
+            </div>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
+            <h1 className="mt-4 text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
+              Mijos<br />Tóxicos<br /><span className="text-white/40">Football × Soccer</span><br />Camp
+            </h1>
+            <p className="mt-6 max-w-lg text-sm leading-7 text-white/65 sm:text-base">
+              Football. Soccer. Culture. Community. One day. 1,000 athletes.
+            </p>
+            <div className="mt-8">
+              <CountdownTimer />
+            </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-black px-7 py-4 text-sm font-bold text-white shadow-[0_0_40px_rgba(0,0,0,0.3)] transition hover:scale-[1.02] hover:bg-black/90">
+                Register Now
+              </Link>
+              <a href="#about" className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-sm font-semibold text-black transition hover:bg-white/90">
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -128,6 +134,7 @@ export default async function HomePage() {
               { src: "/mijos_group_photos.jpeg", alt: "Mijos group photo" },
               { src: "/will_mx.jpg", alt: "Will Hernandez" },
               { src: "/ct_plane.jpg", alt: "Chicos Tóxicos traveling" },
+              { src: "/images/mijos_bench_pic.png", alt: "Mijos on the bench" },
             ]}
           />
           <div>
@@ -364,7 +371,7 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="relative overflow-hidden rounded-[2.5rem] border border-white/[0.08] bg-[#111]">
             <div className="absolute inset-0">
-              <Image src="/kids_lined_up_2025.jpeg" alt="Athletes" fill className="object-cover object-center opacity-20" />
+              <Image src="/images/kids_lined_up_2025.jpeg" alt="Athletes" fill className="object-cover object-center opacity-20" />
               <div className="absolute inset-0 bg-gradient-to-r from-[#111] via-[#111]/90 to-[#111]/70" />
             </div>
             <div className="relative px-8 py-16 sm:px-12 md:py-20 lg:px-16">
@@ -441,9 +448,9 @@ export default async function HomePage() {
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <Image src="/mijo_logo.png" alt="Mijo" width={32} height={32} className="rounded-lg object-contain" />
+                <Image src="/images/mijo_logo.png" alt="Mijo" width={32} height={32} className="rounded-lg object-contain" />
                 <span className="text-white/30">×</span>
-                <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
+                <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
               </div>
               <p className="mt-3 text-sm text-white/35">© 2026 Mijos Tóxicos Dual Sports Camp</p>
             </div>

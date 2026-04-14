@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import CountdownTimer from "./components/CountdownTimer";
 import SponsorMarquee from "./components/SponsorMarquee";
+import ImageCarousel from "./components/ImageCarousel";
 import { getSettings } from "@/lib/settings";
 
 const navLinks = [
@@ -45,6 +46,8 @@ export default async function HomePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
           <div className="flex items-center gap-3">
             <Image src="/mijo_logo.png" alt="Mijo Logo" width={32} height={32} className="rounded-lg object-contain" />
+            <span className="text-white/30">×</span>
+            <Image src="/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
             <span className="text-sm font-bold tracking-tight text-white">Mijos Tóxicos Camp</span>
           </div>
           <div className="hidden items-center gap-6 sm:flex">
@@ -108,6 +111,46 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Who's Behind the Camp */}
+      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:px-10 md:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <ImageCarousel
+            images={[
+              { src: "/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
+              { src: "/will_intro.jpg", alt: "Will Hernandez introduction" },
+              { src: "/ct_boys_football_field.png", alt: "Chicos Tóxicos on the football field" },
+              { src: "/mijos_group_photos.jpeg", alt: "Mijos group photo" },
+              { src: "/will_mx.jpg", alt: "Will Hernandez" },
+              { src: "/ct_plane.jpg", alt: "Chicos Tóxicos traveling" },
+            ]}
+          />
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Who&apos;s behind the camp</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight sm:text-4xl">
+              Mijo Foundation<br />× Chicos Tóxicos
+            </h2>
+            <p className="mt-6 text-sm leading-8 text-white/60 sm:text-base">
+              The Mijo Foundation was built to open doors for the next generation — investing
+              in character, opportunity, and growth. Founded by NFL offensive lineman Will Hernandez
+              (Arizona Cardinals) alongside Joshua Ortega and Derek Elmendorff, the foundation
+              reflects the values that shaped them on and off the field: discipline, resilience,
+              and community.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+              Through youth camps, educational support, and confidence-building programs, the
+              foundation creates real impact — giving young people the tools to grow strong in
+              every sense of the word.
+            </p>
+            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
+              Chicos Tóxicos is a brotherhood built on the grind — a crew of athletes and creators
+              who push each other through training, travel, and life. They bring that same energy
+              to this camp, showing young athletes what it looks like to compete hard, stay tight,
+              and build something real together.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* About */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-24" id="about">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
@@ -120,12 +163,6 @@ export default async function HomePage() {
               The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
               and soccer together in a high-energy environment. Built around competition, athletic
               development, culture, and community.
-            </p>
-            <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
-              Founded by NFL offensive lineman Will Hernandez of the Arizona Cardinals through the
-              Mijo Things Foundation, and co-hosted with Chicos Tóxicos — this camp gives young
-              athletes something most camps can&apos;t: direct access to professional athletes and
-              influencers who&apos;ve been where they want to go.
             </p>
             <p className="mt-4 text-sm leading-8 text-white/60 sm:text-base">
               From fundamentals to advanced skills, every session is designed to help athletes
@@ -352,6 +389,42 @@ export default async function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* Connect / Learn More */}
+      <section className="border-y border-white/[0.06] bg-[#0a0a0a]">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:px-10">
+          <p className="text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Learn more</p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {[
+              { label: "Mijo Foundation", href: "https://www.mijothingsfoundation.com/" },
+              { label: "Mijo Culture", href: "https://mijoculture.com/" },
+              { label: "Mijo Tacos", href: "https://mijostacos.com/" },
+              { label: "Chicos Tóxicos", href: "https://www.loschicostoxicos.com/" },
+            ].map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-white/70 transition hover:bg-white/[0.08] hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className="mt-6 flex justify-center gap-4">
+            <a href="https://www.instagram.com/mijosfoundation/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.instagram.com/chicostoxico/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@Chicostoxicos" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-white/50 transition hover:bg-white/[0.08] hover:text-white">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-white/[0.06]">

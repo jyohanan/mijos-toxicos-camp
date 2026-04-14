@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const faqs = [
   {
-    q: "What is the Mijos Tóxicos Dual Sports Camp?",
+    q: "What is the Mijos Tóxicos Football × Soccer Camp?",
     a: "It's a one-day youth sports camp that brings football and soccer together in a high-energy environment. The camp is built around competition, athletic development, culture, and community — open to athletes ages 13–18.",
   },
   {
@@ -110,7 +110,7 @@ export default function FAQPage() {
           Frequently Asked Questions
         </h1>
         <p className="mt-4 text-sm leading-7 text-white/50">
-          Everything you need to know about the Mijos Tóxicos Dual Sports Camp.
+          Everything you need to know about the Mijos Tóxicos Football × Soccer Camp.
         </p>
 
         <div className="mt-12">

@@ -9,7 +9,7 @@ export default function SuccessPage() {
         </div>
         <h1 className="text-3xl font-black tracking-tight">You&apos;re in!</h1>
         <p className="mt-3 text-white/60">
-          Registration confirmed for the Mijos Tóxicos Dual Sports Camp · June 13, 2026
+          Registration confirmed for the Mijos Tóxicos Football × Soccer Camp · June 13, 2026
         </p>
         <div className="mt-6 rounded-[1.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025))] p-6 text-sm text-white/70 text-left space-y-2">
           <p>✦ A confirmation email has been sent to your inbox.</p>

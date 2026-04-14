@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Mijos Tóxicos Dual Sports Camp",
+  title: "Mijos Tóxicos Football × Soccer Camp",
   description: "A premium, culture-driven youth sports experience. Football + Soccer. June 13, 2026. Ages 13–18.",
 };
 

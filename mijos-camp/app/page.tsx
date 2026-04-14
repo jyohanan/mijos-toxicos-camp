@@ -125,24 +125,22 @@ export default async function HomePage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
 
-      {/* Who's Behind the Camp */}
+      {/* Meet the Mijos */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <ImageCarousel
             images={[
-              { src: "/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
               { src: "/will_intro.jpg", alt: "Will Hernandez introduction" },
-              { src: "/ct_boys_football_field.png", alt: "Chicos Tóxicos on the football field" },
-              { src: "/mijos_group_photos.jpeg", alt: "Mijos group photo" },
               { src: "/will_mx.jpg", alt: "Will Hernandez" },
-              { src: "/ct_plane.jpg", alt: "Chicos Tóxicos traveling" },
+              { src: "/images/headshots/Joshua_Ortega .png", alt: "Joshua Ortega" },
+              { src: "/images/headshots/Derek_Elmendorf.png", alt: "Derek Elmendorff" },
+              { src: "/mijos_group_photos.jpeg", alt: "Mijos group photo" },
               { src: "/images/mijos_bench_pic.png", alt: "Mijos on the bench" },
             ]}
           />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Who&apos;s behind the camp</p>
             <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
-              Mijo Foundation<br />× Chicos Tóxicos
+              Meet the Mijos
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
               The Mijo Foundation was built to open doors for the next generation — investing
@@ -156,12 +154,38 @@ export default async function HomePage() {
               foundation creates real impact — giving young people the tools to grow strong in
               every sense of the word.
             </p>
-            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
-              Chicos Tóxicos is a brotherhood built on the grind — a crew of athletes and creators
-              who push each other through training, travel, and life. They bring that same energy
-              to this camp, showing young athletes what it looks like to compete hard, stay tight,
-              and build something real together.
+          </div>
+        </div>
+      </section>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
+
+      {/* Meet the Chicos Tóxicos */}
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div className="order-2 lg:order-1">
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
+              Meet the Chicos T&oacute;xicos
+            </h2>
+            <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
+              Chicos T&oacute;xicos is a brotherhood built on the grind — Felipito, Diego, and Brandom
+              are a crew of athletes and creators with a widely popular YouTube channel who push
+              each other through training, travel, and life. They bring that same energy to this
+              camp, showing young athletes what it looks like to compete hard, stay tight, and
+              build something real together.
             </p>
+          </div>
+          <div className="order-1 lg:order-2">
+            <ImageCarousel
+              images={[
+                { src: "/images/headshots/Felipito.png", alt: "Felipito" },
+                { src: "/images/headshots/Diego.png", alt: "Diego" },
+                { src: "/images/headshots/Brandom.png", alt: "Brandom" },
+                { src: "/ct_boys_x_mijos.png", alt: "Chicos Tóxicos and Mijo Foundation" },
+                { src: "/ct_boys_football_field.png", alt: "Chicos Tóxicos on the football field" },
+                { src: "/ct_plane.jpg", alt: "Chicos Tóxicos traveling" },
+              ]}
+            />
           </div>
         </div>
       </section>
@@ -177,7 +201,7 @@ export default async function HomePage() {
               Built for the<br />next generation
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
-              The Mijos Tóxicos Dual Sports Camp is a one-day youth experience that brings football
+              The Mijos Tóxicos Football × Soccer Camp is a one-day youth experience that brings football
               and soccer together in a high-energy environment. Built around competition, athletic
               development, culture, and community.
             </p>
@@ -466,7 +490,7 @@ export default async function HomePage() {
                 <span className="text-white/30">×</span>
                 <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={32} height={32} className="rounded-lg object-contain" />
               </div>
-              <p className="mt-3 text-sm text-white/35">© 2026 Mijos Tóxicos Dual Sports Camp</p>
+              <p className="mt-3 text-sm text-white/35">© 2026 Mijos Tóxicos Football × Soccer Camp</p>
             </div>
             <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
               <div>

@@ -389,10 +389,7 @@ export default async function HomePage() {
             {galleryImages.map((img, i) => (
               <div key={img.src} className={`group relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-[16/9] md:col-span-1 md:aspect-[4/5]" : "aspect-square"}`}>
                 <Image src={img.src} alt={img.alt} fill className="object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent sm:from-black/20 sm:via-transparent sm:to-transparent sm:transition sm:duration-500 sm:group-hover:from-black/60 sm:group-hover:via-black/20" />
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:translate-y-full sm:transition sm:duration-500 sm:group-hover:translate-y-0">
-                  <p className="text-sm font-medium text-white">{img.alt}</p>
-                </div>
+                <div className="absolute inset-0 bg-black/20" />
               </div>
             ))}
           </div>

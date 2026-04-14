@@ -215,7 +215,7 @@ export default async function HomePage() {
             {[
               { num: "01", title: "Pro-led training", desc: "Learn directly from NFL athletes and experienced coaches — not just volunteers. This is real instruction from people who play at the highest level." },
               { num: "02", title: "Dual sport format", desc: "Football and soccer under one roof. ~500 athletes per sport, all competing, training, and building together in a single day." },
-              { num: "03", title: "Scholarships available", desc: "1 full scholarship per sport. We believe every athlete deserves a shot regardless of financial situation." },
+              { num: "03", title: "Scholarships available", desc: "1 scholarship per sport. We believe every athlete deserves a shot regardless of financial situation." },
               { num: "04", title: "Culture & community", desc: "More than just drills. This camp is about building confidence, discipline, and connection — on the field and beyond." },
             ].map((item) => (
               <div key={item.num} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
@@ -347,7 +347,7 @@ export default async function HomePage() {
               1 scholarship<br />per sport
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
-              We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding 1 full scholarship per sport — 2 total — covering the registration fee completely.
+              We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding 1 scholarship per sport — 2 total.
             </p>
             <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
               To be considered, simply check the scholarship box during registration. Recipients will be selected and notified before the event.

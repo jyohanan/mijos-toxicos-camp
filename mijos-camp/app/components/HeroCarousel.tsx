@@ -9,10 +9,8 @@ type Slide =
 
 const heroSlides: Slide[] = [
   { type: "video", src: "/images/cover_photo/will_blocking_video.mp4", alt: "Will Hernandez blocking", duration: 4000 },
-  { type: "video", src: "/images/cover_photo/ct_boys_kicking_video.mp4", alt: "Chicos Tóxicos kicking", duration: 7000 },
-  { type: "image", src: "/images/cover_photo/will_stance.webp", alt: "Will Hernandez stance", kenBurns: true },
-  { type: "image", src: "/images/cover_photo/ct_boys_zumiez_backdrop.png", alt: "Chicos Tóxicos" },
-  { type: "image", src: "/images/cover_photo/will_nameplate.png", alt: "Will Hernandez nameplate", kenBurns: true },
+  { type: "video", src: "/images/cover_photo/mijos_baseball_video.mp4", alt: "Mijos baseball" },
+  { type: "video", src: "/images/cover_photo/ct_boys_video_2.mp4", alt: "Chicos Tóxicos" },
 ];
 
 export default function HeroCarousel() {

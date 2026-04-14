@@ -38,6 +38,21 @@ export default function AdminPage() {
   const [statusFilter, setStatusFilter] = useState("");
   const [settings, setSettings] = useState<Record<string, string>>({});
   const [savingKey, setSavingKey] = useState("");
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [addForm, setAddForm] = useState({
+    athlete_first_name: "",
+    athlete_last_name: "",
+    sport: "football",
+    parent_email: "",
+    parent_name: "",
+    parent_phone: "",
+    school_name: "",
+    grade: "",
+    shirt_size: "",
+    athlete_age: "",
+    notes: "",
+  });
+  const [addLoading, setAddLoading] = useState(false);
 
   const fetchRegistrations = useCallback(async () => {
     setLoading(true);
@@ -88,6 +103,28 @@ export default function AdminPage() {
       setSettings((prev) => ({ ...prev, [key]: value }));
     } catch { /* ignore */ }
     setSavingKey("");
+  }
+
+  async function handleAddRegistration(e: React.FormEvent) {
+    e.preventDefault();
+    setAddLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/admin/add-registration", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-email": email },
+        body: JSON.stringify(addForm),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to add registration");
+      setShowAddForm(false);
+      setAddForm({ athlete_first_name: "", athlete_last_name: "", sport: "football", parent_email: "", parent_name: "", parent_phone: "", school_name: "", grade: "", shirt_size: "", athlete_age: "", notes: "" });
+      fetchRegistrations();
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setAddLoading(false);
+    }
   }
 
   async function handleSendCode(e: React.FormEvent) {
@@ -239,13 +276,86 @@ export default function AdminPage() {
             <h1 className="text-2xl font-black tracking-tight">Registrations</h1>
             <p className="mt-1 text-sm text-white/40">{registrations.length} total registrations</p>
           </div>
-          <button
-            onClick={handleExport}
-            className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
-          >
-            Export CSV
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setShowAddForm(true)}
+              className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
+            >
+              + Add Scholarship
+            </button>
+            <button
+              onClick={handleExport}
+              className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90"
+            >
+              Export CSV
+            </button>
+          </div>
         </div>
+
+        {/* Add Scholarship Modal */}
+        {showAddForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+            <form onSubmit={handleAddRegistration} className="mx-4 w-full max-w-lg rounded-2xl border border-white/[0.08] bg-[#0d0d0d] p-6 sm:p-8">
+              <h2 className="text-xl font-bold">Add Scholarship Entry</h2>
+              <p className="mt-1 text-sm text-white/40">This creates a paid registration with no payment required.</p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">First Name *</label>
+                  <input required value={addForm.athlete_first_name} onChange={e => setAddForm(f => ({ ...f, athlete_first_name: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Last Name *</label>
+                  <input required value={addForm.athlete_last_name} onChange={e => setAddForm(f => ({ ...f, athlete_last_name: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Sport *</label>
+                  <select value={addForm.sport} onChange={e => setAddForm(f => ({ ...f, sport: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none">
+                    <option value="football">Football</option>
+                    <option value="soccer">Soccer</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Age</label>
+                  <input type="number" value={addForm.athlete_age} onChange={e => setAddForm(f => ({ ...f, athlete_age: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Parent Email *</label>
+                  <input required type="email" value={addForm.parent_email} onChange={e => setAddForm(f => ({ ...f, parent_email: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Parent Name</label>
+                  <input value={addForm.parent_name} onChange={e => setAddForm(f => ({ ...f, parent_name: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">School</label>
+                  <input value={addForm.school_name} onChange={e => setAddForm(f => ({ ...f, school_name: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none focus:border-white/25" />
+                </div>
+                <div>
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Shirt Size</label>
+                  <select value={addForm.shirt_size} onChange={e => setAddForm(f => ({ ...f, shirt_size: e.target.value }))} className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white outline-none">
+                    <option value="">Select</option>
+                    <option value="YS">YS</option><option value="YM">YM</option><option value="YL">YL</option>
+                    <option value="S">S</option><option value="M">M</option><option value="L">L</option>
+                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                  </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-white/40">Notes</label>
+                  <input value={addForm.notes} onChange={e => setAddForm(f => ({ ...f, notes: e.target.value }))} placeholder="e.g. Football scholarship recipient" className="w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2.5 text-sm text-white placeholder-white/20 outline-none focus:border-white/25" />
+                </div>
+              </div>
+              {error && <p className="mt-4 text-sm text-red-400">{error}</p>}
+              <div className="mt-6 flex gap-3">
+                <button type="button" onClick={() => { setShowAddForm(false); setError(""); }} className="flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.06]">
+                  Cancel
+                </button>
+                <button type="submit" disabled={addLoading} className="flex-1 rounded-xl bg-white px-4 py-3 text-sm font-bold text-black transition hover:bg-white/90 disabled:opacity-50">
+                  {addLoading ? "Adding..." : "Add Registration"}
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
 
         {/* Stats */}
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">

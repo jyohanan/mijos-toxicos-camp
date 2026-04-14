@@ -145,7 +145,7 @@ export default async function HomePage() {
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
               The Mijo Foundation was built to open doors for the next generation — investing
               in character, opportunity, and growth. Founded by NFL offensive lineman Will Hernandez
-              (Arizona Cardinals) alongside Joshua Ortega and Derek Elmendorff, the foundation
+              (Arizona Cardinals) alongside his mijos Joshua Ortega and Derek Elmendorff, the foundation
               reflects the values that shaped them on and off the field: discipline, resilience,
               and community.
             </p>

@@ -187,7 +187,7 @@ export default function AdminPage() {
       <main className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
         <form onSubmit={handleSendCode} className="w-full max-w-sm px-4">
           <div className="flex justify-center mb-8">
-            <Image src="/mijo_logo.png" alt="Mijo" width={48} height={48} className="rounded-xl" />
+            <Image src="/images/combined/combined_left_right_transparent.png" alt="Mijos Tóxicos" width={200} height={60} className="rounded-xl" />
           </div>
           <h1 className="text-2xl font-black tracking-tight text-center">Admin Access</h1>
           <p className="mt-2 text-sm text-white/40 text-center">Enter your admin email to receive an access code.</p>
@@ -218,7 +218,7 @@ export default function AdminPage() {
       <main className="flex min-h-screen items-center justify-center bg-[#080808] text-white">
         <form onSubmit={handleVerifyCode} className="w-full max-w-sm px-4">
           <div className="flex justify-center mb-8">
-            <Image src="/mijo_logo.png" alt="Mijo" width={48} height={48} className="rounded-xl" />
+            <Image src="/images/combined/combined_left_right_transparent.png" alt="Mijos Tóxicos" width={200} height={60} className="rounded-xl" />
           </div>
           <h1 className="text-2xl font-black tracking-tight text-center">Enter Code</h1>
           <p className="mt-2 text-sm text-white/40 text-center">We sent a 6-digit code to {email}</p>
@@ -263,7 +263,7 @@ export default function AdminPage() {
       <nav className="border-b border-white/[0.06] bg-[#080808]/90 backdrop-blur-xl px-4 py-3 sm:px-6">
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <a href="/" className="flex items-center gap-2 text-sm text-white/50 transition hover:text-white">
-            <Image src="/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain" />
+            <Image src="/images/mijo_logo.png" alt="Mijo" width={24} height={24} className="rounded-md object-contain" />
             <span>← Back to site</span>
           </a>
           <span className="text-xs text-white/30">Admin Dashboard</span>

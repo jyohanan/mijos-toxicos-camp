@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mijos Tóxicos Football × Soccer Camp",
     description: "Football. Soccer. Culture. Community. One day. 1,000 athletes. June 13, 2026.",
-    images: [{ url: "/images/combined/combined_left_right_transparent.png", width: 1200, height: 630 }],
+    images: [{ url: "/images/combined/thumbnail.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Mijos Tóxicos Football × Soccer Camp",
     description: "Football. Soccer. Culture. Community. One day. 1,000 athletes. June 13, 2026.",
-    images: ["/images/combined/combined_left_right_transparent.png"],
+    images: ["/images/combined/thumbnail.png"],
   },
 };
 

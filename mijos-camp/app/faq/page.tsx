@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "How much does registration cost?",
-    a: "Registration is $100 per athlete. This includes a camp t-shirt, lunch, coaching and instruction, competition participation, and all-day event access.",
+    a: "Registration is $99 per athlete. This includes a camp t-shirt, lunch, coaching and instruction, competition participation, and all-day event access.",
   },
   {
     q: "What sports are offered?",
@@ -39,7 +39,7 @@ const faqs = [
   },
   {
     q: "Are scholarships available?",
-    a: "Yes — we're awarding 1 full scholarship per sport (2 total). To be considered, simply check the scholarship box during registration. No separate application is needed. Recipients will be notified before the event.",
+    a: "Yes — we're awarding one $5,000 scholarship per sport (2 total). To be considered, simply check the scholarship box during registration. No separate application is needed. Recipients will be notified before the event.",
   },
   {
     q: "What is the refund policy?",

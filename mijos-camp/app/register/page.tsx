@@ -200,7 +200,7 @@ export default function RegisterPage() {
                 Continue
               </button>
             ) : (
-              <button onClick={handleSubmit} disabled={loading} className="flex-1 rounded-2xl bg-white px-5 py-4 text-sm font-bold text-black transition hover:scale-[1.01] disabled:opacity-50">
+              <button onClick={handleSubmit} disabled={loading} className="flex-1 rounded-2xl bg-[#D4AF37] px-5 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] transition hover:scale-[1.01] hover:bg-[#C5A028] disabled:opacity-50">
                 {loading ? "Processing..." : "Proceed to Payment"}
               </button>
             )}

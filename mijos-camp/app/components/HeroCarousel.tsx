@@ -4,13 +4,14 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 type Slide =
-  | { type: "image"; src: string; alt: string; duration?: number; kenBurns?: boolean }
-  | { type: "video"; src: string; alt: string; duration?: number; kenBurns?: boolean };
+  | { type: "image"; src: string; alt: string; duration?: number; kenBurns?: boolean | string }
+  | { type: "video"; src: string; alt: string; duration?: number; kenBurns?: boolean | string };
 
 const heroSlides: Slide[] = [
   { type: "video", src: "/images/cover_photo/will_blocking_video.mp4", alt: "Will Hernandez blocking", duration: 4000 },
   { type: "video", src: "/images/cover_photo/mijos_baseball_video.mp4", alt: "Mijos baseball" },
   { type: "video", src: "/images/cover_photo/ct_boys_video_2.mp4", alt: "Chicos Tóxicos" },
+  { type: "image", src: "/images/combined/combined_left_right_transparent.png", alt: "Mijos Tóxicos × Chicos Tóxicos", kenBurns: "pulse", duration: 4000 },
 ];
 
 export default function HeroCarousel() {
@@ -46,7 +47,10 @@ export default function HeroCarousel() {
               alt={slide.alt}
               fill
               priority={i === 0}
-              className={`object-cover object-top ${i === current && slide.kenBurns ? "animate-kenburns" : ""}`}
+              className={`${slide.kenBurns === "pulse" ? "object-contain p-12 sm:p-20" : "object-cover object-top"} ${
+                i === current && slide.kenBurns === true ? "animate-kenburns" : 
+                i === current && slide.kenBurns === "pulse" ? "animate-logo-pulse" : ""
+              }`}
             />
           ) : (
             <video
@@ -54,6 +58,8 @@ export default function HeroCarousel() {
               src={slide.src}
               muted
               playsInline
+              poster="/images/cover_photo/will_stance.webp"
+              preload="auto"
               className="h-full w-full object-cover object-top"
             />
           )}

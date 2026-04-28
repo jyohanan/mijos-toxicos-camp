@@ -11,7 +11,6 @@ const heroSlides: Slide[] = [
   { type: "video", src: "/images/cover_photo/will_blocking_video.mp4", alt: "Will Hernandez blocking", duration: 4000 },
   { type: "video", src: "/images/cover_photo/mijos_baseball_video.mp4", alt: "Mijos baseball" },
   { type: "video", src: "/images/cover_photo/ct_boys_video_2.mp4", alt: "Chicos Tóxicos" },
-  { type: "image", src: "/images/combined/combined_left_right_transparent.png", alt: "Mijos Tóxicos × Chicos Tóxicos", kenBurns: "pulse", duration: 4000 },
 ];
 
 export default function HeroCarousel() {
@@ -58,7 +57,6 @@ export default function HeroCarousel() {
               src={slide.src}
               muted
               playsInline
-              poster="/images/cover_photo/will_stance.webp"
               preload="auto"
               className="h-full w-full object-cover object-top"
             />

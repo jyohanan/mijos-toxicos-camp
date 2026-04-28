@@ -256,36 +256,106 @@ export default async function HomePage() {
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>
         <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">What to expect</h2>
 
-        {/* Schedule — Timeline */}
-        <div className="relative mt-14">
-          <div className="absolute left-[7px] top-0 bottom-0 w-px bg-gradient-to-b from-white/20 via-white/10 to-transparent sm:left-[11px]" />
-
-          <div className="mb-6 flex items-center gap-4">
-            <div className="relative z-10 flex h-[15px] w-[15px] items-center justify-center rounded-full border border-white/30 bg-[#080808] sm:h-[23px] sm:w-[23px]">
-              <div className="h-[5px] w-[5px] rounded-full bg-white sm:h-[7px] sm:w-[7px]" />
+        {/* Schedule — Dual Sport Itinerary */}
+        <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          {/* Soccer */}
+          <div>
+            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">⚽</span>
+                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Soccer</h3>
+                </div>
+                <span className="text-xs font-semibold text-white/40">8:00 AM – 11:00 AM</span>
+              </div>
             </div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">Schedule</p>
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+              {[
+                { time: "8:00", event: "Check In (60 Min)", highlight: false },
+                { time: "9:00", event: "Introduction (10 Min)", highlight: false },
+                { time: "9:10", event: "Dynamic Warm Up (10 Min)", highlight: false },
+                { time: "9:20", event: "Break (5 Min)", highlight: false },
+                { time: "9:25", event: "Indy (15 Min)", highlight: false },
+                { time: "9:40", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "9:45", event: "Competition Station (10 Min)", highlight: false },
+                { time: "9:55", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "10:00", event: "Competition Station (10 Min)", highlight: false },
+                { time: "10:10", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "10:15", event: "Influencer Athlete Competition Station (10 Min)", highlight: "blue" },
+                { time: "10:25", event: "Parent Competition Station (5 Min)", highlight: false },
+                { time: "10:30", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "10:35", event: "Competition Station (10 Min)", highlight: false },
+                { time: "10:45", event: "Break (5 Min)", highlight: false },
+                { time: "10:50", event: "WHOLE GROUP Competition (10 Min)", highlight: false },
+                { time: "11:00", event: "Break — Speaking Engagement + Seminar", highlight: true },
+              ].map((item, i) => (
+                <div
+                  key={`soccer-${i}`}
+                  className={`flex items-center gap-4 border-b border-white/[0.04] px-4 py-3 last:border-0 transition hover:bg-white/[0.03] ${
+                    item.highlight === "blue" ? "bg-blue-500/10" : item.highlight ? "bg-red-500/10" : ""
+                  }`}
+                >
+                  <span className="w-[52px] shrink-0 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
+                  <span className={`text-sm ${item.highlight === "blue" ? "font-semibold text-blue-400" : item.highlight ? "font-semibold text-red-400" : "text-white/70"}`}>{item.event}</span>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="ml-[30px] sm:ml-[46px]">
-            {[
-              { event: "Check-in", time: "7:30 AM", desc: "Arrive, get your camp t-shirt, and meet your group" },
-              { event: "Opening ceremony", time: "8:30 AM", desc: "Welcome address and camp overview" },
-              { event: "Football sessions", time: "9:00 AM", desc: "Position drills, technique work, and competitive reps" },
-              { event: "Soccer sessions", time: "9:00 AM", desc: "Skills training, small-sided games, and tactical sessions" },
-              { event: "Lunch break", time: "12:00 PM", desc: "Lunch provided for all registered athletes" },
-              { event: "Competitions", time: "1:00 PM", desc: "Head-to-head matchups and showcase games" },
-              { event: "Awards & closing", time: "4:00 PM", desc: "MVP awards, scholarship announcements, and group photo" },
-              { event: "Event ends", time: "5:00 PM", desc: "Pickup and departure" },
-            ].map((item, i) => (
-              <div key={item.event + i} className="flex items-start gap-5 border-b border-white/[0.04] py-5 last:border-0">
-                <p className="w-[72px] shrink-0 text-sm font-semibold tabular-nums text-white/80 sm:w-[88px] sm:text-base">{item.time}</p>
-                <div className="min-w-0">
-                  <p className="text-base font-semibold text-white sm:text-lg">{item.event}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-white/40 sm:text-sm">{item.desc}</p>
+          {/* Football */}
+          <div>
+            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">🏈</span>
+                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Football</h3>
                 </div>
+                <span className="text-xs font-semibold text-white/40">11:00 AM – 2:00 PM</span>
               </div>
-            ))}
+            </div>
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+              {[
+                { time: "11:00", event: "Check In (60 Min)", highlight: false },
+                { time: "12:00", event: "Introduction (10 Min)", highlight: false },
+                { time: "12:10", event: "Dynamic Warm Up (10 Min)", highlight: false },
+                { time: "12:20", event: "Break (5 Min)", highlight: false },
+                { time: "12:25", event: "Indy (15 Min)", highlight: false },
+                { time: "12:40", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "12:45", event: "Competition Station (10 Min)", highlight: false },
+                { time: "12:55", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "1:00", event: "Competition Station (10 Min)", highlight: false },
+                { time: "1:10", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "1:15", event: "Influencer Athlete Competition Station (10 Min)", highlight: "blue" },
+                { time: "1:25", event: "Parent Competition Station (5 Min)", highlight: false },
+                { time: "1:30", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "1:35", event: "Competition Station (10 Min)", highlight: false },
+                { time: "1:45", event: "Break (5 Min)", highlight: false },
+                { time: "1:50", event: "WHOLE GROUP Competition (10 Min)", highlight: false },
+                { time: "2:00", event: "Break — Speaking Engagement + Seminar", highlight: true },
+              ].map((item, i) => (
+                <div
+                  key={`football-${i}`}
+                  className={`flex items-center gap-4 border-b border-white/[0.04] px-4 py-3 last:border-0 transition hover:bg-white/[0.03] ${
+                    item.highlight === "blue" ? "bg-blue-500/10" : item.highlight ? "bg-red-500/10" : ""
+                  }`}
+                >
+                  <span className="w-[52px] shrink-0 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
+                  <span className={`text-sm ${item.highlight === "blue" ? "font-semibold text-blue-400" : item.highlight ? "font-semibold text-red-400" : "text-white/70"}`}>{item.event}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Legend */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-sm bg-red-500/30" />
+            <span className="text-xs text-white/40">Speaking Engagement + Seminar</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-sm bg-blue-500/30" />
+            <span className="text-xs text-white/40">Influencer Athlete Competition</span>
           </div>
         </div>
 

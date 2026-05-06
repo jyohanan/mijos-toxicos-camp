@@ -528,7 +528,7 @@ export default function AdminPage() {
                 value={settings.camp_date || ""}
                 onChange={(e) => setSettings((prev) => ({ ...prev, camp_date: e.target.value }))}
                 onBlur={(e) => updateSetting("camp_date", e.target.value)}
-                placeholder="June 13, 2026"
+                placeholder="July 11, 2026"
                 className="mt-2 w-full rounded-lg border border-white/[0.08] bg-white/[0.04] px-3 py-2 text-sm text-white outline-none focus:border-white/25"
               />
             </div>

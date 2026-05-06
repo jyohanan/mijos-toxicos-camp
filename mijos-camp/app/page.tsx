@@ -554,6 +554,75 @@ export default async function HomePage() {
             ))}
           </div>
         </div>
+
+        {/* Hats Row */}
+        <h3 className="mt-12 text-center text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-3xl">Mijo Culture Merch</h3>
+        <div className="mt-6 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-10 md:px-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {[
+              { name: "Black on Black Paisley", href: "https://mijoculture.com/products/black-on-black-paisley-sangre-azteca", img: "/mijo_hats /black_on_black.png" },
+              { name: "White on Black Paisley", href: "https://mijoculture.com/products/white-on-black-paisley-sangre-azteca", img: "/mijo_hats /black_on_white.png" },
+              { name: "Sangre Azteca Club Edition", href: "https://mijoculture.com/products/sangre-azteca-mijo-club-edition", img: "/mijo_hats /black_on_red.png" },
+            ].map((hat) => (
+              <div
+                key={hat.name}
+                className="w-[240px] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] sm:w-[280px]"
+              >
+                <div className="relative aspect-square overflow-hidden">
+                  <Image src={hat.img} alt={hat.name} fill className="object-cover transition duration-500 hover:scale-105" />
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-semibold text-white">{hat.name}</p>
+                  <p className="mt-1 text-sm text-white/50">$50</p>
+                  <a href={hat.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center justify-center rounded-xl bg-[#D4AF37] px-5 py-2 text-xs font-bold text-black transition hover:bg-[#C5A028]">
+                    Buy
+                  </a>
+                </div>
+              </div>
+            ))}
+            <a href="https://mijoculture.com" target="_blank" rel="noopener noreferrer" className="flex w-[240px] shrink-0 snap-start items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 text-center transition hover:border-white/[0.15] hover:bg-white/[0.05] sm:w-[280px]">
+              <div>
+                <p className="text-lg font-semibold text-white">Want to see more?</p>
+                <p className="mt-2 text-sm text-white/50">Visit the Mijo Culture shop →</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* Chicos Tóxicos Merch Row */}
+
+        <h3 className="mt-12 text-center text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-3xl">Chicos T&oacute;xicos Merch</h3>
+        <div className="mt-6 -mx-4 px-4 sm:-mx-6 sm:px-6 md:-mx-10 md:px-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide">
+            {[
+              { name: "I Love Toxico Black Tee", price: "$34.95", href: "https://www.zumiez.com/chicos-toxicos-i-love-toxico-black-t-shirt.html", img: "/ct_shirts/black_ct_shirt.png" },
+              { name: "Wish You Were My Toxica White Tee", price: "$34.95", href: "https://www.zumiez.com/chicos-toxicos-wish-you-were-my-toxica-white-t-shirt.html", img: "/ct_shirts/white_ct_shirt.png" },
+              { name: "In Toxicas We Trust Brown Tee", price: "$34.95", href: "https://www.zumiez.com/chicos-toxicos-in-toxicas-we-trust-brown-t-shirt.html", img: "/ct_shirts/brown_ct_shirt.png" },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className="w-[240px] shrink-0 snap-start overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] sm:w-[280px]"
+              >
+                <div className="relative aspect-square overflow-hidden">
+                  <Image src={item.img} alt={item.name} fill className="object-cover transition duration-500 hover:scale-105" />
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-semibold text-white">{item.name}</p>
+                  <p className="mt-1 text-sm text-white/50">{item.price}</p>
+                  <a href={item.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center justify-center rounded-xl bg-[#D4AF37] px-5 py-2 text-xs font-bold text-black transition hover:bg-[#C5A028]">
+                    Buy
+                  </a>
+                </div>
+              </div>
+            ))}
+            <a href="https://www.zumiez.com/brands/chicos-toxicos" target="_blank" rel="noopener noreferrer" className="flex w-[240px] shrink-0 snap-start items-center justify-center rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 text-center transition hover:border-white/[0.15] hover:bg-white/[0.05] sm:w-[280px]">
+              <div>
+                <p className="text-lg font-semibold text-white">Want to see more?</p>
+                <p className="mt-2 text-sm text-white/50">Visit the Chicos Tóxicos shop →</p>
+              </div>
+            </a>
+          </div>
+        </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>

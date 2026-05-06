@@ -39,6 +39,8 @@ export default function RegisterPage() {
   const [closed, setClosed] = useState(false);
   const [closedReason, setClosedReason] = useState("");
   const [checking, setChecking] = useState(true);
+  const [footballFull, setFootballFull] = useState(false);
+  const [soccerFull, setSoccerFull] = useState(false);
 
   useEffect(() => {
     fetch("/api/registration-status")
@@ -48,6 +50,8 @@ export default function RegisterPage() {
           setClosed(true);
           setClosedReason(data.reason);
         }
+        if (data.footballFull) setFootballFull(true);
+        if (data.soccerFull) setSoccerFull(true);
       })
       .catch(() => {})
       .finally(() => setChecking(false));
@@ -177,7 +181,7 @@ export default function RegisterPage() {
         {/* Form card */}
         <div className="rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d] p-7 sm:p-10">
           <div className="transition-opacity duration-300">
-            {step === 0 && <StepAthlete form={form} set={set} />}
+            {step === 0 && <StepAthlete form={form} set={set} footballFull={footballFull} soccerFull={soccerFull} />}
             {step === 1 && <StepParent form={form} set={set} />}
             {step === 2 && <StepMedical form={form} set={set} />}
             {step === 3 && <StepWaiver form={form} set={set} />}
@@ -234,13 +238,21 @@ const inputClass = "w-full rounded-xl border border-white/[0.08] bg-white/[0.04]
 
 // ── Step 1: Athlete ───────────────────────────────────────────────
 
-function StepAthlete({ form, set }: { form: RegistrationFormData; set: (f: keyof RegistrationFormData, v: string | boolean) => void }) {
+function StepAthlete({ form, set, footballFull, soccerFull }: { form: RegistrationFormData; set: (f: keyof RegistrationFormData, v: string | boolean) => void; footballFull: boolean; soccerFull: boolean }) {
+  const sportFull = (form.sport === "football" && footballFull) || (form.sport === "soccer" && soccerFull);
+
   return (
     <div className="space-y-5">
       <div>
         <h2 className="text-xl font-bold">Athlete Information</h2>
         <p className="mt-1 text-sm text-white/40">Tell us about the athlete registering for camp.</p>
       </div>
+
+      {sportFull && (
+        <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/10 px-4 py-3 text-sm text-yellow-400">
+          {form.sport === "football" ? "Football" : "Soccer"} registration is currently full. You may select the other sport or join the waitlist.
+        </div>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Athlete First Name" required>

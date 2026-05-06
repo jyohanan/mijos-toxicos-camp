@@ -1,8 +1,6 @@
 const sponsors = [
   { src: "/sponsors/srs-logo.svg", alt: "Spine Rehab Specialist" },
-  { src: "/sponsors/mijo.svg", alt: "Mijo Things Shop" },
-  { src: "/sponsors/rlm.webp", alt: "RLM Moving" },
-  { src: "/sponsors/empire.webp", alt: "Empire Food Trucks" },
+  { src: "/sponsors/mijo.png", alt: "Mijo Things Shop" },
   { src: "/sponsors/915-tours.webp", alt: "915 Tours" },
   { src: "/sponsors/bella-logo.webp", alt: "Bella Paloma Medspa & Wellness" },
   { src: "/sponsors/sprouts-logo.webp", alt: "Sprouts" },
@@ -22,8 +20,8 @@ export default function SponsorMarquee() {
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
 
         {/* Scrolling track */}
-        <div className="flex w-max animate-marquee items-center gap-16">
-          {[...sponsors, ...sponsors].map((s, i) => (
+        <div className="flex w-max animate-marquee items-center gap-10">
+          {[...sponsors, ...sponsors, ...sponsors].map((s, i) => (
             <div
               key={`${s.alt}-${i}`}
               className="flex h-12 w-32 shrink-0 items-center justify-center sm:w-40"

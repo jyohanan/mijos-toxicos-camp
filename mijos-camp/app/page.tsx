@@ -134,7 +134,6 @@ export default async function HomePage() {
               { src: "/will_mx.jpg", alt: "Will Hernandez" },
               { src: "/images/headshots/Joshua_Ortega .png", alt: "Joshua Ortega" },
               { src: "/images/headshots/Derek_Elmendorf.png", alt: "Derek Elmendorff" },
-              { src: "/mijos_group_photos.jpeg", alt: "Mijos group photo" },
               { src: "/images/mijos_bench_pic.png", alt: "Mijos on the bench" },
             ]}
           />

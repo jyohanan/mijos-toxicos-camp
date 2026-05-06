@@ -28,7 +28,7 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const settings = await getSettings();
 
-  const campDate = settings.camp_date || "June 13, 2026";
+  const campDate = settings.camp_date || "July 11, 2026";
   const campLocation = settings.camp_location || "LA";
   const campPrice = settings.registration_price || "99";
 

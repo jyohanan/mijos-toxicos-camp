@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     q: "When and where is the camp?",
-    a: "June 13, 2026. The location is TBD and will be announced soon. All registered families will be notified as soon as the venue is confirmed.",
+    a: "July 11, 2026. The location is TBD and will be announced soon. All registered families will be notified as soon as the venue is confirmed.",
   },
   {
     q: "How much does registration cost?",

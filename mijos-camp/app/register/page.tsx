@@ -161,7 +161,7 @@ export default function RegisterPage() {
         {/* Header */}
         <div className="mb-10 text-center">
           <h1 className="text-3xl font-black tracking-tight sm:text-4xl">Register Your Athlete</h1>
-          <p className="mt-3 text-base text-white/50">Mijos Tóxicos Football × Soccer Camp · June 13, 2026</p>
+          <p className="mt-3 text-base text-white/50">Mijos Tóxicos Football × Soccer Camp · July 11, 2026</p>
         </div>
 
         {/* Step indicator */}

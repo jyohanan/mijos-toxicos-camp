@@ -385,12 +385,12 @@ export default async function HomePage() {
           <h3 className="text-xl font-[var(--font-oswald)] font-bold uppercase tracking-wide bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-2xl text-center">Included with Registration</h3>
           <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { item: "Camp t-shirt", note: "Custom event tee in your size" },
+              { item: "Camp T-Shirt", note: "Custom event tee in your size" },
               { item: "Lunch", note: "Full meal provided on-site" },
-              { item: "Coaching & instruction", note: "From experienced coaches and athletes" },
-              { item: "Competition participation", note: "Showcase games and head-to-head matchups" },
-              { item: "Scholarship consideration", note: "Opt in during registration" },
-              { item: "All-day event access", note: "Full camp experience from check-in to close" },
+              { item: "Professional Coaching & Instruction", note: "From experienced coaches and athletes" },
+              { item: "Competition Stations", note: "Showcase games and head-to-head matchups" },
+              { item: "Competition Challenges", note: "Large-group competitions and giveaways" },
+              { item: "Scholarship Eligibility", note: "Opt in during registration" },
             ].map((entry) => (
               <div key={entry.item} className="flex items-start gap-4 border-b border-white/[0.04] py-4">
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />

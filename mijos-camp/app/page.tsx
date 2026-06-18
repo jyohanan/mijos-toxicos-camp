@@ -138,7 +138,7 @@ export default async function HomePage() {
             ]}
           />
           <div>
-            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">
               Meet the Mijos
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -163,7 +163,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <div className="order-2 lg:order-1">
-            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">
               Meet the Chicos T&oacute;xicos
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -195,8 +195,8 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 md:px-10 md:py-32" id="about">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">About the camp</p>
-            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">About the camp</p>
+            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl text-center">
               Built for the<br />next generation
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -252,56 +252,16 @@ export default async function HomePage() {
 
       {/* Camp Details */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32" id="details">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Camp Details</p>
-        <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">What to expect</h2>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">Camp Details</p>
+        <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">Mijos × Chicos Tóxicos Youth Camp Schedule</h2>
+        <p className="mt-4 text-center text-base text-white/55 sm:text-lg">Join us for a day of competition, community, culture, and unforgettable experiences alongside athletes, coaches, influencers, and special guests.</p>
+
+        {/* Tagline */}
+        <p className="mt-4 text-center text-base italic text-white/40 sm:text-lg">&ldquo;More Than a Camp — A Day of Competition, Community, Culture, and Opportunity.&rdquo;</p>
 
         {/* Schedule — Dual Sport Itinerary */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          {/* Soccer */}
-          <div>
-            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">⚽</span>
-                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Soccer</h3>
-                </div>
-                <span className="text-xs font-semibold text-white/40">8:00 AM – 11:00 AM</span>
-              </div>
-            </div>
-            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
-              {[
-                { time: "8:00", event: "Check In (60 Min)", highlight: false },
-                { time: "9:00", event: "Introduction (10 Min)", highlight: false },
-                { time: "9:10", event: "Dynamic Warm Up (10 Min)", highlight: false },
-                { time: "9:20", event: "Break (5 Min)", highlight: false },
-                { time: "9:25", event: "Indy (15 Min)", highlight: false },
-                { time: "9:40", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "9:45", event: "Competition Station (10 Min)", highlight: false },
-                { time: "9:55", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "10:00", event: "Competition Station (10 Min)", highlight: false },
-                { time: "10:10", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "10:15", event: "Influencer Athlete Competition Station (10 Min)", highlight: "blue" },
-                { time: "10:25", event: "Parent Competition Station (5 Min)", highlight: false },
-                { time: "10:30", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "10:35", event: "Competition Station (10 Min)", highlight: false },
-                { time: "10:45", event: "Break (5 Min)", highlight: false },
-                { time: "10:50", event: "WHOLE GROUP Competition (10 Min)", highlight: false },
-                { time: "11:00", event: "Break — Speaking Engagement + Seminar", highlight: true },
-              ].map((item, i) => (
-                <div
-                  key={`soccer-${i}`}
-                  className={`flex items-center gap-4 border-b border-white/[0.04] px-4 py-3 last:border-0 transition hover:bg-white/[0.03] ${
-                    item.highlight === "blue" ? "bg-blue-500/10" : item.highlight ? "bg-red-500/10" : ""
-                  }`}
-                >
-                  <span className="w-[52px] shrink-0 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
-                  <span className={`text-sm ${item.highlight === "blue" ? "font-semibold text-blue-400" : item.highlight ? "font-semibold text-red-400" : "text-white/70"}`}>{item.event}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Football */}
+          {/* Football — Morning */}
           <div>
             <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
               <div className="flex items-center justify-between">
@@ -309,58 +269,81 @@ export default async function HomePage() {
                   <span className="text-xl">🏈</span>
                   <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Football</h3>
                 </div>
-                <span className="text-xs font-semibold text-white/40">11:00 AM – 2:00 PM</span>
+                <span className="rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-xs font-bold tracking-wide text-[#D4AF37]">7:30 AM – 1:30 PM</span>
               </div>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
               {[
-                { time: "11:00", event: "Check In (60 Min)", highlight: false },
-                { time: "12:00", event: "Introduction (10 Min)", highlight: false },
-                { time: "12:10", event: "Dynamic Warm Up (10 Min)", highlight: false },
-                { time: "12:20", event: "Break (5 Min)", highlight: false },
-                { time: "12:25", event: "Indy (15 Min)", highlight: false },
-                { time: "12:40", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "12:45", event: "Competition Station (10 Min)", highlight: false },
-                { time: "12:55", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "1:00", event: "Competition Station (10 Min)", highlight: false },
-                { time: "1:10", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "1:15", event: "Influencer Athlete Competition Station (10 Min)", highlight: "blue" },
-                { time: "1:25", event: "Parent Competition Station (5 Min)", highlight: false },
-                { time: "1:30", event: "Break — Speaking Engagement + Seminar", highlight: true },
-                { time: "1:35", event: "Competition Station (10 Min)", highlight: false },
-                { time: "1:45", event: "Break (5 Min)", highlight: false },
-                { time: "1:50", event: "WHOLE GROUP Competition (10 Min)", highlight: false },
-                { time: "2:00", event: "Break — Speaking Engagement + Seminar", highlight: true },
+                { time: "7:30", event: "Athlete Check-In Opens", desc: "Athletes and families arrive for registration, credential verification, and event check-in. Families are encouraged to arrive early to ensure a smooth check-in experience before opening ceremonies begin.", highlight: "gold" },
+                { time: "9:00", event: "Opening Ceremony", desc: "The day officially begins with welcome remarks, guest speakers, athlete introductions, sponsor acknowledgements, and an overview of the day\u2019s activities", highlight: false },
+                { time: "9:25", event: "Transition to the Field", desc: "Athletes will move from the staging area to the field in preparation for the day\u2019s competitions and activities", highlight: false },
+                { time: "9:30", event: "Dynamic Warm-Up", desc: "All athletes will participate in a camp-wide warm-up led by coaches, trainers, and special guests to prepare for the day\u2019s challenges", highlight: false },
+                { time: "9:50", event: "Competition Stations", desc: "Athletes will rotate through a series of competition-based stations designed to challenge speed, athleticism, teamwork, and overall performance", highlight: false },
+                { time: "11:00", event: "Competition Challenges", desc: "The entire camp comes together for a series of exciting large-group competitions and showcase challenges", highlight: false },
+                { time: "12:00", event: "Closing Ceremony", desc: "Athletes, families, coaches, and guests gather for closing remarks, athlete recognition, sponsor acknowledgements, and final announcements", highlight: false },
+                { time: "12:30", event: "Photos, Food & Meet-and-Greet", desc: "Take photos with special guests, meet coaches and influencers, visit sponsor activations, enjoy food and refreshments, and connect with community partners", highlight: false },
+                { time: "1:00", event: "Event Concludes", desc: "Thank you for joining us for an unforgettable day of competition, community, and culture", highlight: false },
+                { time: "1:30", event: "Facility Reset", desc: "The football field will be fully cleared and prepared for afternoon programming", highlight: "gold" },
               ].map((item, i) => (
                 <div
                   key={`football-${i}`}
-                  className={`flex items-center gap-4 border-b border-white/[0.04] px-4 py-3 last:border-0 transition hover:bg-white/[0.03] ${
-                    item.highlight === "blue" ? "bg-blue-500/10" : item.highlight ? "bg-red-500/10" : ""
+                  className={`flex gap-4 border-b border-white/[0.04] px-4 py-3.5 last:border-0 transition hover:bg-white/[0.03] ${
+                    item.highlight === "gold" ? "bg-[#D4AF37]/[0.06]" : ""
                   }`}
                 >
-                  <span className="w-[52px] shrink-0 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
-                  <span className={`text-sm ${item.highlight === "blue" ? "font-semibold text-blue-400" : item.highlight ? "font-semibold text-red-400" : "text-white/70"}`}>{item.event}</span>
+                  <span className="w-[52px] shrink-0 pt-0.5 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
+                  <div className="min-w-0">
+                    <span className={`text-sm font-medium ${item.highlight === "gold" ? "text-[#D4AF37]" : "text-white/80"}`}>{item.event}</span>
+                    {item.desc && <p className="mt-0.5 text-xs leading-relaxed text-white/40">{item.desc}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Soccer — Afternoon */}
+          <div>
+            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-xl">⚽</span>
+                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Soccer</h3>
+                </div>
+                <span className="rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-xs font-bold tracking-wide text-[#D4AF37]">12:30 PM – 6:00 PM</span>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
+              {[
+                { time: "12:30", event: "Athlete Check-In Opens", desc: "Athletes and families arrive for registration, credential verification, and event check-in", highlight: "gold" },
+                { time: "2:00", event: "Opening Ceremony", desc: "Welcome remarks, guest speakers, athlete introductions, sponsor acknowledgements, and an overview of the day\u2019s activities", highlight: false },
+                { time: "2:25", event: "Transition to the Field", desc: "Athletes will move from the staging area to the field in preparation for the day\u2019s competitions and activities", highlight: false },
+                { time: "2:30", event: "Dynamic Warm-Up", desc: "All athletes will participate in a camp-wide warm-up led by coaches, trainers, and special guests", highlight: false },
+                { time: "2:50", event: "Competition Stations", desc: "Athletes will rotate through a series of competition-based stations designed to challenge speed, athleticism, teamwork, and overall performance", highlight: false },
+                { time: "4:00", event: "Competition Challenges", desc: "The entire camp comes together for a series of exciting large-group competitions and showcase challenges", highlight: false },
+                { time: "5:00", event: "Closing Ceremony", desc: "Athletes, families, coaches, and guests gather for closing remarks, athlete recognition, sponsor acknowledgements, and final announcements", highlight: false },
+                { time: "5:30", event: "Photos, Food & Meet-and-Greet", desc: "Take photos with special guests, meet coaches and influencers, visit sponsor activations, enjoy food and refreshments, and connect with community partners", highlight: false },
+                { time: "6:00", event: "Event Concludes / Teardown", desc: "Thank you for joining us for an unforgettable day of competition, community, and culture", highlight: "gold" },
+              ].map((item, i) => (
+                <div
+                  key={`soccer-${i}`}
+                  className={`flex gap-4 border-b border-white/[0.04] px-4 py-3.5 last:border-0 transition hover:bg-white/[0.03] ${
+                    item.highlight === "gold" ? "bg-[#D4AF37]/[0.06]" : ""
+                  }`}
+                >
+                  <span className="w-[52px] shrink-0 pt-0.5 text-xs font-semibold tabular-nums text-[#D4AF37]">{item.time}</span>
+                  <div className="min-w-0">
+                    <span className={`text-sm font-medium ${item.highlight === "gold" ? "text-[#D4AF37]" : "text-white/80"}`}>{item.event}</span>
+                    {item.desc && <p className="mt-0.5 text-xs leading-relaxed text-white/40">{item.desc}</p>}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Legend */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-6">
-          <div className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-sm bg-red-500/30" />
-            <span className="text-xs text-white/40">Speaking Engagement + Seminar</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-sm bg-blue-500/30" />
-            <span className="text-xs text-white/40">Influencer Athlete Competition</span>
-          </div>
-        </div>
-
         {/* What to Bring — Stacked rows */}
         <div className="mt-16 border-t border-white/[0.06] pt-12">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">What to bring</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50 text-center">What to bring</p>
           <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2">
             {[
               { item: "Athletic cleats", note: "Football or soccer specific" },
@@ -383,7 +366,7 @@ export default async function HomePage() {
 
         {/* Included — Stacked rows */}
         <div className="mt-12 border-t border-white/[0.06] pt-12">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">Included with registration</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50 text-center">Included with registration</p>
           <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { item: "Camp t-shirt", note: "Custom event tee in your size" },
@@ -411,8 +394,8 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35">Scholarships</p>
-            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35 text-center">Scholarships</p>
+            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl text-center">
               1 scholarship<br />per sport
             </h2>
             <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
@@ -450,8 +433,8 @@ export default async function HomePage() {
       {/* Gallery */}
       <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20" id="gallery">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">From the field</p>
-          <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">2025 Highlights</h2>
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">From the field</p>
+          <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">2025 Highlights</h2>
         </div>
         <div className="mx-auto mt-8 max-w-7xl">
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
@@ -480,8 +463,8 @@ export default async function HomePage() {
             </div>
             <div className="relative px-8 py-16 sm:px-12 md:py-20 lg:px-16">
               <div className="max-w-xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35">Ready to compete?</p>
-                <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">Ready to compete?</p>
+                <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl text-center">
                   Secure your<br />spot today
                 </h2>
                 <p className="mt-5 text-base leading-8 text-white/60 sm:text-lg">

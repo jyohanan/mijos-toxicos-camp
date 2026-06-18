@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
         athlete_first_name: body.athlete_first_name,
         athlete_last_name: body.athlete_last_name,
         athlete_age: parseInt(body.athlete_age),
-        athlete_dob: body.athlete_dob,
+        athlete_dob: body.athlete_dob || null,
         gender: body.gender,
         sport: body.sport,
         position: body.position || null,

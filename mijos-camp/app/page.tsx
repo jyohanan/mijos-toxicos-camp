@@ -86,11 +86,26 @@ export default async function HomePage() {
               Mijos<br />Tóxicos<br /><span className="text-white/40">Football × Soccer</span><br />Camp
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-8 text-white/65 sm:text-xl md:text-2xl">
-              Football. Soccer. Culture. Community. One day. 1,000 athletes.
+              Two camps. One day. Register for Football or Soccer based on your athlete&apos;s primary sport.
             </p>
             <div className="mt-8">
               <CountdownTimer />
             </div>
+
+            {/* Camp clarity cards */}
+            <div className="mt-8 grid w-full max-w-md grid-cols-2 gap-3">
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-center backdrop-blur-sm">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]/70">Morning</p>
+                <p className="mt-1 text-lg font-[var(--font-oswald)] font-bold uppercase text-white">Football</p>
+                <p className="mt-1 text-xs text-white/40">7:30 AM – 1:00 PM</p>
+              </div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-center backdrop-blur-sm">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]/70">Afternoon</p>
+                <p className="mt-1 text-lg font-[var(--font-oswald)] font-bold uppercase text-white">Soccer</p>
+                <p className="mt-1 text-xs text-white/40">12:30 PM – 6:00 PM</p>
+              </div>
+            </div>
+
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-[#D4AF37] px-7 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] transition hover:scale-[1.02] hover:bg-[#C5A028]">
                 Register Now

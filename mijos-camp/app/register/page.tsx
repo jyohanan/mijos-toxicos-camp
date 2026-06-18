@@ -99,7 +99,7 @@ export default function RegisterPage() {
 
   function validateStep(): boolean {
     if (step === 0) {
-      if (!form.athlete_first_name || !form.athlete_last_name || !form.athlete_age || !form.athlete_dob || !form.gender || !form.sport || !form.school_name || !form.grade || !form.shirt_size) {
+      if (!form.athlete_first_name || !form.athlete_last_name || !form.athlete_age || !form.gender || !form.sport || !form.school_name || !form.grade || !form.shirt_size) {
         setError("Please fill in all required fields.");
         return false;
       }
@@ -264,9 +264,6 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
         <Field label="Age" required>
           <input className={inputClass} type="number" min={13} max={18} value={form.athlete_age} onChange={e => set("athlete_age", e.target.value)} placeholder="Must be 13–18" />
         </Field>
-        <Field label="Date of Birth" required>
-          <input className={inputClass} type="date" value={form.athlete_dob} onChange={e => set("athlete_dob", e.target.value)} />
-        </Field>
         <Field label="Gender" required>
           <select className={inputClass} value={form.gender} onChange={e => set("gender", e.target.value)}>
             <option value="">Select gender</option>
@@ -295,9 +292,6 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
         <Field label="Jersey / Shirt Size" required>
           <select className={inputClass} value={form.shirt_size} onChange={e => set("shirt_size", e.target.value)}>
             <option value="">Select size</option>
-            <option value="YS">Youth Small (YS)</option>
-            <option value="YM">Youth Medium (YM)</option>
-            <option value="YL">Youth Large (YL)</option>
             <option value="S">Small (S)</option>
             <option value="M">Medium (M)</option>
             <option value="L">Large (L)</option>

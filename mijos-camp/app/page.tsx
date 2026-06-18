@@ -263,6 +263,19 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Mid-page CTA */}
+      <section className="px-4 py-16 sm:px-6 md:px-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">Ready to Register?</h2>
+          <p className="mt-4 text-base leading-8 text-white/55 sm:text-lg">Choose Football or Soccer and secure your athlete&apos;s spot today. Spaces are limited.</p>
+          <div className="mt-8">
+            <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-[#D4AF37] px-8 py-4 text-sm font-bold text-black shadow-[0_0_40px_rgba(212,175,55,0.3)] transition hover:scale-[1.02] hover:bg-[#C5A028]">
+              Register Now
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
 
       {/* Camp Details */}

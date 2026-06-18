@@ -410,7 +410,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
-            2 Scholarships. 1 Opportunity.
+            2 Scholarships.<br />1 Opportunity.
           </h2>
           <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
             The Mijo Foundation is committed to investing in the next generation of athletes. Two athletes will be awarded a $5,000 scholarship — one football athlete and one soccer athlete.

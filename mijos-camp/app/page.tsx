@@ -290,7 +290,7 @@ export default async function HomePage() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37]/60">Morning Session</p>
               <div className="mt-2 flex items-center justify-between">
                 <h3 className="text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-wide text-white">Football</h3>
-                <span className="text-sm font-semibold tabular-nums text-white/50">7:30 AM – 1:30 PM</span>
+                <span className="text-sm font-semibold tabular-nums text-white/50">7:30 AM – 12:30 PM</span>
               </div>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
@@ -302,9 +302,7 @@ export default async function HomePage() {
                 { time: "9:50", event: "Competition Stations", desc: "Speed, agility, team, and head-to-head matchup rotations", highlight: false },
                 { time: "11:00", event: "Competition Challenges", desc: "Influencers vs. Campers, 40-Yard Dash, Tug-of-War, and giveaways", highlight: false },
                 { time: "12:00", event: "Closing Ceremony", desc: "Athlete recognition and final announcements", highlight: false },
-                { time: "12:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: false },
-                { time: "1:00", event: "Event Concludes", desc: null, highlight: false },
-                { time: "1:30", event: "Facility Reset", desc: "Field cleared for afternoon programming", highlight: "gold" },
+                { time: "12:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: "gold" },
               ].map((item, i) => (
                 <div
                   key={`football-${i}`}
@@ -328,7 +326,7 @@ export default async function HomePage() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37]/60">Afternoon Session</p>
               <div className="mt-2 flex items-center justify-between">
                 <h3 className="text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-wide text-white">Soccer</h3>
-                <span className="text-sm font-semibold tabular-nums text-white/50">12:30 PM – 6:00 PM</span>
+                <span className="text-sm font-semibold tabular-nums text-white/50">12:30 PM – 5:30 PM</span>
               </div>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
@@ -340,8 +338,7 @@ export default async function HomePage() {
                 { time: "2:50", event: "Competition Stations", desc: "Speed, agility, team, and head-to-head matchup rotations", highlight: false },
                 { time: "4:00", event: "Competition Challenges", desc: "Influencers vs. Campers, Soccer Skills, Tug-of-War, and giveaways", highlight: false },
                 { time: "5:00", event: "Closing Ceremony", desc: "Athlete recognition and final announcements", highlight: false },
-                { time: "5:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: false },
-                { time: "6:00", event: "Event Concludes / Teardown", desc: null, highlight: "gold" },
+                { time: "5:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: "gold" },
               ].map((item, i) => (
                 <div
                   key={`soccer-${i}`}

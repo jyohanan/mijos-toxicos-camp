@@ -252,38 +252,31 @@ export default async function HomePage() {
 
       {/* Camp Details */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32" id="details">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">Camp Details</p>
-        <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">Mijos × Chicos Tóxicos Youth Camp Schedule</h2>
-        <p className="mt-4 text-center text-base text-white/55 sm:text-lg">Join us for a day of competition, community, culture, and unforgettable experiences alongside athletes, coaches, influencers, and special guests.</p>
-
-        {/* Tagline */}
-        <p className="mt-4 text-center text-base italic text-white/40 sm:text-lg">&ldquo;More Than a Camp — A Day of Competition, Community, Culture, and Opportunity.&rdquo;</p>
+        <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">Camp Schedule</h2>
 
         {/* Schedule — Dual Sport Itinerary */}
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
           {/* Football — Morning */}
           <div>
-            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">🏈</span>
-                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Football</h3>
-                </div>
-                <span className="rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-xs font-bold tracking-wide text-[#D4AF37]">7:30 AM – 1:30 PM</span>
+            <div className="mb-4 rounded-2xl border border-[#D4AF37]/20 px-6 py-6 backdrop-blur-xl" style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(255,255,255,0.02) 100%)", boxShadow: "inset 0 1px 0 0 rgba(212,175,55,0.12), 0 0 80px rgba(212,175,55,0.03)" }}>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37]/60">Morning Session</p>
+              <div className="mt-2 flex items-center justify-between">
+                <h3 className="text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-wide text-white">Football</h3>
+                <span className="text-sm font-semibold tabular-nums text-white/50">7:30 AM – 1:30 PM</span>
               </div>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
               {[
-                { time: "7:30", event: "Athlete Check-In Opens", desc: "Athletes and families arrive for registration, credential verification, and event check-in. Families are encouraged to arrive early to ensure a smooth check-in experience before opening ceremonies begin.", highlight: "gold" },
-                { time: "9:00", event: "Opening Ceremony", desc: "The day officially begins with welcome remarks, guest speakers, athlete introductions, sponsor acknowledgements, and an overview of the day\u2019s activities", highlight: false },
-                { time: "9:25", event: "Transition to the Field", desc: "Athletes will move from the staging area to the field in preparation for the day\u2019s competitions and activities", highlight: false },
-                { time: "9:30", event: "Dynamic Warm-Up", desc: "All athletes will participate in a camp-wide warm-up led by coaches, trainers, and special guests to prepare for the day\u2019s challenges", highlight: false },
-                { time: "9:50", event: "Competition Stations", desc: "Athletes rotate through speed, agility, team, and head-to-head matchup stations alongside coaches and special guests", highlight: false },
-                { time: "11:00", event: "Competition Challenges", desc: "Influencers vs. Campers, Fastest Camper, 40-Yard Dash, Tug-of-War, team challenges, and special giveaways", highlight: false },
-                { time: "12:00", event: "Closing Ceremony", desc: "Athletes, families, coaches, and guests gather for closing remarks, athlete recognition, sponsor acknowledgements, and final announcements", highlight: false },
-                { time: "12:30", event: "Photos, Food & Meet-and-Greet", desc: "Take photos with special guests, meet coaches and influencers, visit sponsor activations, enjoy food and refreshments, and connect with community partners", highlight: false },
-                { time: "1:00", event: "Event Concludes", desc: "Thank you for joining us for an unforgettable day of competition, community, and culture", highlight: false },
-                { time: "1:30", event: "Facility Reset", desc: "The football field will be fully cleared and prepared for afternoon programming", highlight: "gold" },
+                { time: "7:30", event: "Athlete Check-In Opens", desc: "Registration and credential verification", highlight: "gold" },
+                { time: "9:00", event: "Opening Ceremony", desc: "Welcome remarks, guest speakers, and athlete introductions", highlight: false },
+                { time: "9:25", event: "Transition to the Field", desc: null, highlight: false },
+                { time: "9:30", event: "Dynamic Warm-Up", desc: "Camp-wide warm-up led by coaches and special guests", highlight: false },
+                { time: "9:50", event: "Competition Stations", desc: "Speed, agility, team, and head-to-head matchup rotations", highlight: false },
+                { time: "11:00", event: "Competition Challenges", desc: "Influencers vs. Campers, 40-Yard Dash, Tug-of-War, and giveaways", highlight: false },
+                { time: "12:00", event: "Closing Ceremony", desc: "Athlete recognition and final announcements", highlight: false },
+                { time: "12:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: false },
+                { time: "1:00", event: "Event Concludes", desc: null, highlight: false },
+                { time: "1:30", event: "Facility Reset", desc: "Field cleared for afternoon programming", highlight: "gold" },
               ].map((item, i) => (
                 <div
                   key={`football-${i}`}
@@ -303,26 +296,24 @@ export default async function HomePage() {
 
           {/* Soccer — Afternoon */}
           <div>
-            <div className="mb-4 rounded-xl border border-white/[0.1] bg-white/[0.04] px-5 py-4 backdrop-blur-xl" style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">⚽</span>
-                  <h3 className="text-lg font-[var(--font-oswald)] font-bold uppercase tracking-tight text-white">Soccer</h3>
-                </div>
-                <span className="rounded-lg bg-[#D4AF37]/10 px-3 py-1 text-xs font-bold tracking-wide text-[#D4AF37]">12:30 PM – 6:00 PM</span>
+            <div className="mb-4 rounded-2xl border border-[#D4AF37]/20 px-6 py-6 backdrop-blur-xl" style={{ background: "linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(255,255,255,0.02) 100%)", boxShadow: "inset 0 1px 0 0 rgba(212,175,55,0.12), 0 0 80px rgba(212,175,55,0.03)" }}>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#D4AF37]/60">Afternoon Session</p>
+              <div className="mt-2 flex items-center justify-between">
+                <h3 className="text-2xl font-[var(--font-oswald)] font-bold uppercase tracking-wide text-white">Soccer</h3>
+                <span className="text-sm font-semibold tabular-nums text-white/50">12:30 PM – 6:00 PM</span>
               </div>
             </div>
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] overflow-hidden">
               {[
-                { time: "12:30", event: "Athlete Check-In Opens", desc: "Athletes and families arrive for registration, credential verification, and event check-in", highlight: "gold" },
-                { time: "2:00", event: "Opening Ceremony", desc: "Welcome remarks, guest speakers, athlete introductions, sponsor acknowledgements, and an overview of the day\u2019s activities", highlight: false },
-                { time: "2:25", event: "Transition to the Field", desc: "Athletes will move from the staging area to the field in preparation for the day\u2019s competitions and activities", highlight: false },
-                { time: "2:30", event: "Dynamic Warm-Up", desc: "All athletes will participate in a camp-wide warm-up led by coaches, trainers, and special guests", highlight: false },
-                { time: "2:50", event: "Competition Stations", desc: "Athletes rotate through speed, agility, team, and head-to-head matchup stations alongside coaches and special guests", highlight: false },
-                { time: "4:00", event: "Competition Challenges", desc: "Influencers vs. Campers, Fastest Camper, Soccer Skills, Tug-of-War, team challenges, and special giveaways", highlight: false },
-                { time: "5:00", event: "Closing Ceremony", desc: "Athletes, families, coaches, and guests gather for closing remarks, athlete recognition, sponsor acknowledgements, and final announcements", highlight: false },
-                { time: "5:30", event: "Photos, Food & Meet-and-Greet", desc: "Take photos with special guests, meet coaches and influencers, visit sponsor activations, enjoy food and refreshments, and connect with community partners", highlight: false },
-                { time: "6:00", event: "Event Concludes / Teardown", desc: "Thank you for joining us for an unforgettable day of competition, community, and culture", highlight: "gold" },
+                { time: "12:30", event: "Athlete Check-In Opens", desc: "Registration and credential verification", highlight: "gold" },
+                { time: "2:00", event: "Opening Ceremony", desc: "Welcome remarks, guest speakers, and athlete introductions", highlight: false },
+                { time: "2:25", event: "Transition to the Field", desc: null, highlight: false },
+                { time: "2:30", event: "Dynamic Warm-Up", desc: "Camp-wide warm-up led by coaches and special guests", highlight: false },
+                { time: "2:50", event: "Competition Stations", desc: "Speed, agility, team, and head-to-head matchup rotations", highlight: false },
+                { time: "4:00", event: "Competition Challenges", desc: "Influencers vs. Campers, Soccer Skills, Tug-of-War, and giveaways", highlight: false },
+                { time: "5:00", event: "Closing Ceremony", desc: "Athlete recognition and final announcements", highlight: false },
+                { time: "5:30", event: "Photos, Food & Meet-and-Greet", desc: "Photos with guests, food, and sponsor activations", highlight: false },
+                { time: "6:00", event: "Event Concludes / Teardown", desc: null, highlight: "gold" },
               ].map((item, i) => (
                 <div
                   key={`soccer-${i}`}
@@ -343,7 +334,7 @@ export default async function HomePage() {
 
         {/* What to Bring — Stacked rows */}
         <div className="mt-16 border-t border-white/[0.06] pt-12">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50 text-center">What to bring</p>
+          <h3 className="text-xl font-[var(--font-oswald)] font-bold uppercase tracking-wide bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-2xl text-center">What to Bring</h3>
           <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2">
             {[
               { item: "Athletic cleats", note: "Football or soccer specific" },
@@ -366,7 +357,7 @@ export default async function HomePage() {
 
         {/* Included — Stacked rows */}
         <div className="mt-12 border-t border-white/[0.06] pt-12">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50 text-center">Included with registration</p>
+          <h3 className="text-xl font-[var(--font-oswald)] font-bold uppercase tracking-wide bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-2xl text-center">Included with Registration</h3>
           <div className="mt-6 grid gap-x-12 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { item: "Camp t-shirt", note: "Custom event tee in your size" },
@@ -394,7 +385,6 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/35 text-center">Scholarships</p>
             <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl text-center">
               1 scholarship<br />per sport
             </h2>

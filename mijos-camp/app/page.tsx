@@ -408,37 +408,20 @@ export default async function HomePage() {
 
       {/* Scholarship */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-10 md:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl text-center">
-              1 scholarship<br />per sport
-            </h2>
-            <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
-              We believe every athlete deserves a shot regardless of financial situation. That&apos;s why we&apos;re awarding one $5,000 scholarship per sport — 2 total.
-            </p>
-            <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
-              To be considered, simply check the scholarship box during registration. Recipients will be selected and notified before the event.
-            </p>
-            <div className="mt-8">
-              <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-bold text-black transition hover:scale-[1.02]">
-                Apply During Registration
-              </Link>
-            </div>
-          </div>
-          <div className="space-y-0">
-            {[
-              { num: "01", title: "Football Scholarship", desc: "One $5,000 scholarship available for one football athlete." },
-              { num: "02", title: "Soccer Scholarship", desc: "One $5,000 scholarship available for one soccer athlete." },
-              { num: "03", title: "How to apply", desc: "Check the scholarship box on the registration form. No separate application needed. Recipients notified before the event." },
-            ].map((item) => (
-              <div key={item.title} className="flex items-start gap-5 border-b border-white/[0.06] py-6 first:pt-0 last:border-0 last:pb-0">
-                <span className="mt-0.5 text-sm font-bold tabular-nums text-white/20">{item.num}</span>
-                <div>
-                  <p className="text-base font-semibold text-white sm:text-lg">{item.title}</p>
-                  <p className="mt-1.5 text-base leading-8 text-white/45">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-[var(--font-oswald)] font-bold uppercase leading-tight tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl md:text-5xl">
+            2 Scholarships. 1 Opportunity.
+          </h2>
+          <p className="mt-6 text-base leading-8 text-white/60 sm:text-lg">
+            The Mijo Foundation is committed to investing in the next generation of athletes. Two athletes will be awarded a $5,000 scholarship — one football athlete and one soccer athlete.
+          </p>
+          <p className="mt-4 text-base leading-8 text-white/60 sm:text-lg">
+            To be considered, simply check the scholarship box during registration. No separate application needed. Recipients will be selected and notified before the event.
+          </p>
+          <div className="mt-8">
+            <Link href="/register" className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3.5 text-sm font-bold text-black transition hover:scale-[1.02]">
+              Apply During Registration
+            </Link>
           </div>
         </div>
       </section>

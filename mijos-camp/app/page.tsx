@@ -238,7 +238,7 @@ export default async function HomePage() {
           <h2 className="mt-4 text-center text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">The Mijo Experience</h2>
           <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
             <iframe
-              src="https://www.youtube.com/embed/9pb8xMMZAWw"
+              src="https://www.youtube.com/embed/5T_q7kcxAg0"
               title="Mijos Tóxicos Camp 2025 Highlights"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

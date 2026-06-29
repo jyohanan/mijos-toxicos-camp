@@ -36,10 +36,12 @@ export async function POST(req: NextRequest) {
 
     if (!reg) return NextResponse.json({ received: true });
 
-    // Send confirmation email to parent
+    // Send confirmation email to parent (BCC admins)
+    const bccEmails = ["jyohanan25@gmail.com", "Jbovrlperformance@gmail.com", "jortega@mijoculture.com", "CoachE@bmfsports.org"];
     await resend.emails.send({
       from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
       to: reg.parent_email,
+      bcc: bccEmails,
       subject: "Registration Confirmed – Mijos Tóxicos Dual Sports Camp",
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;background:#050505;color:#fff;padding:32px;border-radius:16px;">
@@ -54,7 +56,12 @@ export async function POST(req: NextRequest) {
             <p style="margin:4px 0;">Grade: ${reg.grade}</p>
             <p style="margin:4px 0;">Shirt Size: ${reg.shirt_size}</p>
           </div>
-          <p style="color:#aaa;font-size:13px;">More details about check-in time, location, and what to bring will be sent closer to the event. Stay tuned!</p>
+          <div style="background:#111;border-radius:12px;padding:16px;margin:24px 0;">
+            <p style="margin:0 0 8px;color:#aaa;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;">Camp Location</p>
+            <p style="margin:4px 0;font-weight:bold;">Lawndale High School</p>
+            <p style="margin:4px 0;">14901 S Inglewood Ave, Lawndale, CA 90260</p>
+          </div>
+          <p style="color:#aaa;font-size:13px;">More details about check-in time and what to bring will be sent closer to the event. Stay tuned!</p>
           <p style="margin-top:24px;">See you on June 13 🔥</p>
         </div>
       `,

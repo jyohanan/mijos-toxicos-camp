@@ -1,9 +1,4 @@
 const sponsors = [
-  { src: "/sponsors/srs-logo.svg", alt: "Spine Rehab Specialist" },
-  { src: "/sponsors/mijo.png", alt: "Mijo Things Shop" },
-  { src: "/sponsors/915-tours.webp", alt: "915 Tours" },
-  { src: "/sponsors/bella-logo.webp", alt: "Bella Paloma Medspa & Wellness" },
-  { src: "/sponsors/sprouts-logo.webp", alt: "Sprouts" },
   { src: "/sponsors/elg.png", alt: "ELG" },
   { src: "/sponsors/foy.png", alt: "FOY" },
 ];

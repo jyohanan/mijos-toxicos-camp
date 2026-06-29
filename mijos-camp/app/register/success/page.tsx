@@ -5,7 +5,7 @@ export default function SuccessPage() {
     <main className="min-h-screen bg-[#050505] text-white flex items-center justify-center px-4">
       <div className="mx-auto max-w-lg text-center">
         <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/[0.06] text-3xl">
-          🏈
+          ✓
         </div>
         <h1 className="text-3xl font-black tracking-tight">You&apos;re in!</h1>
         <p className="mt-3 text-white/60">

@@ -95,7 +95,6 @@ export async function POST(req: NextRequest) {
               <p style="margin:0;color:#fff;font-size:22px;font-weight:800;">July 11, 2026</p>
             </div>
 
-            <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;margin:0 0 8px;">More details about check-in time and what to bring will be sent closer to the event.</p>
             <p style="color:#fff;font-size:15px;font-weight:600;margin:24px 0 0;">See you on the field</p>
           </div>
 

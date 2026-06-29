@@ -42,12 +42,11 @@ export async function POST(req: NextRequest) {
       from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
       to: reg.parent_email,
       bcc: bccEmails,
-      subject: "✅ Registration Confirmed – Mijos Tóxicos Dual Sports Camp",
+      subject: "Registration Confirmed – Mijos Tóxicos Dual Sports Camp",
       html: `
         <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
           <!-- Header with gradient -->
           <div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:48px 32px 40px;text-align:center;">
-            <p style="font-size:48px;margin:0 0 12px;">🏈⚽</p>
             <h1 style="font-size:28px;font-weight:900;color:#fff;margin:0 0 8px;letter-spacing:-0.5px;">You're In!</h1>
             <p style="color:rgba(255,255,255,0.6);font-size:14px;margin:0;">Mijos Tóxicos Dual Sports Camp</p>
           </div>
@@ -85,7 +84,7 @@ export async function POST(req: NextRequest) {
 
             <!-- Location Card -->
             <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:24px;margin:0 0 28px;">
-              <p style="margin:0 0 14px;color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;">📍 Camp Location</p>
+              <p style="margin:0 0 14px;color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;">Camp Location</p>
               <p style="margin:0 0 4px;color:#fff;font-size:15px;font-weight:700;">Lawndale High School</p>
               <p style="margin:0;color:rgba(255,255,255,0.6);font-size:14px;">14901 S Inglewood Ave, Lawndale, CA 90260</p>
             </div>
@@ -93,11 +92,11 @@ export async function POST(req: NextRequest) {
             <!-- Date highlight -->
             <div style="text-align:center;padding:20px;background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,140,0,0.08));border:1px solid rgba(255,215,0,0.15);border-radius:14px;margin:0 0 28px;">
               <p style="margin:0 0 4px;color:rgba(255,255,255,0.5);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;">Save the Date</p>
-              <p style="margin:0;color:#fff;font-size:22px;font-weight:800;">June 13, 2026</p>
+              <p style="margin:0;color:#fff;font-size:22px;font-weight:800;">July 11, 2026</p>
             </div>
 
             <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.6;margin:0 0 8px;">More details about check-in time and what to bring will be sent closer to the event.</p>
-            <p style="color:#fff;font-size:15px;font-weight:600;margin:24px 0 0;">See you on the field 🔥</p>
+            <p style="color:#fff;font-size:15px;font-weight:600;margin:24px 0 0;">See you on the field</p>
           </div>
 
           <!-- Footer -->

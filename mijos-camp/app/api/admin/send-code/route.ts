@@ -1,12 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { resend } from "@/lib/resend";
 import { isAdminEmail } from "@/lib/admin";
-
-// Simple in-memory store for OTP codes (resets on server restart)
-// For production, consider storing in Supabase or Redis
-const otpStore = new Map<string, { code: string; expires: number }>();
-
-export { otpStore };
+import { supabaseAdmin } from "@/lib/supabase";
 
 export async function POST(req: NextRequest) {
   const { email } = await req.json();
@@ -17,9 +12,12 @@ export async function POST(req: NextRequest) {
   }
 
   const code = Math.floor(100000 + Math.random() * 900000).toString();
-  const expires = Date.now() + 10 * 60 * 1000; // 10 minutes
+  const expiresAt = Date.now() + 10 * 60 * 1000; // 10 minutes
 
-  otpStore.set(email, { code, expires });
+  // Store OTP in Supabase (upsert to handle re-sends)
+  await supabaseAdmin
+    .from("admin_otp")
+    .upsert({ email, code, expires_at: expiresAt }, { onConflict: "email" });
 
   try {
     await resend.emails.send({

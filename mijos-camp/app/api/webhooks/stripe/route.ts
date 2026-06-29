@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     // Send confirmation email to parent
     await resend.emails.send({
-      from: "Mijos Tóxicos Camp <noreply@mijoculture.com>",
+      from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
       to: reg.parent_email,
       subject: "Registration Confirmed – Mijos Tóxicos Dual Sports Camp",
       html: `
@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
 
     // Notify admin
     await resend.emails.send({
-      from: "Mijos Tóxicos Camp <noreply@mijoculture.com>",
+      from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
       to: process.env.ADMIN_EMAIL!,
       subject: `New Registration: ${reg.athlete_first_name} ${reg.athlete_last_name} (${reg.sport})`,
       html: `

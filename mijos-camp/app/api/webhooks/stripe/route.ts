@@ -61,9 +61,10 @@ export async function POST(req: NextRequest) {
     });
 
     // Notify admin
+    const adminEmails = process.env.ADMIN_EMAIL!.split(",").map((e) => e.trim());
     await resend.emails.send({
       from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
-      to: process.env.ADMIN_EMAIL!,
+      to: adminEmails,
       subject: `New Registration: ${reg.athlete_first_name} ${reg.athlete_last_name} (${reg.sport})`,
       html: `
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">

@@ -10,17 +10,8 @@ import { getSettings } from "@/lib/settings";
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#details", label: "Details" },
-  { href: "#gallery", label: "Gallery" },
   { href: "/faq", label: "FAQ" },
   { href: "#register", label: "Register" },
-];
-
-const galleryImages = [
-  { src: "/images/group_picture_2025.jpeg", alt: "Group photo 2025" },
-  { src: "/images/kids_huddle_2025.jpeg", alt: "Kids huddle 2025" },
-  { src: "/images/kids_lined_up_2025.jpeg", alt: "Kids lined up 2025" },
-  { src: "/images/hands_in_2025.jpeg", alt: "Hands in 2025" },
-  { src: "/images/will_speaking_2025.jpeg", alt: "Will speaking 2025" },
 ];
 
 export const dynamic = "force-dynamic";
@@ -246,23 +237,6 @@ export default async function HomePage() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
 
-      {/* Promo Video */}
-      <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/35">See it in action</p>
-          <h2 className="mt-4 text-center text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl">The Mijo Experience</h2>
-          <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0d0d0d]">
-            <iframe
-              src="https://www.youtube.com/embed/5T_q7kcxAg0"
-              title="Mijos Tóxicos Camp 2025 Highlights"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="aspect-video w-full"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Mid-page CTA */}
       <section className="px-4 py-16 sm:px-6 md:px-10">
         <div className="mx-auto max-w-2xl text-center">
@@ -427,24 +401,6 @@ export default async function HomePage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-10"><div className="divider-mx" /></div>
-
-      {/* Gallery */}
-      <section className="px-4 py-16 sm:px-6 md:px-10 md:py-20" id="gallery">
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/35 text-center">From the field</p>
-          <h2 className="mt-4 text-3xl font-[var(--font-oswald)] font-bold uppercase tracking-tight bg-gradient-to-r from-green-500 via-white to-red-500 bg-clip-text text-transparent sm:text-4xl text-center">2025 Highlights</h2>
-        </div>
-        <div className="mx-auto mt-8 max-w-7xl">
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-            {galleryImages.map((img, i) => (
-              <div key={img.src} className={`group relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 aspect-[16/9] md:col-span-1 md:aspect-[4/5]" : "aspect-square"}`}>
-                <Image src={img.src} alt={img.alt} fill className="object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/20" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Sponsors */}
       <SponsorMarquee />

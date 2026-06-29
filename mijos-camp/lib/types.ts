@@ -36,4 +36,6 @@ export interface RegistrationFormData {
 
   // Waivers
   waiver_accepted: boolean;
+  waiver_photo_accepted: boolean;
+  waiver_adult_accepted: boolean;
 }

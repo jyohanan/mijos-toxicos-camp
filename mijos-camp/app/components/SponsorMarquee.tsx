@@ -4,6 +4,8 @@ const sponsors = [
   { src: "/sponsors/915-tours.webp", alt: "915 Tours" },
   { src: "/sponsors/bella-logo.webp", alt: "Bella Paloma Medspa & Wellness" },
   { src: "/sponsors/sprouts-logo.webp", alt: "Sprouts" },
+  { src: "/sponsors/elg.png", alt: "ELG" },
+  { src: "/sponsors/foy.png", alt: "FOY" },
 ];
 
 export default function SponsorMarquee() {

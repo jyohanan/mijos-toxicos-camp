@@ -29,6 +29,8 @@ const defaultForm: RegistrationFormData = {
   heard_from: "",
   scholarship_interest: false,
   waiver_accepted: false,
+  waiver_photo_accepted: false,
+  waiver_adult_accepted: false,
 };
 
 export default function RegisterPage() {
@@ -120,8 +122,8 @@ export default function RegisterPage() {
       }
     }
     if (step === 3) {
-      if (!form.waiver_accepted) {
-        setError("You must accept the waiver to continue.");
+      if (!form.waiver_accepted || !form.waiver_photo_accepted || !form.waiver_adult_accepted) {
+        setError("You must accept all three waivers to continue.");
         return false;
       }
     }
@@ -297,6 +299,7 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
             <option value="L">Large (L)</option>
             <option value="XL">X-Large (XL)</option>
             <option value="XXL">XX-Large (XXL)</option>
+            <option value="3XL">3X-Large (3XL)</option>
           </select>
         </Field>
       </div>
@@ -384,72 +387,86 @@ function StepMedical({ form, set }: { form: RegistrationFormData; set: (f: keyof
   );
 }
 
-// ── Step 4: Waiver ────────────────────────────────────────────────
+// ── Step 4: Waivers ───────────────────────────────────────────────
 
 function StepWaiver({ form, set }: { form: RegistrationFormData; set: (f: keyof RegistrationFormData, v: string | boolean) => void }) {
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold">Waiver & Consent</h2>
-        <p className="mt-1 text-sm text-white/40">Please read and accept before proceeding to payment.</p>
+        <h2 className="text-xl font-bold">Waivers & Consent</h2>
+        <p className="mt-1 text-sm text-white/40">Please read and accept all three waivers before proceeding to payment.</p>
       </div>
-      <div className="max-h-80 space-y-5 overflow-y-auto rounded-xl border border-white/[0.08] bg-white/[0.02] p-5 text-sm leading-7 text-white/55">
-        <div>
-          <p className="mb-1 font-semibold text-white/80">1. Assumption of Risk & Liability Waiver</p>
-          <p>I, the undersigned parent or legal guardian, acknowledge that participation in the Mijos Tóxicos Football × Soccer Camp (&quot;the Event&quot;) involves inherent risks, including but not limited to physical contact, falls, collisions, sprains, fractures, concussions, heat-related illness, and other injuries that may result from athletic activity. I understand that these risks exist regardless of the precautions taken by the Event organizers.</p>
-          <p className="mt-2">On behalf of myself and my minor child (&quot;the Participant&quot;), I voluntarily assume all risks associated with participation in the Event. I hereby release, waive, discharge, and hold harmless the Event organizers, sponsors, staff, coaches, volunteers, venue owners, and their respective officers, directors, employees, agents, and affiliates (collectively, &quot;Released Parties&quot;) from any and all liability, claims, demands, actions, or causes of action arising out of or related to any loss, damage, or injury, including death, that may be sustained by the Participant during or in connection with the Event.</p>
+
+      {/* Waiver 1: Release & Indemnification (Minor) */}
+      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+        <div className="border-b border-white/[0.06] px-5 py-3">
+          <p className="text-sm font-semibold text-white">1. Release & Indemnification Form (Minor)</p>
         </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">2. Medical Treatment Authorization & Consent</p>
-          <p>I authorize the Event staff and medical personnel to administer first aid and/or obtain emergency medical treatment for the Participant in the event of injury or illness during the Event if I cannot be reached in a timely manner. I understand that I am financially responsible for any medical expenses incurred as a result of such treatment.</p>
-          <p className="mt-2">I confirm that the Participant is physically fit to participate in athletic activities and that I have disclosed all known medical conditions, allergies, and injuries in the registration form. I understand it is my responsibility to ensure the accuracy and completeness of this information.</p>
+        <div className="max-h-60 overflow-y-auto p-5 text-xs leading-6 text-white/50">
+          <p>I, the undersigned parent or legal guardian, individually and on behalf of my child/ward, do hereby knowingly and voluntarily enter into this agreement.</p>
+          <p className="mt-3">I understand and acknowledge the dangers and risks inherent in the game of football and soccer, including <strong className="text-white/70">SERIOUS BODILY INJURY OR DEATH</strong>, and I knowingly and voluntarily accept and assume such risk, both individually and on behalf of my participating child/ward. I expressly acknowledge that the INJURIES RECEIVED MAY BE COMPOUNDED OR INCREASED BY NEGLIGENT RESCUE OPERATIONS OR PROCEDURES OF THE RELEASEES.</p>
+          <p className="mt-3">For good and valuable consideration, I, on behalf of myself, my child/ward, and either of our executors, heirs, assigns, and anyone authorized by any of them, hereby release, discharge, and agree to hold harmless MIJO THINGS LLC, its affiliates, agents, employees, officers, directors, shareholders, owners, managers, members, successors or assigns (collectively, the &quot;Releasees&quot;), from and against any and all right, claim, demand, action, cause of action, suit and/or litigation for any economic and/or non-economic losses on account of any damage to person or property, including but not limited to bodily injury, death, disability or other damage sustained relating in any manner to the participation of my child/ward in the Event whether caused in whole or in part, by the sole or concurrent negligence or wrongdoings, of the Releasees or otherwise.</p>
+          <p className="mt-3">I understand and acknowledge that the Releasees have not arranged for and do not carry insurance of any kind for my benefit relative to my child/ward&apos;s participation in the Event. I am solely responsible for obtaining and paying for any insurance I may desire. If my child/ward needs medical treatment, I agree to be financially responsible for any costs incurred.</p>
+          <p className="mt-3">I hereby forever release, waive, discharge and covenant not to sue Releasees for any loss or damage on account of any property damage, loss or theft, or any injury to, or an illness or the death of, my child/ward whether caused by the negligence, active or passive, of a Releasee or otherwise.</p>
+          <p className="mt-3">I agree to indemnify, defend, and hold harmless the Releasees from and against any and all costs, expenses, damages, claims, lawsuits, judgments, losses, and/or liabilities (including attorneys&apos; fees) arising from any claims made by or against any of the Releasees due to bodily injury, property damage, injury, illness, or death of my child/ward.</p>
+          <p className="mt-3">This Release is governed by the laws of the State of California. Jurisdiction within the applicable State Court in the County of Los Angeles.</p>
+          <p className="mt-3 font-semibold text-white/70">I understand that I have given up substantial rights by signing this Release and have signed it freely and voluntarily without any inducement, and I INTEND MY SIGNATURE TO BE A COMPLETE AND UNCONDITIONAL RELEASE of all liability to the greatest extent allowed by law.</p>
         </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">3. Photo, Video & Media Release</p>
-          <p>I grant the Event organizers and their affiliates the irrevocable right and permission to photograph, film, and record the Participant during the Event, and to use, reproduce, distribute, display, and publish such images, video, and audio recordings in any media or format, including but not limited to social media, websites, print materials, and promotional content, without compensation or further notice.</p>
-          <p className="mt-2">I waive any right to inspect or approve the finished product or the use to which it may be applied. I release the Released Parties from any claims arising from the use of such media.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">4. Code of Conduct</p>
-          <p>I understand that the Participant is expected to demonstrate good sportsmanship, respect for coaches, staff, volunteers, and fellow athletes, and to follow all Event rules and instructions. The Event organizers reserve the right to remove any participant whose behavior is deemed disruptive, dangerous, or unsportsmanlike, without refund.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">5. Personal Property</p>
-          <p>I understand that the Event organizers are not responsible for any lost, stolen, or damaged personal property brought to the Event by the Participant or myself. All personal belongings are brought at our own risk.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">6. Weather & Event Modifications</p>
-          <p>I understand that the Event may be modified, delayed, or cancelled due to weather conditions, safety concerns, or other circumstances beyond the organizers&apos; control. In the event of a full cancellation by the organizers, a full refund will be issued. Partial modifications or schedule changes do not entitle registrants to a refund.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">7. Refund & Cancellation Policy</p>
-          <p>All registration fees are non-refundable and non-transferable. No refunds will be issued for voluntary withdrawal, no-shows, or removal due to conduct violations. In the event the camp is fully cancelled by the organizers, a full refund will be issued to the original payment method.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">8. Indemnification</p>
-          <p>I agree to indemnify, defend, and hold harmless the Released Parties from any and all claims, liabilities, damages, costs, and expenses (including reasonable attorney&apos;s fees) arising out of or related to the Participant&apos;s involvement in the Event, including any claims brought by third parties.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">9. Governing Law</p>
-          <p>This waiver shall be governed by and construed in accordance with the laws of the state in which the Event is held. Any disputes arising under this agreement shall be resolved in the courts of that state.</p>
-        </div>
-        <div>
-          <p className="mb-1 font-semibold text-white/80">10. Acknowledgement</p>
-          <p>I have read this waiver and release in its entirety. I fully understand its terms and conditions. I acknowledge that I am giving up substantial rights, including the right to sue. I sign this agreement freely and voluntarily without any inducement.</p>
+        <div className="border-t border-white/[0.06] px-5 py-3">
+          <label className="flex cursor-pointer items-start gap-3">
+            <input type="checkbox" checked={form.waiver_accepted} onChange={e => set("waiver_accepted", e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white" />
+            <span className="text-sm text-white/75">I have read and agree to the Release & Indemnification Form on behalf of my minor child/ward.</span>
+          </label>
         </div>
       </div>
 
-      <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
-        <input
-          type="checkbox"
-          checked={form.waiver_accepted}
-          onChange={e => set("waiver_accepted", e.target.checked)}
-          className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white"
-        />
-        <span className="text-sm text-white/75">
-          I have read and agree to the liability waiver, medical treatment consent, photo/video release, and refund policy on behalf of my athlete. This serves as my digital signature.
-        </span>
-      </label>
+      {/* Waiver 2: Photo/Video Release */}
+      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+        <div className="border-b border-white/[0.06] px-5 py-3">
+          <p className="text-sm font-semibold text-white">2. Participant Video/Photo Release Form</p>
+        </div>
+        <div className="max-h-60 overflow-y-auto p-5 text-xs leading-6 text-white/50">
+          <p>In consideration for my child/ward&apos;s participation in the MIJO Sports Camp (the &quot;Event&quot;) and all activities provided at the Event, I hereby irrevocably grant to MIJO Things LLC (&quot;MIJO&quot;) the following rights in connection with recordings created at the Event:</p>
+          <p className="mt-3">I grant to MIJO every consent to enable MIJO to take any photographs, films and/or audio and/or audio-visual recordings of the participant (collectively, &quot;the Recordings&quot;).</p>
+          <p className="mt-3">I grant to MIJO the right to use and exploit the Recordings whether alone or in conjunction with other photographs and/or recordings in such manner as MIJO may wish in connection with the production, promotion and exploitation of any audio recordings and/or footage derived from the Recordings in any and all media and processes throughout the universe in perpetuity.</p>
+          <p className="mt-3">I grant to MIJO the unrestricted right to use the participant&apos;s name, voice and likeness without further payment in connection with any use of the Recordings.</p>
+          <p className="mt-3">I acknowledge that MIJO will be the sole owner of the Recordings and of the entire copyright and all other rights therein throughout the world for the full period of copyright and any extensions thereof.</p>
+          <p className="mt-3">I waive the benefit of any &quot;moral rights&quot; arising pursuant to applicable law in perpetuity.</p>
+          <p className="mt-3">MIJO shall be entitled to assign or license the whole or any part of the benefit of this Release to any third party.</p>
+          <p className="mt-3">This Release shall be governed by and construed in accordance with California law. Each party consents to exclusive jurisdiction and venue of the state or federal courts located within Los Angeles County, California.</p>
+        </div>
+        <div className="border-t border-white/[0.06] px-5 py-3">
+          <label className="flex cursor-pointer items-start gap-3">
+            <input type="checkbox" checked={form.waiver_photo_accepted} onChange={e => set("waiver_photo_accepted", e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white" />
+            <span className="text-sm text-white/75">I have read and agree to the Video/Photo Release Form. I consent to the use of my child/ward&apos;s likeness in connection with the Event.</span>
+          </label>
+        </div>
+      </div>
+
+      {/* Waiver 3: Adult Release & Indemnification */}
+      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+        <div className="border-b border-white/[0.06] px-5 py-3">
+          <p className="text-sm font-semibold text-white">3. Release & Indemnification Form (Adult/Guardian)</p>
+        </div>
+        <div className="max-h-60 overflow-y-auto p-5 text-xs leading-6 text-white/50">
+          <p>I, the parent/guardian, hereby knowingly and voluntarily enter into this agreement on my own behalf as an attendee at the Event.</p>
+          <p className="mt-3">I understand and acknowledge the dangers and risks inherent in attending a football and soccer event, including <strong className="text-white/70">SERIOUS BODILY INJURY OR DEATH</strong>, and I knowingly and voluntarily accept and assume such risk.</p>
+          <p className="mt-3">For good and valuable consideration, I, on behalf of myself, my executors, heirs, assigns, and anyone authorized by any of them, hereby release, discharge, and agree to hold harmless MIJO THINGS LLC, its affiliates, agents, employees, officers, directors, shareholders, owners, managers, members, successors or assigns (collectively, the &quot;Releasees&quot;), from and against any and all claims for any economic and/or non-economic losses on account of any damage to person or property, including but not limited to bodily injury, death, disability or other damage sustained by me relating to my attendance at the Event.</p>
+          <p className="mt-3">I understand that the Releasees have not arranged for and do not carry insurance of any kind for my benefit. I am solely responsible for obtaining any insurance I may desire. If I need medical treatment, I agree to be financially responsible for any costs incurred.</p>
+          <p className="mt-3">I hereby forever release, waive, discharge and covenant not to sue Releasees for any loss or damage on account of any property damage, loss or theft, or any injury to, or an illness or the death of, me whether caused by the negligence, active or passive, of a Releasee or otherwise while I am an attendee at the Event.</p>
+          <p className="mt-3">I agree to indemnify, defend, and hold harmless the Releasees from and against any and all costs, expenses, damages, claims, lawsuits, judgments, losses, and/or liabilities arising from any claims related to my attendance.</p>
+          <p className="mt-3">This Release is governed by the laws of the State of California. Jurisdiction within the applicable State Court in the County of Los Angeles.</p>
+          <p className="mt-3 font-semibold text-white/70">I understand that I have given up substantial rights by signing this Release and have signed it freely and voluntarily without any inducement, and I INTEND MY SIGNATURE TO BE A COMPLETE AND UNCONDITIONAL RELEASE of all liability to the greatest extent allowed by law.</p>
+        </div>
+        <div className="border-t border-white/[0.06] px-5 py-3">
+          <label className="flex cursor-pointer items-start gap-3">
+            <input type="checkbox" checked={form.waiver_adult_accepted} onChange={e => set("waiver_adult_accepted", e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white" />
+            <span className="text-sm text-white/75">I have read and agree to the Adult Release & Indemnification Form on my own behalf as the attending parent/guardian.</span>
+          </label>
+        </div>
+      </div>
+
+      <p className="text-xs text-white/30 text-center">By checking all boxes above, you are digitally signing these agreements.</p>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: "Mijos Camp Admin <onboarding@resend.dev>",
+      from: "Mijos Camp Admin <camp@mijostoxicos.com>",
       to: email,
       subject: "Your admin access code",
       html: `

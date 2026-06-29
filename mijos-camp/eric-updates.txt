@@ -1,0 +1,70 @@
+HERO SECTION / FIRST IMPRESSION
+
+One of the biggest opportunities is making it immediately clear what this event actually is.
+
+CAMP STRUCTURE
+
+Parents should immediately understand that this is not a combined football and soccer camp.
+
+I would recommend adding a dedicated section that clearly explains:
+
+FOOTBALL CAMP
+Morning Session
+Check-In: 7:30 AM
+Programming: 9:00 AM – 1:00 PM
+
+SOCCER CAMP
+Afternoon Session
+Check-In: 12:30 PM
+Programming: 2:00 PM – 6:00 PM
+
+We should also add a note that athletes register for either Football or Soccer based on their primary sport.
+
+CALL TO ACTION
+
+After the “Mijo Experience” section, I’d like to place another registration call-to-action.
+
+At that point, visitors should have enough information to make a registration decision, and we should give them an opportunity to act before continuing down the page.
+
+SCHEDULE SECTION
+
+Please remove any operational language that is intended for staff rather than families.
+
+Examples:
+• Facility Reset
+• Event Teardown
+• Field Clear
+• Other setup or breakdown references
+
+Parents only need to see the athlete experience.
+
+INCLUDED WITH REGISTRATION
+
+Please remove “All-Day Event Access.”
+
+Instead, focus on the items that actually create value for families:
+
+• Camp T-Shirt
+• Lunch
+• Professional Coaching & Instruction
+• Competition Stations
+• Competition Challenges
+• Scholarship Eligibility
+
+SCHOLARSHIP SECTION
+
+Possible headline:
+
+2 Scholarships. 1 Opportunity.
+
+The scholarship section should feel less transactional and more mission-driven.
+
+Something along the lines of:
+
+“The Mijo Foundation is committed to investing in the next generation of athletes. Two athletes will be awarded a $5,000 scholarship—one football athlete and one soccer athlete.”
+
+REGISTRATION FORM
+
+• Remove redundant athlete information fields. We likely do not need Age, DOB and Grade all together. REMOVE DOB
+
+• Remove youth shirt sizes from the registration form and only offer adult sizing.

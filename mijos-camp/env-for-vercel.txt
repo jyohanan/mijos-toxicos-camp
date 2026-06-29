@@ -13,6 +13,6 @@ RESEND_API_KEY=re_MkKv6FQ6_8YwjmjBSgw16k4MGWwHLta2A
 
 # App
 NEXT_PUBLIC_APP_URL=https://mijos-toxicos-camp-b4nu5votb-jyohanans-projects.vercel.app
-ADMIN_EMAIL=jyohanan25@gmail.com,Jbovrlperformance@gmail.com,jortega@mijoculture.com,CoachE@bmfsports.org
+ADMIN_EMAIL=jyohanan25@gmail.com,Jbovrlperformance@gmail.com,jortega@mijoculture.com,CoachE@bmfsports.org,davidfromlv@gmail.com
 # Registration price in cents (e.g. 5000 = $50.00)
 REGISTRATION_PRICE=10000

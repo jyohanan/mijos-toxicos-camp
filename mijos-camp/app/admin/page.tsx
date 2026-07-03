@@ -53,6 +53,8 @@ export default function AdminPage() {
     notes: "",
   });
   const [addLoading, setAddLoading] = useState(false);
+  const [paymentLinkLoading, setPaymentLinkLoading] = useState<string | null>(null);
+  const [copiedLink, setCopiedLink] = useState<string | null>(null);
 
   const fetchRegistrations = useCallback(async () => {
     setLoading(true);
@@ -179,6 +181,26 @@ export default function AdminPage() {
     a.download = `registrations-${new Date().toISOString().split("T")[0]}.csv`;
     a.click();
     URL.revokeObjectURL(url);
+  }
+
+  async function handleGeneratePaymentLink(registrationId: string) {
+    setPaymentLinkLoading(registrationId);
+    try {
+      const res = await fetch("/api/admin/generate-payment-link", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-email": email },
+        body: JSON.stringify({ registrationId }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to generate link");
+      await navigator.clipboard.writeText(data.checkoutUrl);
+      setCopiedLink(registrationId);
+      setTimeout(() => setCopiedLink(null), 3000);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to generate payment link");
+    } finally {
+      setPaymentLinkLoading(null);
+    }
   }
 
   // ── Email step ──
@@ -411,16 +433,17 @@ export default function AdminPage() {
                 <th className="px-4 py-3 text-[10px] font-semibold uppercase tracking-widest text-white/40">Parent</th>
                 <th className="px-4 py-3 text-[10px] font-semibold uppercase tracking-widest text-white/40">Status</th>
                 <th className="px-4 py-3 text-[10px] font-semibold uppercase tracking-widest text-white/40">Date</th>
+                <th className="px-4 py-3 text-[10px] font-semibold uppercase tracking-widest text-white/40">Action</th>
               </tr>
             </thead>
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-white/30">Loading...</td>
+                  <td colSpan={8} className="px-4 py-8 text-center text-white/30">Loading...</td>
                 </tr>
               ) : registrations.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-white/30">No registrations found.</td>
+                  <td colSpan={8} className="px-4 py-8 text-center text-white/30">No registrations found.</td>
                 </tr>
               ) : (
                 registrations.map((r) => (
@@ -448,6 +471,21 @@ export default function AdminPage() {
                     </td>
                     <td className="px-4 py-3 text-white/40">
                       {new Date(r.created_at).toLocaleDateString()}
+                    </td>
+                    <td className="px-4 py-3">
+                      {r.payment_status === "pending" && (
+                        <button
+                          onClick={() => handleGeneratePaymentLink(r.id)}
+                          disabled={paymentLinkLoading === r.id}
+                          className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.08] disabled:opacity-50"
+                        >
+                          {paymentLinkLoading === r.id
+                            ? "..."
+                            : copiedLink === r.id
+                            ? "Copied!"
+                            : "Get Link"}
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))

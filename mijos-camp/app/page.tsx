@@ -20,7 +20,7 @@ export default async function HomePage() {
   const settings = await getSettings();
 
   const campDate = settings.camp_date || "July 11, 2026";
-  const campLocation = settings.camp_location || "LA";
+  const campLocation = settings.camp_location || "Lawndale High School\n14901 S Inglewood Ave, Lawndale, CA 90260";
   const campPrice = settings.registration_price || "99";
 
   const campDetails = [
@@ -122,7 +122,7 @@ export default async function HomePage() {
                 style={{ boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 0 40px rgba(255,255,255,0.02)" }}
               >
                 <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/40">{item.label}</p>
-                <p className={`mt-3 text-xl font-black tracking-tight sm:text-2xl ${i % 2 === 0 ? "text-green-500" : "text-red-500"}`}>{item.value}</p>
+                <p className={`mt-3 whitespace-pre-line text-base font-black tracking-tight sm:text-lg ${i % 2 === 0 ? "text-green-500" : "text-red-500"}`}>{item.value}</p>
               </div>
             ))}
           </div>

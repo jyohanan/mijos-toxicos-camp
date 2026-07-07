@@ -26,7 +26,7 @@ export default async function HomePage() {
   const campDetails = [
     { label: "Date", value: campDate },
     { label: "Location", value: campLocation },
-    { label: "Ages", value: "13–18" },
+    { label: "Ages", value: "8–18" },
     { label: "Sports", value: "Football + Soccer" },
   ];
 
@@ -72,7 +72,7 @@ export default async function HomePage() {
               <span className="text-2xl text-white/30">×</span>
               <Image src="/images/chicos_toxicos.png" alt="Chicos Tóxicos" width={80} height={80} className="rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]" />
             </div>
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 13–18</p>
+            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.3em] text-white/50">{campDate} · Ages 8–18</p>
             <h1 className="mt-4 font-[var(--font-oswald)] text-5xl font-bold uppercase leading-[0.92] tracking-[-0.03em] sm:text-6xl md:text-7xl lg:text-8xl">
               Mijos<br />Tóxicos<br /><span className="text-white/40">Football × Soccer</span><br />Camp
             </h1>

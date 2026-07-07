@@ -1,4 +1,4 @@
-export type Sport = "football" | "soccer";
+export type Sport = "football" | "soccer" | "both";
 export type PaymentStatus = "pending" | "paid" | "refunded";
 
 export interface RegistrationFormData {

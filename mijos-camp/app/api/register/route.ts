@@ -43,12 +43,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Registration is full. All spots have been taken." }, { status: 400 });
     }
 
-    if (sportCount !== null && sportCount >= maxSport) {
+    // Only check sport cap for teens (13-18), youth gets both
+    const athleteAge = parseInt(body.athlete_age);
+    const isYouth = athleteAge >= 8 && athleteAge <= 12;
+
+    if (!isYouth && sportCount !== null && sportCount >= maxSport) {
       return NextResponse.json({ error: `${body.sport === "football" ? "Football" : "Soccer"} registration is full.` }, { status: 400 });
     }
 
-    const price = parseInt(process.env.REGISTRATION_PRICE || "5000");
+    // Youth ($75) gets both sports; Teens ($99) get one sport
+    const price = isYouth ? 7500 : parseInt(process.env.REGISTRATION_PRICE || "9900");
+    const sportValue = isYouth ? "both" : body.sport;
     const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+    // Youth cannot be considered for scholarship
+    const scholarshipInterest = isYouth ? false : body.scholarship_interest;
 
     // Save to Supabase with pending status
     const { data: registration, error: dbError } = await supabaseAdmin
@@ -59,7 +68,7 @@ export async function POST(req: NextRequest) {
         athlete_age: parseInt(body.athlete_age),
         athlete_dob: body.athlete_dob || null,
         gender: body.gender,
-        sport: body.sport,
+        sport: sportValue,
         position: body.position || null,
         school_name: body.school_name,
         grade: body.grade,
@@ -73,7 +82,7 @@ export async function POST(req: NextRequest) {
         insurance_provider: body.insurance_provider || null,
         social_handle: body.social_handle || null,
         heard_from: body.heard_from || null,
-        scholarship_interest: body.scholarship_interest,
+        scholarship_interest: scholarshipInterest,
         waiver_accepted: body.waiver_accepted,
         waiver_signed_at: new Date().toISOString(),
         payment_status: "pending",
@@ -95,7 +104,9 @@ export async function POST(req: NextRequest) {
             unit_amount: price,
             product_data: {
               name: "Mijos Tóxicos Dual Sports Camp",
-              description: `Registration for ${body.athlete_first_name} ${body.athlete_last_name} · ${body.sport === "football" ? "Football" : "Soccer"}`,
+              description: isYouth
+                ? `Youth Registration for ${body.athlete_first_name} ${body.athlete_last_name} · Football + Soccer`
+                : `Registration for ${body.athlete_first_name} ${body.athlete_last_name} · ${body.sport === "football" ? "Football" : "Soccer"}`,
             },
           },
           quantity: 1,

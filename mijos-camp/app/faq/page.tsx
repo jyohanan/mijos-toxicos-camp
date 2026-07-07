@@ -7,7 +7,7 @@ import Link from "next/link";
 const faqs = [
   {
     q: "What is the Mijos Tóxicos Football × Soccer Camp?",
-    a: "It's a one-day youth sports camp that brings football and soccer together in a high-energy environment. The camp is built around competition, athletic development, culture, and community — open to athletes ages 13–18.",
+    a: "It's a one-day youth sports camp that brings football and soccer together in a high-energy environment. The camp is built around competition, athletic development, culture, and community — open to athletes ages 8–18.",
   },
   {
     q: "When and where is the camp?",
@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     q: "How much does registration cost?",
-    a: "Registration is $99 per athlete. This includes a camp t-shirt, lunch, coaching and instruction, competition participation, and all-day event access.",
+    a: "Registration is $99 per athlete (ages 13–18) for one sport, or $75 for youth athletes (ages 8–12) which includes both sports. This includes a camp t-shirt, lunch, coaching and instruction, competition participation, and all-day event access.",
   },
   {
     q: "What sports are offered?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "What ages are eligible?",
-    a: "Athletes must be between 13 and 18 years old to participate.",
+    a: "Athletes ages 8–18 are eligible. Youth athletes (ages 8–12) receive a dual-sport ticket covering both football and soccer for $75. Athletes ages 13–18 register for one sport at $99.",
   },
   {
     q: "Can I register more than one child?",

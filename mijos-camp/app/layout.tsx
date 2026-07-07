@@ -15,7 +15,7 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   title: "Mijos Tóxicos Football × Soccer Camp",
-  description: "A premium, culture-driven youth sports experience. Football + Soccer. July 11, 2026. Ages 13–18.",
+  description: "A premium, culture-driven youth sports experience. Football + Soccer. July 11, 2026. Ages 8–18.",
   openGraph: {
     title: "Mijos Tóxicos Football × Soccer Camp",
     description: "Football. Soccer. Culture. Community. One day. 1,000 athletes. July 11, 2026.",

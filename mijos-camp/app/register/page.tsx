@@ -101,13 +101,18 @@ export default function RegisterPage() {
 
   function validateStep(): boolean {
     if (step === 0) {
-      if (!form.athlete_first_name || !form.athlete_last_name || !form.athlete_age || !form.gender || !form.sport || !form.school_name || !form.grade || !form.shirt_size) {
+      if (!form.athlete_first_name || !form.athlete_last_name || !form.athlete_age || !form.gender || !form.school_name || !form.grade || !form.shirt_size) {
         setError("Please fill in all required fields.");
         return false;
       }
       const age = parseInt(form.athlete_age);
-      if (isNaN(age) || age < 13 || age > 18) {
-        setError("Athlete must be between 13 and 18 years old.");
+      if (isNaN(age) || age < 8 || age > 18) {
+        setError("Athlete must be between 8 and 18 years old.");
+        return false;
+      }
+      // Sport required for ages 13-18 only
+      if (age >= 13 && !form.sport) {
+        setError("Please select a sport.");
         return false;
       }
     }
@@ -242,6 +247,8 @@ const inputClass = "w-full rounded-xl border border-white/[0.08] bg-white/[0.04]
 
 function StepAthlete({ form, set, footballFull, soccerFull }: { form: RegistrationFormData; set: (f: keyof RegistrationFormData, v: string | boolean) => void; footballFull: boolean; soccerFull: boolean }) {
   const sportFull = (form.sport === "football" && footballFull) || (form.sport === "soccer" && soccerFull);
+  const age = parseInt(form.athlete_age);
+  const isYouth = !isNaN(age) && age >= 8 && age <= 12;
 
   return (
     <div className="space-y-5">
@@ -250,9 +257,15 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
         <p className="mt-1 text-sm text-white/40">Tell us about the athlete registering for camp.</p>
       </div>
 
-      {sportFull && (
+      {sportFull && !isYouth && (
         <div className="rounded-xl border border-yellow-500/20 bg-yellow-500/10 px-4 py-3 text-sm text-yellow-400">
           {form.sport === "football" ? "Football" : "Soccer"} registration is currently full. You may select the other sport or join the waitlist.
+        </div>
+      )}
+
+      {isYouth && (
+        <div className="rounded-xl border border-green-500/20 bg-green-500/10 px-4 py-3 text-sm text-green-400">
+          Youth ticket (ages 8–12): $75 — includes both Football and Soccer sessions.
         </div>
       )}
 
@@ -264,7 +277,7 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
           <input className={inputClass} value={form.athlete_last_name} onChange={e => set("athlete_last_name", e.target.value)} placeholder="Last name" />
         </Field>
         <Field label="Age" required>
-          <input className={inputClass} type="number" min={13} max={18} value={form.athlete_age} onChange={e => set("athlete_age", e.target.value)} placeholder="Must be 13–18" />
+          <input className={inputClass} type="number" min={8} max={18} value={form.athlete_age} onChange={e => set("athlete_age", e.target.value)} placeholder="Must be 8–18" />
         </Field>
         <Field label="Gender" required>
           <select className={inputClass} value={form.gender} onChange={e => set("gender", e.target.value)}>
@@ -273,12 +286,14 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
             <option value="Female">Female</option>
           </select>
         </Field>
-        <Field label="Sport" required>
-          <select className={inputClass} value={form.sport} onChange={e => set("sport", e.target.value)}>
-            <option value="football">Football</option>
-            <option value="soccer">Soccer</option>
-          </select>
-        </Field>
+        {!isYouth && (
+          <Field label="Sport" required>
+            <select className={inputClass} value={form.sport} onChange={e => set("sport", e.target.value)}>
+              <option value="football">Football</option>
+              <option value="soccer">Soccer</option>
+            </select>
+          </Field>
+        )}
         <Field label="Position">
           <input className={inputClass} value={form.position} onChange={e => set("position", e.target.value)} placeholder={form.sport === "football" ? "e.g. Quarterback, Wide Receiver" : "e.g. Midfielder, Goalkeeper"} />
         </Field>
@@ -288,12 +303,14 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
         <Field label="Grade" required>
           <select className={inputClass} value={form.grade} onChange={e => set("grade", e.target.value)}>
             <option value="">Select grade</option>
-            {["7th", "8th", "9th", "10th", "11th", "12th"].map(g => <option key={g} value={g}>{g}</option>)}
+            {["3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"].map(g => <option key={g} value={g}>{g}</option>)}
           </select>
         </Field>
         <Field label="Jersey / Shirt Size" required>
           <select className={inputClass} value={form.shirt_size} onChange={e => set("shirt_size", e.target.value)}>
             <option value="">Select size</option>
+            <option value="YM">Youth Medium (YM)</option>
+            <option value="YL">Youth Large (YL)</option>
             <option value="S">Small (S)</option>
             <option value="M">Medium (M)</option>
             <option value="L">Large (L)</option>
@@ -304,15 +321,17 @@ function StepAthlete({ form, set, footballFull, soccerFull }: { form: Registrati
         </Field>
       </div>
 
-      <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
-        <label className="flex cursor-pointer items-start gap-3">
-          <input type="checkbox" checked={form.scholarship_interest} onChange={e => set("scholarship_interest", e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white" />
-          <div>
-            <p className="text-sm font-medium text-white">Consider me for a scholarship</p>
-            <p className="mt-0.5 text-xs text-white/40">1 scholarship available per sport (football & soccer). Recipients selected and notified before the event.</p>
-          </div>
-        </label>
-      </div>
+      {!isYouth && (
+        <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-4">
+          <label className="flex cursor-pointer items-start gap-3">
+            <input type="checkbox" checked={form.scholarship_interest} onChange={e => set("scholarship_interest", e.target.checked)} className="mt-0.5 h-4 w-4 shrink-0 rounded accent-white" />
+            <div>
+              <p className="text-sm font-medium text-white">Consider me for a scholarship</p>
+              <p className="mt-0.5 text-xs text-white/40">1 scholarship available per sport (football & soccer). Recipients selected and notified before the event.</p>
+            </div>
+          </label>
+        </div>
+      )}
     </div>
   );
 }

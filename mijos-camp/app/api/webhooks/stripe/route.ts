@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
             <!-- Date highlight -->
             <div style="text-align:center;padding:20px;background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,140,0,0.08));border:1px solid rgba(255,215,0,0.15);border-radius:14px;margin:0 0 28px;">
               <p style="margin:0 0 4px;color:rgba(255,255,255,0.5);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;">Save the Date</p>
-              <p style="margin:0;color:#fff;font-size:22px;font-weight:800;">July 11, 2026</p>
+              <p style="margin:0;color:#fff;font-size:22px;font-weight:800;">July 12, 2026</p>
             </div>
 
             <p style="color:#fff;font-size:15px;font-weight:600;margin:24px 0 0;">See you on the field</p>

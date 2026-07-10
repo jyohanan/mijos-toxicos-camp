@@ -75,10 +75,12 @@ export async function POST(req: NextRequest) {
         .update({ stripe_session_id: session.id })
         .eq("id", reg.id);
 
-      // Send payment email to parent
+      // Send payment email to parent (BCC admins)
+      const adminBcc = process.env.ADMIN_EMAIL ? process.env.ADMIN_EMAIL.split(",").map((e) => e.trim()) : [];
       await resend.emails.send({
         from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
         to: reg.parent_email,
+        bcc: adminBcc,
         subject: "Complete Your Payment – Mijos Tóxicos Camp",
         html: `
           <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
@@ -96,11 +98,13 @@ export async function POST(req: NextRequest) {
               </div>
               <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px;margin:24px 0;">
                 <p style="margin:0 0 12px;color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;font-weight:700;">Camp Details</p>
-                <p style="margin:4px 0;color:#fff;font-size:13px;">Date: Friday, July 11, 2026</p>
+                <p style="margin:4px 0;color:#fff;font-size:13px;">Date: Saturday, July 11, 2026</p>
                 <p style="margin:4px 0;color:#fff;font-size:13px;">Location: Lawndale High School, 14901 S Inglewood Ave, Lawndale, CA 90260</p>
-                <p style="margin:4px 0;color:#fff;font-size:13px;">Sport: ${reg.sport === "both" ? "Football + Soccer" : reg.sport === "football" ? "Football" : "Soccer"}</p>
+                <p style="margin:4px 0;color:#fff;font-size:13px;">Sport: ${reg.sport === "both" ? "Football + Soccer (Full Day Access)" : reg.sport === "football" ? "Football" : "Soccer"}</p>
+                <p style="margin:4px 0;color:#fff;font-size:13px;">Time: ${reg.sport === "both" ? "Football 7:30 AM – 12:30 PM + Soccer 12:30 PM – 5:30 PM" : reg.sport === "football" ? "Football 7:30 AM – 12:30 PM" : "Soccer 12:30 PM – 5:30 PM"}</p>
+                ${!isYouth ? '<p style="margin:8px 0 0;color:rgba(212,175,55,0.9);font-size:12px;font-weight:600;">Eligible for $5,000 scholarship consideration</p>' : ""}
               </div>
-              <p style="color:rgba(255,255,255,0.4);font-size:12px;margin:20px 0 0;text-align:center;">This link expires in 24 hours. Reply to this email if you need a new one.</p>
+              <p style="color:rgba(255,255,255,0.4);font-size:12px;margin:20px 0 0;text-align:center;">This link expires in 24 hours. Email mijos.toxicos.admin@gmail.com if you need a new payment URL.</p>
             </div>
             <div style="padding:16px 32px;border-top:1px solid rgba(255,255,255,0.06);text-align:center;">
               <p style="margin:0;color:rgba(255,255,255,0.25);font-size:11px;">Mijos Tóxicos Dual Sports Camp · Powered by Mijo Culture</p>

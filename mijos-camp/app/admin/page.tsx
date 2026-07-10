@@ -55,6 +55,9 @@ export default function AdminPage() {
   const [addLoading, setAddLoading] = useState(false);
   const [paymentLinkLoading, setPaymentLinkLoading] = useState<string | null>(null);
   const [copiedLink, setCopiedLink] = useState<string | null>(null);
+  const [sendingEmail, setSendingEmail] = useState<string | null>(null);
+  const [emailSent, setEmailSent] = useState<string | null>(null);
+  const [sendingAll, setSendingAll] = useState(false);
 
   const fetchRegistrations = useCallback(async () => {
     setLoading(true);
@@ -203,6 +206,51 @@ export default function AdminPage() {
     }
   }
 
+  async function handleSendPaymentEmail(registrationId: string) {
+    setSendingEmail(registrationId);
+    try {
+      const res = await fetch("/api/admin/send-payment-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-email": email },
+        body: JSON.stringify({ registrationIds: [registrationId] }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to send email");
+      if (data.failCount > 0) throw new Error(data.results[0]?.error || "Failed");
+      setEmailSent(registrationId);
+      setTimeout(() => setEmailSent(null), 3000);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to send payment email");
+    } finally {
+      setSendingEmail(null);
+    }
+  }
+
+  async function handleSendAllPaymentEmails() {
+    const pendingIds = registrations
+      .filter((r) => r.payment_status === "pending")
+      .map((r) => r.id);
+    if (pendingIds.length === 0) return;
+    if (!confirm(`Send payment emails to ${pendingIds.length} pending registrations?`)) return;
+
+    setSendingAll(true);
+    setError("");
+    try {
+      const res = await fetch("/api/admin/send-payment-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-admin-email": email },
+        body: JSON.stringify({ registrationIds: pendingIds }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to send emails");
+      alert(`Sent: ${data.successCount} | Failed: ${data.failCount}`);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to send emails");
+    } finally {
+      setSendingAll(false);
+    }
+  }
+
   // ── Email step ──
   if (step === "email") {
     return (
@@ -298,7 +346,16 @@ export default function AdminPage() {
             <h1 className="text-2xl font-black tracking-tight">Registrations</h1>
             <p className="mt-1 text-sm text-white/40">{registrations.length} total registrations</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
+            {registrations.some((r) => r.payment_status === "pending") && (
+              <button
+                onClick={handleSendAllPaymentEmails}
+                disabled={sendingAll}
+                className="rounded-xl border border-yellow-500/30 bg-yellow-500/10 px-5 py-2.5 text-sm font-semibold text-yellow-400 transition hover:bg-yellow-500/20 disabled:opacity-50"
+              >
+                {sendingAll ? "Sending..." : `Email All Pending (${registrations.filter((r) => r.payment_status === "pending").length})`}
+              </button>
+            )}
             <button
               onClick={() => setShowAddForm(true)}
               className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/[0.06]"
@@ -474,17 +531,30 @@ export default function AdminPage() {
                     </td>
                     <td className="px-4 py-3">
                       {r.payment_status === "pending" && (
-                        <button
-                          onClick={() => handleGeneratePaymentLink(r.id)}
-                          disabled={paymentLinkLoading === r.id}
-                          className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.08] disabled:opacity-50"
-                        >
-                          {paymentLinkLoading === r.id
-                            ? "..."
-                            : copiedLink === r.id
-                            ? "Copied!"
-                            : "Get Link"}
-                        </button>
+                        <div className="flex gap-2">
+                          <button
+                            onClick={() => handleGeneratePaymentLink(r.id)}
+                            disabled={paymentLinkLoading === r.id}
+                            className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/[0.08] disabled:opacity-50"
+                          >
+                            {paymentLinkLoading === r.id
+                              ? "..."
+                              : copiedLink === r.id
+                              ? "Copied!"
+                              : "Copy Link"}
+                          </button>
+                          <button
+                            onClick={() => handleSendPaymentEmail(r.id)}
+                            disabled={sendingEmail === r.id}
+                            className="rounded-lg border border-yellow-500/20 bg-yellow-500/10 px-3 py-1.5 text-xs font-semibold text-yellow-400 transition hover:bg-yellow-500/20 disabled:opacity-50"
+                          >
+                            {sendingEmail === r.id
+                              ? "..."
+                              : emailSent === r.id
+                              ? "Sent!"
+                              : "Email"}
+                          </button>
+                        </div>
                       )}
                     </td>
                   </tr>

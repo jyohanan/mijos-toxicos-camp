@@ -75,12 +75,10 @@ export async function POST(req: NextRequest) {
         .update({ stripe_session_id: session.id })
         .eq("id", reg.id);
 
-      // Send payment email to parent (BCC admins)
-      const adminBcc = process.env.ADMIN_EMAIL ? process.env.ADMIN_EMAIL.split(",").map((e) => e.trim()) : [];
+      // Send payment email to parent
       await resend.emails.send({
         from: "Mijos Tóxicos Camp <noreply@mijostoxicos.com>",
         to: reg.parent_email,
-        bcc: adminBcc,
         subject: "Complete Your Payment – Mijos Tóxicos Camp",
         html: `
           <div style="font-family:'Helvetica Neue',Arial,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">

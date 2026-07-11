@@ -58,7 +58,6 @@ export default function AdminPage() {
   const [sendingEmail, setSendingEmail] = useState<string | null>(null);
   const [emailSent, setEmailSent] = useState<string | null>(null);
   const [sendingAll, setSendingAll] = useState(false);
-  const [sendingApology, setSendingApology] = useState(false);
 
   const fetchRegistrations = useCallback(async () => {
     setLoading(true);
@@ -252,25 +251,6 @@ export default function AdminPage() {
     }
   }
 
-  async function handleSendApology() {
-    if (!confirm(`Send apology email to all ${paidCount} paid registrations?`)) return;
-    setSendingApology(true);
-    setError("");
-    try {
-      const res = await fetch("/api/admin/send-apology", {
-        method: "POST",
-        headers: { "x-admin-email": email },
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Failed to send");
-      alert(`Apology sent: ${data.sent} | Failed: ${data.failed}`);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : "Failed to send apology emails");
-    } finally {
-      setSendingApology(false);
-    }
-  }
-
   // ── Email step ──
   if (step === "email") {
     return (
@@ -367,15 +347,6 @@ export default function AdminPage() {
             <p className="mt-1 text-sm text-white/40">{registrations.length} total registrations</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            {paidCount > 0 && (
-              <button
-                onClick={handleSendApology}
-                disabled={sendingApology}
-                className="rounded-xl border border-red-500/30 bg-red-500/10 px-5 py-2.5 text-sm font-semibold text-red-400 transition hover:bg-red-500/20 disabled:opacity-50"
-              >
-                {sendingApology ? "Sending..." : `Send Apology (${paidCount} paid)`}
-              </button>
-            )}
             {registrations.some((r) => r.payment_status === "pending") && (
               <button
                 onClick={handleSendAllPaymentEmails}
